@@ -1,0 +1,1925 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR" xml:lang="pt-BR"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.31">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>6&nbsp; O PACOTE ggplot2 – ANÁLISE DE DADOS</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./Capitulo4.html" rel="next">
+<link href="./Capitulo2.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-e4fbaa5b9575d7f6de7c906568c40117.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-8a59843ec0555538ab0b16a047bb1442.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Nenhum resultado",
+    "search-matching-documents-text": "documentos correspondentes",
+    "search-copy-link-title": "Copiar link para a busca",
+    "search-hide-matches-text": "Esconder correspondências adicionais",
+    "search-more-match-text": "mais correspondência neste documento",
+    "search-more-matches-text": "mais correspondências neste documento",
+    "search-clear-button-title": "Limpar",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Procurar"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Capitulo3.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title"><strong>O PACOTE <code>ggplot2</code></strong></span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Procurar" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">ANÁLISE DE DADOS</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Procurar"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title"><strong>CAPA</strong></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Introducao.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title"><strong>INTRODUÇÃO À ANÁLISE DE DADOS NO <code>R</code></strong></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./CronogramaOrganizacao.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title"><strong>ORGANIZAÇÃO E CRONOGRAMA DA DISCIPLINA</strong></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Capitulo1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title"><strong>CONSTRUINDO PRODUTOS A PARTIR DO <code>quarto</code></strong></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Capitulo2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title"><strong>TABELAS AUTOMÁTICAS COM O PACOTE <code>gtsummary</code></strong></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Capitulo3.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title"><strong>O PACOTE <code>ggplot2</code></strong></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Capitulo4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title"><strong>VARIÁVEIS QUALITATIVAS</strong></span></span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Índice</h2>
+   
+  <ul>
+  <li><a href="#introdução" id="toc-introdução" class="nav-link active" data-scroll-target="#introdução"><span class="header-section-number">6.1</span> <strong>INTRODUÇÃO</strong></a>
+  <ul>
+  <li><a href="#a-história-do-ggplot2" id="toc-a-história-do-ggplot2" class="nav-link" data-scroll-target="#a-história-do-ggplot2"><span class="header-section-number">6.1.1</span> <strong>A HISTÓRIA DO <code>ggplot2</code></strong></a></li>
+  <li><a href="#a-importância-do-ggplot2" id="toc-a-importância-do-ggplot2" class="nav-link" data-scroll-target="#a-importância-do-ggplot2"><span class="header-section-number">6.1.2</span> <strong>A IMPORTÂNCIA DO <code>ggplot2</code></strong></a></li>
+  <li><a href="#hadley-wickham-e-suas-criações" id="toc-hadley-wickham-e-suas-criações" class="nav-link" data-scroll-target="#hadley-wickham-e-suas-criações"><span class="header-section-number">6.1.3</span> <strong>HADLEY WICKHAM E SUAS CRIAÇÕES</strong></a></li>
+  </ul></li>
+  <li><a href="#a-gramática-dos-gráficos" id="toc-a-gramática-dos-gráficos" class="nav-link" data-scroll-target="#a-gramática-dos-gráficos"><span class="header-section-number">6.2</span> <strong>A GRAMÁTICA DOS GRÁFICOS</strong></a>
+  <ul>
+  <li><a href="#dados" id="toc-dados" class="nav-link" data-scroll-target="#dados"><span class="header-section-number">6.2.1</span> <strong>DADOS</strong></a></li>
+  <li><a href="#mapeamento" id="toc-mapeamento" class="nav-link" data-scroll-target="#mapeamento"><span class="header-section-number">6.2.2</span> <strong>MAPEAMENTO</strong></a></li>
+  <li><a href="#geometria" id="toc-geometria" class="nav-link" data-scroll-target="#geometria"><span class="header-section-number">6.2.3</span> <strong>GEOMETRIA</strong></a></li>
+  <li><a href="#escalas" id="toc-escalas" class="nav-link" data-scroll-target="#escalas"><span class="header-section-number">6.2.4</span> <strong>ESCALAS</strong></a></li>
+  <li><a href="#facetas" id="toc-facetas" class="nav-link" data-scroll-target="#facetas"><span class="header-section-number">6.2.5</span> <strong>FACETAS</strong></a></li>
+  <li><a href="#coordenadas" id="toc-coordenadas" class="nav-link" data-scroll-target="#coordenadas"><span class="header-section-number">6.2.6</span> <strong>COORDENADAS</strong></a></li>
+  <li><a href="#tema" id="toc-tema" class="nav-link" data-scroll-target="#tema"><span class="header-section-number">6.2.7</span> <strong>TEMA</strong></a></li>
+  </ul></li>
+  <li><a href="#pacotes-derivados-do-ggplot2" id="toc-pacotes-derivados-do-ggplot2" class="nav-link" data-scroll-target="#pacotes-derivados-do-ggplot2"><span class="header-section-number">6.3</span> <strong>PACOTES DERIVADOS DO GGPLOT2</strong></a></li>
+  <li><a href="#materiais-úteis" id="toc-materiais-úteis" class="nav-link" data-scroll-target="#materiais-úteis"><span class="header-section-number">6.4</span> <strong>MATERIAIS ÚTEIS</strong></a>
+  <ul>
+  <li><a href="#documentação-oficial" id="toc-documentação-oficial" class="nav-link" data-scroll-target="#documentação-oficial"><span class="header-section-number">6.4.1</span> <strong>DOCUMENTAÇÃO OFICIAL</strong></a></li>
+  <li><a href="#cheatsheet-oficial-do-pacote" id="toc-cheatsheet-oficial-do-pacote" class="nav-link" data-scroll-target="#cheatsheet-oficial-do-pacote"><span class="header-section-number">6.4.2</span> <strong>CHEATSHEET OFICIAL DO PACOTE</strong></a></li>
+  <li><a href="#r-graph-gallery" id="toc-r-graph-gallery" class="nav-link" data-scroll-target="#r-graph-gallery"><span class="header-section-number">6.4.3</span> <strong>R GRAPH GALLERY</strong></a></li>
+  <li><a href="#data-to-viz" id="toc-data-to-viz" class="nav-link" data-scroll-target="#data-to-viz"><span class="header-section-number">6.4.4</span> <strong>DATA TO VIZ</strong></a></li>
+  <li><a href="#livro-r-para-ciência-de-dados" id="toc-livro-r-para-ciência-de-dados" class="nav-link" data-scroll-target="#livro-r-para-ciência-de-dados"><span class="header-section-number">6.4.5</span> <strong>LIVRO “R para ciência de dados”</strong></a></li>
+  <li><a href="#livro-ggplot2-elegant-graphics-for-data-analisys" id="toc-livro-ggplot2-elegant-graphics-for-data-analisys" class="nav-link" data-scroll-target="#livro-ggplot2-elegant-graphics-for-data-analisys"><span class="header-section-number">6.4.6</span> <strong>LIVRO <code>ggplot2</code>: ELEGANT GRAPHICS FOR DATA ANALISYS</strong></a></li>
+  </ul></li>
+  <li><a href="#paletas-de-cores-do-r" id="toc-paletas-de-cores-do-r" class="nav-link" data-scroll-target="#paletas-de-cores-do-r"><span class="header-section-number">6.5</span> <strong>PALETAS DE CORES DO <code>R</code></strong></a>
+  <ul>
+  <li><a href="#paletas-prontas" id="toc-paletas-prontas" class="nav-link" data-scroll-target="#paletas-prontas"><span class="header-section-number">6.5.1</span> <strong>PALETAS PRONTAS</strong></a>
+  <ul class="collapse">
+  <li><a href="#rcolorbrewer" id="toc-rcolorbrewer" class="nav-link" data-scroll-target="#rcolorbrewer"><span class="header-section-number">6.5.1.1</span> <strong><code>RColorBrewer</code></strong></a></li>
+  <li><a href="#viridis" id="toc-viridis" class="nav-link" data-scroll-target="#viridis"><span class="header-section-number">6.5.1.2</span> <strong><code>viridis</code></strong></a></li>
+  <li><a href="#ggsci" id="toc-ggsci" class="nav-link" data-scroll-target="#ggsci"><span class="header-section-number">6.5.1.3</span> <strong><code>ggsci</code></strong></a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#funções-do-ggplot2-usadas-nesta-disciplina" id="toc-funções-do-ggplot2-usadas-nesta-disciplina" class="nav-link" data-scroll-target="#funções-do-ggplot2-usadas-nesta-disciplina"><span class="header-section-number">6.6</span> <strong>FUNÇÕES DO <code>ggplot2</code> USADAS NESTA DISCIPLINA</strong></a>
+  <ul>
+  <li><a href="#dados-1" id="toc-dados-1" class="nav-link" data-scroll-target="#dados-1"><span class="header-section-number">6.6.1</span> <strong>DADOS</strong></a></li>
+  <li><a href="#mapeamento-1" id="toc-mapeamento-1" class="nav-link" data-scroll-target="#mapeamento-1"><span class="header-section-number">6.6.2</span> <strong>MAPEAMENTO</strong></a></li>
+  <li><a href="#geometria-1" id="toc-geometria-1" class="nav-link" data-scroll-target="#geometria-1"><span class="header-section-number">6.6.3</span> <strong>GEOMETRIA</strong></a></li>
+  <li><a href="#escalas-1" id="toc-escalas-1" class="nav-link" data-scroll-target="#escalas-1"><span class="header-section-number">6.6.4</span> <strong>ESCALAS</strong></a>
+  <ul class="collapse">
+  <li><a href="#eixos" id="toc-eixos" class="nav-link" data-scroll-target="#eixos"><span class="header-section-number">6.6.4.1</span> <strong>Eixos</strong></a></li>
+  <li><a href="#cores" id="toc-cores" class="nav-link" data-scroll-target="#cores"><span class="header-section-number">6.6.4.2</span> <strong>Cores</strong></a></li>
+  </ul></li>
+  <li><a href="#facetas-1" id="toc-facetas-1" class="nav-link" data-scroll-target="#facetas-1"><span class="header-section-number">6.6.5</span> <strong>FACETAS</strong></a></li>
+  <li><a href="#coordenadas-1" id="toc-coordenadas-1" class="nav-link" data-scroll-target="#coordenadas-1"><span class="header-section-number">6.6.6</span> <strong>COORDENADAS</strong></a></li>
+  <li><a href="#tema-1" id="toc-tema-1" class="nav-link" data-scroll-target="#tema-1"><span class="header-section-number">6.6.7</span> <strong>TEMA</strong></a>
+  <ul class="collapse">
+  <li><a href="#temas-prontos" id="toc-temas-prontos" class="nav-link" data-scroll-target="#temas-prontos"><span class="header-section-number">6.6.7.1</span> <strong>Temas prontos</strong></a></li>
+  <li><a href="#personalização-com-theme" id="toc-personalização-com-theme" class="nav-link" data-scroll-target="#personalização-com-theme"><span class="header-section-number">6.6.7.2</span> <strong>Personalização com <code>theme()</code></strong></a></li>
+  <li><a href="#controle-do-tamanho-de-cada-componente" id="toc-controle-do-tamanho-de-cada-componente" class="nav-link" data-scroll-target="#controle-do-tamanho-de-cada-componente"><span class="header-section-number">6.6.7.3</span> <strong>Controle do tamanho de cada componente</strong></a></li>
+  <li><a href="#outras-opções-de-element_text" id="toc-outras-opções-de-element_text" class="nav-link" data-scroll-target="#outras-opções-de-element_text"><span class="header-section-number">6.6.7.4</span> <strong>Outras opções de <code>element_text()</code></strong></a></li>
+  </ul></li>
+  <li><a href="#funções-auxiliares" id="toc-funções-auxiliares" class="nav-link" data-scroll-target="#funções-auxiliares"><span class="header-section-number">6.6.8</span> <strong>FUNÇÕES AUXILIARES</strong></a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<div class="quarto-title-block"><div><h1 class="title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title"><strong>O PACOTE <code>ggplot2</code></strong></span></h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Código</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Mostrar o código</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Esconder o código</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">Ver o código fonte</a></li></ul></div></div>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="introdução" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="introdução"><span class="header-section-number">6.1</span> <strong>INTRODUÇÃO</strong></h2>
+<p>O <code>ggplot2</code> é um dos pacotes mais importantes já criados para o R. Mais do que uma simples ferramenta de visualização, ele representa uma <strong>nova forma de pensar gráficos</strong>, baseada em teoria estatística sólida e em um ecossistema que <strong>mudou a cultura da ciência de dados</strong>.</p>
+<p>Nesta introdução, veremos a <strong>história do <code>ggplot2</code></strong>, sua <strong>importância</strong>, seu criador <strong>Hadley Wickham</strong>, e por que o pacote <strong>nunca foi superado</strong>.</p>
+<hr>
+<section id="a-história-do-ggplot2" class="level3" data-number="6.1.1">
+<h3 data-number="6.1.1" class="anchored" data-anchor-id="a-história-do-ggplot2"><span class="header-section-number">6.1.1</span> <strong>A HISTÓRIA DO <code>ggplot2</code></strong></h3>
+<p>O <code>ggplot2</code> foi criado por <strong>Hadley Wickham</strong>, estatístico e cientista da computação da Nova Zelândia, hoje uma das figuras mais influentes na ciência de dados.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Exemplo30.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:30.0%"></p>
+</figure>
+</div>
+<p>A história do <code>ggplot2</code> passou pelos seguintes:</p>
+<ul>
+<li><strong>Origem</strong>: desenvolvido a partir da <strong>tese de doutorado</strong> de Hadley Wickham (2005, Iowa State University) — <em>“Practical tools for exploring data and models”</em>.<br>
+</li>
+<li><strong>Fundamento</strong>: baseado na <strong>Gramática dos Gráficos</strong> (<em>Grammar of Graphics</em>), proposta por <strong>Leland Wilkinson</strong>.<br>
+</li>
+<li><strong>Ideia central</strong>: construção <strong>declarativa</strong> de gráficos — o usuário <strong>especifica dados, estéticas e camadas</strong>, em vez de “desenhar” cada elemento manualmente.<br>
+</li>
+<li><strong>Primeiro lançamento</strong>: disponibilizado no <strong>CRAN em 2007</strong>.<br>
+</li>
+<li><strong>Nome</strong>: <em>ggplot</em> vem de <strong>Grammar of Graphics plot</strong>.<br>
+</li>
+<li><strong>Evolução</strong>: consolidado na versão <strong>ggplot2</strong>, reescrita e considerada a forma estável e atual da ferramenta.</li>
+</ul>
+<hr>
+</section>
+<section id="a-importância-do-ggplot2" class="level3" data-number="6.1.2">
+<h3 data-number="6.1.2" class="anchored" data-anchor-id="a-importância-do-ggplot2"><span class="header-section-number">6.1.2</span> <strong>A IMPORTÂNCIA DO <code>ggplot2</code></strong></h3>
+<p>Antes do <code>ggplot2</code>, existiam duas grandes opções:<br>
+- <strong>Base R</strong> – flexível, mas exigia muito código para customizações.<br>
+- <strong>Lattice</strong> – mais estruturado, porém rígido e pouco intuitivo.</p>
+<p>O <code>ggplot2</code> revolucionou ao trazer:<br>
+- Uma <strong>sintaxe consistente</strong> e baseada em teoria.<br>
+- A lógica de <strong>camadas</strong> para construir gráficos.<br>
+- Um <strong>ecossistema expansível</strong> (<code>ggrepel</code>, <code>gganimate</code>, <code>patchwork</code>).</p>
+<p>Hoje, ele é:<br>
+- O <strong>pacote de visualização mais usado em R</strong>.<br>
+- Um dos <strong>mais baixados do CRAN</strong>.<br>
+- <strong>Ferramenta básica de ensino</strong> em ciência de dados.<br>
+- Tão influente que inspirou o <strong>plotnine</strong> no Python.</p>
+<hr>
+</section>
+<section id="hadley-wickham-e-suas-criações" class="level3" data-number="6.1.3">
+<h3 data-number="6.1.3" class="anchored" data-anchor-id="hadley-wickham-e-suas-criações"><span class="header-section-number">6.1.3</span> <strong>HADLEY WICKHAM E SUAS CRIAÇÕES</strong></h3>
+<p>Hadley não parou no <code>ggplot2</code>: criou um <strong>ecossistema inteiro</strong> que mudou a análise de dados no R – o <strong>tidyverse</strong>.</p>
+<p><strong>Manipulação de dados</strong><br>
+- <strong>dplyr</strong> – verbos intuitivos para transformar dados.<br>
+- <strong>tidyr</strong> – organização.<br>
+- <strong>readr</strong> – leitura rápida e padronizada.<br>
+- <strong>lubridate</strong> – datas e horários.<br>
+- <strong>forcats</strong> – fatores.</p>
+<p><strong>Estrutura e programação</strong><br>
+- <strong>tibble</strong> – moderniza os data frames.<br>
+- <strong>purrr</strong> – programação funcional.<br>
+- <strong>stringr</strong> – manipulação de textos.<br>
+- <strong>rvest</strong> – web scraping.<br>
+- <strong>roxygen2</strong> – documentação de pacotes.</p>
+<p><strong>O tidyverse (2016)</strong><br>
+Reunião desses pacotes sob uma mesma filosofia:<br>
+- Dados <strong>arrumados</strong><br>
+- <strong>Sintaxe coerente</strong> e intuitiva.<br>
+- <strong>Documentação clara</strong> e acessível.</p>
+</section>
+</section>
+<section id="a-gramática-dos-gráficos" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="a-gramática-dos-gráficos"><span class="header-section-number">6.2</span> <strong>A GRAMÁTICA DOS GRÁFICOS</strong></h2>
+<p><strong>Wilkinson</strong> em 2005 criou a <strong>Gramática dos Gráficos</strong> para descrever as <strong>características fundamentais</strong> que sustentam todos os gráficos estatísticos. A gramática dos gráficos é uma resposta à pergunta: <em>o que é um gráfico estatístico?</em> O <code>ggplot2</code> se baseia na gramática de Wilkinson, dando ênfase à <strong>sobreposição de camadas</strong> e adaptando-a para uso no <code>R</code>.</p>
+<p>Para entender a estrutura da <strong>Gramática dos Gráficos</strong>, analisamos as <strong>7 partes componíveis</strong> que se unem como um <strong>conjunto de instruções</strong> sobre como desenhar um gráfico:</p>
+<p><img src="images/Exemplo30.png" class="img-fluid"></p>
+<p>Esse esquema mostra sete losangos sobrepostos indicando as diferentes partes componíveis. De baixo para cima, os rótulos são: <strong>Dados</strong>, <strong>Mapeamento</strong>, <strong>Geometria</strong>, <strong>Escalas</strong>, <strong>Facetas</strong>, <strong>Coordenadas</strong> e <strong>Tema</strong>.</p>
+<p>Entre esses componentes, o <code>ggplot2</code> precisa de pelo menos três para produzir um gráfico: <strong>dados</strong>, <strong>um mapeamento</strong> e <strong>uma geometria</strong>. As escalas, facetas, coordenadas e temas possuem padrões razoáveis que evitam muito trabalho detalhado.</p>
+<section id="dados" class="level3" data-number="6.2.1">
+<h3 data-number="6.2.1" class="anchored" data-anchor-id="dados"><span class="header-section-number">6.2.1</span> <strong>DADOS</strong></h3>
+<p>Como <strong>base</strong> de todo gráfico, o <code>ggplot2</code> usa dados para construir a <strong>visualização</strong>. O sistema funciona melhor se os <strong>dados estiverem em uma estrutura retangular em que as linhas representam observações e as colunas representam variáveis</strong>.</p>
+<blockquote class="blockquote">
+<p>O <code>ggplot2</code> opera melhor com bases de dados em formato longo. Isso facilita a funcionalidade da próxima estrutura: mapeamento</p>
+</blockquote>
+<p>Por exemplo, utilizemos a base de dados <code>mpg</code> (disponível no próprio pacote <code>ggplot2</code> para <strong>exemplos introdutórios</strong>). Essa base contém <strong>informações</strong> sobre consumo de combustível de <strong>carros</strong> testados pelo <strong>EPA (Environmental Protection Agency)</strong> nos Estados Unidos.</p>
+<p>Essa base é muito <strong>utilizada</strong> em exemplos por ser <strong>simples</strong>, <strong>realista</strong> e já vir pronta dentro do pacote. A base possui <strong>234 observações</strong> (linhas) e <strong>11 variáveis</strong> (colunas). Algumas das variáveis são:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 55%">
+<col style="width: 44%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Variável</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>year</strong></td>
+<td>Ano de fabricação (1999 ou 2008).</td>
+</tr>
+<tr class="even">
+<td><strong>drv</strong></td>
+<td>Tipo de tração: <strong>f = dianteira</strong>, <strong>r = traseira</strong>, <strong>4 = 4x4</strong>.</td>
+</tr>
+<tr class="odd">
+<td><strong>cty</strong></td>
+<td>Consumo de combustível na cidade (milhas por galão, mpg).</td>
+</tr>
+<tr class="even">
+<td><strong>hwy</strong></td>
+<td>Consumo de combustível na estrada (milhas por galão, mpg).</td>
+</tr>
+<tr class="odd">
+<td><strong>class</strong></td>
+<td>Categoria do veículo (compact, suv, pickup, etc.).</td>
+</tr>
+</tbody>
+</table>
+<p>Considere o <strong>objetivo de estudar a relação entre o consumo de combustivel na estrada com o consumo de combustível na cidade</strong>. Além disso, <strong>avaliar como essa relação</strong> varia de acordo com o tipo da <strong>tração</strong>, o <strong>ano de fabricação</strong> do carro e a <strong>categoria</strong>.</p>
+<p>O <strong>primeiro passo</strong> em todos os gráficos é passar os dados para a função <code>ggplot()</code>, que <strong>armazena a informação a ser usada pelas demais partes do sistema</strong>. Os dados entram no argumento <code>data</code> dessa função:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> mpg)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<blockquote class="blockquote">
+<p>A função <code>ggplot</code> é a função base de qualquer gráfico com o pacote <code>ggplot2</code>.</p>
+</blockquote>
+</section>
+<section id="mapeamento" class="level3" data-number="6.2.2">
+<h3 data-number="6.2.2" class="anchored" data-anchor-id="mapeamento"><span class="header-section-number">6.2.2</span> <strong>MAPEAMENTO</strong></h3>
+<p>O <strong>mapeamento</strong> de um gráfico é <strong>um conjunto de instruções</strong> sobre como <strong>partes dos dados</strong> são associadas a atributos estéticos dos objetos geométricos. É como um “dicionário” que <strong>traduz os dados organizados para o sistema gráfico</strong>.</p>
+<p>O <strong>mapeamento</strong> é feito com a função <code>aes()</code> no argumento <code>mapping</code> da função <code>ggplot</code>. Por exemplo, para <strong>mapear as colunas</strong> <code>cty</code> e <code>hwy</code> para os eixos <em>x</em> e <em>y</em>:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>mpg, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> cty, <span class="at">y =</span> hwy))</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>Se você executar <strong>somente</strong> este comando em seu computador, verá o <strong>seguinte gráfico</strong>:</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Capitulo3_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>É a <strong>primeira camada</strong> do seu gráfico. Para <strong>adicionar qualquer nova camada a este gráfico</strong>, você deve <strong>sempre</strong> utilizar o <strong>OPERADOR DE ADIÇÃO “+”</strong>.</p>
+<blockquote class="blockquote">
+<p>Assim o mapeamento expresso na função <code>ggplot()</code> estabelece um mapeamento global do seu gráfico.</p>
+</blockquote>
+</section>
+<section id="geometria" class="level3" data-number="6.2.3">
+<h3 data-number="6.2.3" class="anchored" data-anchor-id="geometria"><span class="header-section-number">6.2.3</span> <strong>GEOMETRIA</strong></h3>
+<p>O <strong>coração de qualquer gráfico</strong> é a <strong>geometria</strong>. Ela pega os dados mapeados e os <strong>exibem de forma compreensível</strong>. A <strong>geometria</strong>, define como os dados são <strong>exibidos</strong> (pontos, linhas, retângulos…). Basicamente, a <strong>geometria</strong> é construída com o <strong>comando</strong> <code>geom_*()</code>. Podemos, por exemplo, <strong>exibir um gráfico de dispersão</strong>:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>mpg, <span class="fu">aes</span>(<span class="at">x=</span>cty, <span class="at">y=</span>hwy)) <span class="sc">+</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()   </span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Capitulo3_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>De um modo geral, cada <strong>gráfico diferente terá uma função <code>geom_*()</code> apropriada</strong> e <strong>um gráfico pode ser resultado da adição de várias funções <code>geom_*()</code></strong>. As geometrias mais <strong>comuns</strong> são:</p>
+<ul>
+<li><code>geom_point()</code> → gráfico de dispersão (pontos)<br>
+</li>
+<li><code>geom_line()</code> → gráfico de linhas<br>
+</li>
+<li><code>geom_bar()</code> → gráfico de barras<br>
+</li>
+<li><code>geom_histogram()</code> → histograma<br>
+</li>
+<li><code>geom_boxplot()</code> → boxplot<br>
+</li>
+<li><code>geom_density()</code> → curva de densidade<br>
+</li>
+<li><code>geom_area()</code> → área preenchida sob a curva<br>
+</li>
+<li><code>geom_smooth()</code> → linha de tendência / suavização<br>
+</li>
+<li><code>geom_violin()</code> → gráfico violino (distribuição de dados)</li>
+</ul>
+<blockquote class="blockquote">
+<p>Dentro das funções <code>geom_*</code> também podemos fazer mapeamentos com o argumento <code>mapping(aes=)</code>. Isso permite mapear variáveis dos dados para propriedades estéticas específicas da geometria.</p>
+</blockquote>
+</section>
+<section id="escalas" class="level3" data-number="6.2.4">
+<h3 data-number="6.2.4" class="anchored" data-anchor-id="escalas"><span class="header-section-number">6.2.4</span> <strong>ESCALAS</strong></h3>
+<p>As escalas são responsáveis por traduzir o que aparece no <strong>gráfico de volta para os dados</strong>. Normalmente aparecem como eixos ou legendas. Elas definem limites, intervalos, rótulos e cores.</p>
+<p>Por exemplo, para colorir os pontos segundo a variável <code>class</code>:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>mpg, <span class="fu">aes</span>(<span class="at">x=</span>cty, <span class="at">y=</span>hwy, <span class="at">colour =</span> class)) <span class="sc">+</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_colour_viridis_d</span>()</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Capitulo3_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<blockquote class="blockquote">
+<p>Nas escalas podemos <strong>ajustar como os valores dos dados são representados visualmente</strong>, controlando a aparência dos eixos. É possível <strong>definir intervalos</strong>, <strong>transformações</strong>, <strong>gradientes</strong>, <strong>paletas de cores</strong>, <strong>proporções de tamanhos</strong> e a maneira como variáveis contínuas ou categóricas são <strong>exibidas</strong>.</p>
+</blockquote>
+</section>
+<section id="facetas" class="level3" data-number="6.2.5">
+<h3 data-number="6.2.5" class="anchored" data-anchor-id="facetas"><span class="header-section-number">6.2.5</span> <strong>FACETAS</strong></h3>
+<p>As facetas permitem criar <strong>múltiplos gráficos pequenos</strong> para subconjuntos dos dados. É uma <strong>forma poderosa</strong> de comparar padrões em <strong>grupos</strong>.</p>
+<p>Exemplo: realizar o <strong>mesmo gráfico</strong> de dispersão mas agora estratificando por <code>drv</code> e <code>year</code>:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(cty, hwy)) <span class="sc">+</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_grid</span>(year <span class="sc">~</span> drv)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Capitulo3_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<blockquote class="blockquote">
+<p>As facetas <strong>evitam</strong> que você tenha que criar vários códigos para replicar o mesmo gráfico.</p>
+</blockquote>
+</section>
+<section id="coordenadas" class="level3" data-number="6.2.6">
+<h3 data-number="6.2.6" class="anchored" data-anchor-id="coordenadas"><span class="header-section-number">6.2.6</span> <strong>COORDENADAS</strong></h3>
+<p>O componente de coordenadas no <code>ggplot2</code> define o <strong>sistema de referência</strong> usado para <strong>exibir os dados</strong>, determinando a forma do gráfico e <strong>como os elementos são posicionados</strong>. Podemos <strong>ajustar a proporção dos eixos</strong>, <strong>limitar os valores exibidos</strong>, <strong>inverter direções</strong>, transformar escalas (como logarítmica) ou alterar o tipo de coordenadas, por exemplo, de cartesiano para polar, <strong>permitindo representar os dados de maneiras diferentes</strong>.</p>
+<p>Por exemplo, suponha que seja do interesse que <strong>uma unidade no eixo x tenha o mesmo comprimento visual que uma unidade no eixo y</strong>, mantendo proporções reais entre os dados. O comando a seguir faz isso:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>mpg, <span class="fu">aes</span>(<span class="at">x=</span>cty, <span class="at">y=</span>hwy)) <span class="sc">+</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_fixed</span>()</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Capitulo3_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="tema" class="level3" data-number="6.2.7">
+<h3 data-number="6.2.7" class="anchored" data-anchor-id="tema"><span class="header-section-number">6.2.7</span> <strong>TEMA</strong></h3>
+<p>O sistema de <strong>temas</strong> controla <strong>todos os aspectos visuais</strong> que <strong>não dependem dos dados</strong>: <strong>posição de legendas</strong>, fundo, linhas dos eixos, etc.</p>
+<p>Exemplo:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(cty, hwy, <span class="at">colour =</span> class)) <span class="sc">+</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.position =</span> <span class="st">"top"</span>,</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.line =</span> <span class="fu">element_line</span>(<span class="at">linewidth =</span> <span class="fl">0.75</span>),</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.line.x.bottom =</span> <span class="fu">element_line</span>(<span class="at">colour =</span> <span class="st">"blue"</span>)</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Capitulo3_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Por fim, <strong>todas as peças podem ser combinadas para criar gráficos personalizados</strong>:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(cty, hwy)) <span class="sc">+</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">colour =</span> displ)) <span class="sc">+</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_colour_viridis_c</span>() <span class="sc">+</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_grid</span>(year <span class="sc">~</span> drv) <span class="sc">+</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_fixed</span>() <span class="sc">+</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() </span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Capitulo3_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="pacotes-derivados-do-ggplot2" class="level2" data-number="6.3">
+<h2 data-number="6.3" class="anchored" data-anchor-id="pacotes-derivados-do-ggplot2"><span class="header-section-number">6.3</span> <strong>PACOTES DERIVADOS DO GGPLOT2</strong></h2>
+<p>Diversos pacotes ampliam as funcionalidades do <code>ggplot2</code>, oferecendo recursos específicos para visualização, interatividade e apresentação de resultados.</p>
+<ul>
+<li><p><strong><code>ggsurvfit</code></strong> → criação de curvas de sobrevivência no estilo <code>ggplot2</code>, com tabelas de risco e recursos específicos para análise de sobrevivência.</p></li>
+<li><p><strong><code>ggiraph</code></strong> → adiciona interatividade aos gráficos do <code>ggplot2</code>, permitindo <em>tooltips</em>, efeitos de <em>hover</em> e seleção de elementos.</p></li>
+<li><p><strong><code>plotly</code></strong> → transforma gráficos do <code>ggplot2</code> em gráficos interativos, permitindo <em>zoom</em>, <em>hover</em>, seleção e outras formas de interação.</p></li>
+<li><p><strong><code>ggrepel</code></strong> → posiciona automaticamente rótulos de texto, evitando sobreposição entre eles.</p></li>
+<li><p><strong><code>ggridges</code></strong> → cria gráficos de densidades sobrepostas (<em>ridgeline plots</em>), úteis para comparar distribuições entre grupos.</p></li>
+<li><p><strong><code>ggdist</code></strong> → oferece visualizações avançadas de distribuições e incerteza, como intervalos e <em>half-eye plots</em>.</p></li>
+<li><p><strong><code>ggforce</code></strong> → amplia o <code>ggplot2</code> com novas geometrias, facetas e recursos para visualizações mais complexas.</p></li>
+<li><p><strong><code>gganimate</code></strong> → permite criar animações a partir de gráficos construídos com <code>ggplot2</code>.</p></li>
+<li><p><strong><code>patchwork</code></strong> → combina vários gráficos do <code>ggplot2</code> em uma única figura de maneira simples e organizada.</p></li>
+<li><p><strong><code>ggtext</code></strong> → permite formatação avançada de textos nos gráficos utilizando Markdown e HTML.</p></li>
+<li><p><strong><code>ggthemes</code></strong> → disponibiliza temas e escalas adicionais para personalizar a aparência dos gráficos.</p></li>
+<li><p><strong><code>ggmosaic</code></strong> → permite construir gráficos de mosaico para representar relações entre variáveis categóricas.</p></li>
+</ul>
+</section>
+<section id="materiais-úteis" class="level2" data-number="6.4">
+<h2 data-number="6.4" class="anchored" data-anchor-id="materiais-úteis"><span class="header-section-number">6.4</span> <strong>MATERIAIS ÚTEIS</strong></h2>
+<p>Existem diversos <strong>materiais de referência e inspiração</strong> que podem ajudar na <strong>prática diária</strong> e no aprofundamento do <strong>conteúdo</strong> aprendido aqui. A seguir, segue uma <strong>seleção dos principais</strong>:</p>
+<hr>
+<section id="documentação-oficial" class="level3" data-number="6.4.1">
+<h3 data-number="6.4.1" class="anchored" data-anchor-id="documentação-oficial"><span class="header-section-number">6.4.1</span> <strong>DOCUMENTAÇÃO OFICIAL</strong></h3>
+<p>📖 <a href="https://ggplot2.tidyverse.org/">ggplot2.tidyverse.org</a></p>
+<ul>
+<li>Página oficial do pacote.<br>
+</li>
+<li>Contém documentação completa, tutoriais e exemplos.<br>
+</li>
+<li>Referência essencial para explorar funções em detalhe.</li>
+</ul>
+</section>
+<section id="cheatsheet-oficial-do-pacote" class="level3" data-number="6.4.2">
+<h3 data-number="6.4.2" class="anchored" data-anchor-id="cheatsheet-oficial-do-pacote"><span class="header-section-number">6.4.2</span> <strong>CHEATSHEET OFICIAL DO PACOTE</strong></h3>
+<p>📎 <a href="https://github.com/rstudio/cheatsheets/blob/main/data-visualization.pdf">Data Visualization Cheatsheet</a></p>
+<ul>
+<li>Guia rápido produzido pelo RStudio.<br>
+</li>
+<li>Resume os principais comandos do <code>ggplot2</code>, mapeamentos estéticos, geometrias e funções auxiliares.<br>
+</li>
+<li>Ideal para <strong>consulta rápida</strong> durante a prática.</li>
+</ul>
+<hr>
+</section>
+<section id="r-graph-gallery" class="level3" data-number="6.4.3">
+<h3 data-number="6.4.3" class="anchored" data-anchor-id="r-graph-gallery"><span class="header-section-number">6.4.3</span> <strong>R GRAPH GALLERY</strong></h3>
+<p>🌐 <a href="https://r-graph-gallery.com/">R Graph Gallery</a></p>
+<ul>
+<li>Grande coleção de gráficos em R, com código reproduzível.<br>
+</li>
+<li>Muitos exemplos feitos diretamente com <code>ggplot2</code>.<br>
+</li>
+<li>Ótimo para <strong>inspiração</strong> e para aprender a customizar gráficos.</li>
+</ul>
+<hr>
+</section>
+<section id="data-to-viz" class="level3" data-number="6.4.4">
+<h3 data-number="6.4.4" class="anchored" data-anchor-id="data-to-viz"><span class="header-section-number">6.4.4</span> <strong>DATA TO VIZ</strong></h3>
+<p>🌐 <a href="https://www.data-to-viz.com/">Data to Viz</a></p>
+<ul>
+<li>Ajuda a escolher <strong>qual gráfico usar</strong> de acordo com a estrutura dos dados.<br>
+</li>
+<li>Explica vantagens, desvantagens e erros comuns em cada tipo de visualização.<br>
+</li>
+<li>Excelente para entender <strong>quando usar cada geom</strong>.</li>
+</ul>
+</section>
+<section id="livro-r-para-ciência-de-dados" class="level3" data-number="6.4.5">
+<h3 data-number="6.4.5" class="anchored" data-anchor-id="livro-r-para-ciência-de-dados"><span class="header-section-number">6.4.5</span> <strong>LIVRO “R para ciência de dados”</strong></h3>
+<p>📖 <a href="https://pt.r4ds.hadley.nz/">Disponível online gratuitamente</a></p>
+<ul>
+<li>Escrito por Hadley Wickham e Garrett Grolemund.<br>
+</li>
+<li>Um dos livros mais usados no mundo para aprender R e <code>ggplot2</code>.<br>
+</li>
+<li>Apresenta exemplos claros e integrados ao <strong>tidyverse</strong>.</li>
+</ul>
+</section>
+<section id="livro-ggplot2-elegant-graphics-for-data-analisys" class="level3" data-number="6.4.6">
+<h3 data-number="6.4.6" class="anchored" data-anchor-id="livro-ggplot2-elegant-graphics-for-data-analisys"><span class="header-section-number">6.4.6</span> <strong>LIVRO <code>ggplot2</code>: ELEGANT GRAPHICS FOR DATA ANALISYS</strong></h3>
+<p>📖 <a href="https://ggplot2-book.org/">Disponível online gratuitamente</a></p>
+<ul>
+<li>Escrito por Hadley Wickham.</li>
+<li>Traz desde os fundamentos teóricos do <strong>Grammar of Graphics</strong> até aplicações práticas detalhadas.</li>
+<li>É leitura essencial para quem deseja dominar o ggplot2 em profundidade.</li>
+</ul>
+</section>
+</section>
+<section id="paletas-de-cores-do-r" class="level2" data-number="6.5">
+<h2 data-number="6.5" class="anchored" data-anchor-id="paletas-de-cores-do-r"><span class="header-section-number">6.5</span> <strong>PALETAS DE CORES DO <code>R</code></strong></h2>
+<p>No <code>R</code>, podemos definir cores diretamente pelo <strong>nome</strong>, como por exemplo <code>"red"</code>, <code>"yellow"</code> e <code>"blue"</code>.</p>
+<p>A lista completa de cores reconhecidas pelo <code>R</code> pode ser consultada em</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Paleta1.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<p>Também podemos utilizar <strong>códigos hexadecimais</strong>, iniciados por <code>#</code> como, por exemplo, <code>"#FF0000"</code> (vermelho), <code>"#0000FF"</code> (azul) ou <code>"#FFD700"</code> (dourado). Mais exemplos de cores nessa codificação podem ser consultados aqui:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Paleta2.gif" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<p>No <code>ggplot2</code>, as cores podem ser definidas ou modificadas por meio dos comandos apropriados. Por exemplo, <code>scale_color_manual()</code> e <code>scale_fill_manual()</code>, em que:</p>
+<ul>
+<li><code>scale_color_manual()</code> → define manualmente as cores de <strong>pontos, linhas e contornos</strong>.
+<ul>
+<li><code>scale_color_manual(values = c("red", "blue", "green")</code></li>
+</ul></li>
+<li><code>scale_fill_manual()</code> → define manualmente as cores de <strong>preenchimento</strong>.
+<ul>
+<li><code>scale_fill_manual(values = c("red", "blue", "green")</code></li>
+</ul></li>
+</ul>
+<section id="paletas-prontas" class="level3" data-number="6.5.1">
+<h3 data-number="6.5.1" class="anchored" data-anchor-id="paletas-prontas"><span class="header-section-number">6.5.1</span> <strong>PALETAS PRONTAS</strong></h3>
+<p>Existem diversos pacotes que disponibilizam conjuntos de cores já construídos.</p>
+<section id="rcolorbrewer" class="level4" data-number="6.5.1.1">
+<h4 data-number="6.5.1.1" class="anchored" data-anchor-id="rcolorbrewer"><span class="header-section-number">6.5.1.1</span> <strong><code>RColorBrewer</code></strong></h4>
+<p>Um dos pacotes clássicos para escolha de paletas. As diferentes paletas estão disponíveis na seguinte imagem:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Paleta3.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<p>No <code>ggplot2</code>, usaremos os comandos</p>
+<ul>
+<li><code>scale_color_brewer()</code> → aplica uma paleta aos <strong>pontos, linhas e contornos</strong>.
+<ul>
+<li><code>scale_color_brewer(palette = "Set1")</code></li>
+</ul></li>
+<li><code>scale_fill_brewer()</code> → aplica uma paleta aos <strong>preenchimentos</strong>.
+<ul>
+<li><code>scale_fill_brewer(palette = "Set2")</code></li>
+</ul></li>
+</ul>
+<p>Para visualizar as paletas disponíveis:</p>
+</section>
+<section id="viridis" class="level4" data-number="6.5.1.2">
+<h4 data-number="6.5.1.2" class="anchored" data-anchor-id="viridis"><span class="header-section-number">6.5.1.2</span> <strong><code>viridis</code></strong></h4>
+<p>Muito utilizada em visualização científica, com boas propriedades de percepção e acessibilidade. Seguem a paleta principal desse pacote:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Paleta5.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<p>No <code>ggplot2</code>, usaremos estes comandos:</p>
+<ul>
+<li><code>scale_color_viridis_d()</code> → aplica uma paleta a uma variável <strong>discreta</strong>.
+<ul>
+<li><code>scale_color_viridis_d(option = "viridis")</code></li>
+</ul></li>
+<li><code>scale_fill_viridis_d()</code> → aplica a paleta aos <strong>preenchimentos</strong> de uma variável discreta.
+<ul>
+<li><code>scale_fill_viridis_d(option = "viridis")</code></li>
+</ul></li>
+<li><code>scale_color_viridis_c()</code> → aplica uma paleta a uma variável <strong>contínua</strong>.
+<ul>
+<li><code>scale_color_viridis_c(option = "viridis")</code></li>
+</ul></li>
+<li><code>scale_fill_viridis_c()</code> → aplica a paleta aos <strong>preenchimentos</strong> de uma variável contínua.
+<ul>
+<li><code>scale_fill_viridis_c(option = "viridis")</code></li>
+</ul></li>
+</ul>
+</section>
+<section id="ggsci" class="level4" data-number="6.5.1.3">
+<h4 data-number="6.5.1.3" class="anchored" data-anchor-id="ggsci"><span class="header-section-number">6.5.1.3</span> <strong><code>ggsci</code></strong></h4>
+<p>Disponibiliza paletas inspiradas em revistas e publicações científicas. As principais paletas podem ser consultadas no seguinte link <a href="https://nanx.me/ggsci/">GGSCI</a>. No <code>ggplot2</code>, para cada paleta, utilize os comandos <code>scale_color</code> e <code>scale_fill</code>, como nos seguintes exemplos:</p>
+<ul>
+<li><code>scale_color_lancet()</code> → paleta inspirada na <strong>The Lancet</strong>.</li>
+<li><code>scale_fill_npg()</code> → paleta inspirada na <strong>Nature Publishing Group</strong>.</li>
+<li><code>scale_color_nejm()</code> → paleta inspirada no <strong>New England Journal of Medicine</strong>.</li>
+<li><code>scale_fill_jama()</code> → paleta inspirada na <strong>JAMA</strong>.</li>
+</ul>
+</section>
+</section>
+</section>
+<section id="funções-do-ggplot2-usadas-nesta-disciplina" class="level2" data-number="6.6">
+<h2 data-number="6.6" class="anchored" data-anchor-id="funções-do-ggplot2-usadas-nesta-disciplina"><span class="header-section-number">6.6</span> <strong>FUNÇÕES DO <code>ggplot2</code> USADAS NESTA DISCIPLINA</strong></h2>
+<p>Ao longo da disciplina, utilizaremos diversas funções do <code>ggplot2</code> que formam a base da <strong>gramática dos gráficos</strong>.</p>
+<p>Para facilitar o estudo, essas funções serão organizadas em sete grandes grupos:</p>
+<ul>
+<li><strong>Dados</strong>: define o conjunto de dados utilizado no gráfico;</li>
+<li><strong>Mapeamento</strong>: define como as variáveis dos dados são associadas aos elementos visuais do gráfico;</li>
+<li><strong>Geometria</strong>: especifica o tipo de representação gráfica a ser construída;</li>
+<li><strong>Escalas</strong>: controla como os dados são representados nos eixos, cores e demais propriedades visuais;</li>
+<li><strong>Facetas</strong>: permite dividir o gráfico em múltiplos painéis para comparar subconjuntos dos dados;</li>
+<li><strong>Coordenadas</strong>: define o sistema de coordenadas e a orientação do gráfico;</li>
+<li><strong>Tema</strong>: controla os elementos visuais do gráfico que não representam diretamente os dados.</li>
+</ul>
+<section id="dados-1" class="level3" data-number="6.6.1">
+<h3 data-number="6.6.1" class="anchored" data-anchor-id="dados-1"><span class="header-section-number">6.6.1</span> <strong>DADOS</strong></h3>
+<p>Define o conjunto de dados utilizado no gráfico.</p>
+<ul>
+<li><code>ggplot(data = Base_de_Dados, ...)</code> → Inicia a construção do gráfico. O argumento <code>data</code> define a base de dados utilizada.</li>
+</ul>
+<hr>
+</section>
+<section id="mapeamento-1" class="level3" data-number="6.6.2">
+<h3 data-number="6.6.2" class="anchored" data-anchor-id="mapeamento-1"><span class="header-section-number">6.6.2</span> <strong>MAPEAMENTO</strong></h3>
+<p>Define como as variáveis dos dados são associadas às propriedades visuais do gráfico.</p>
+<ul>
+<li><code>aes(x = Variavel, y = Variavel, fill = Variavel, ...)</code> → Define os mapeamentos estéticos. <code>x</code> associa uma variável ao eixo x; <code>y</code>, ao eixo y; e <code>fill</code>, à cor de preenchimento.</li>
+</ul>
+<hr>
+</section>
+<section id="geometria-1" class="level3" data-number="6.6.3">
+<h3 data-number="6.6.3" class="anchored" data-anchor-id="geometria-1"><span class="header-section-number">6.6.3</span> <strong>GEOMETRIA</strong></h3>
+<p>Define o tipo de representação gráfica utilizada.</p>
+<ul>
+<li><p><code>geom_bar()</code> → Cria um gráfico de barras e realiza automaticamente a contagem das observações de cada categoria.</p></li>
+<li><p><code>geom_text(stat = "count", aes(label = after_stat(count)), vjust = -0.5, size = 3)</code> → Adiciona textos ao gráfico. <code>stat = "count"</code> calcula as frequências; <code>label = after_stat(count)</code> utiliza essas frequências como rótulos; <code>vjust</code> controla a posição vertical; e <code>size</code> controla o tamanho do texto.</p></li>
+</ul>
+<hr>
+</section>
+<section id="escalas-1" class="level3" data-number="6.6.4">
+<h3 data-number="6.6.4" class="anchored" data-anchor-id="escalas-1"><span class="header-section-number">6.6.4</span> <strong>ESCALAS</strong></h3>
+<p>Controla como os dados são apresentados nos eixos, cores e demais propriedades visuais.</p>
+<section id="eixos" class="level4" data-number="6.6.4.1">
+<h4 data-number="6.6.4.1" class="anchored" data-anchor-id="eixos"><span class="header-section-number">6.6.4.1</span> <strong>Eixos</strong></h4>
+<ul>
+<li><p><code>xlab("nome_do_eixo_x")</code> → Define o título do eixo x.</p></li>
+<li><p><code>ylab("nome_do_eixo_y")</code> → Define o título do eixo y.</p></li>
+</ul>
+</section>
+<section id="cores" class="level4" data-number="6.6.4.2">
+<h4 data-number="6.6.4.2" class="anchored" data-anchor-id="cores"><span class="header-section-number">6.6.4.2</span> <strong>Cores</strong></h4>
+<ul>
+<li><p><code>scale_fill_manual(values = c(...))</code> → Define manualmente as cores de preenchimento. O argumento <code>values</code> recebe as cores que serão utilizadas nas categorias.</p></li>
+<li><p><code>scale_fill_brewer(palette = "...")</code> → Utiliza uma paleta do <code>RColorBrewer</code>. O argumento <code>palette</code> define a paleta utilizada.</p></li>
+<li><p><code>scale_fill_viridis_d(option = "...")</code> → Utiliza uma paleta discreta do <code>viridis</code>. O argumento <code>option</code> define a paleta utilizada.</p></li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="facetas-1" class="level3" data-number="6.6.5">
+<h3 data-number="6.6.5" class="anchored" data-anchor-id="facetas-1"><span class="header-section-number">6.6.5</span> <strong>FACETAS</strong></h3>
+<p>Permite dividir o gráfico em múltiplos painéis de acordo com uma ou mais variáveis.</p>
+<p><em>Nenhum comando utilizado até o momento.</em></p>
+<hr>
+</section>
+<section id="coordenadas-1" class="level3" data-number="6.6.6">
+<h3 data-number="6.6.6" class="anchored" data-anchor-id="coordenadas-1"><span class="header-section-number">6.6.6</span> <strong>COORDENADAS</strong></h3>
+<p>Define o sistema de coordenadas e a orientação utilizada na representação gráfica.</p>
+<p><em>Nenhum comando utilizado até o momento.</em></p>
+<hr>
+</section>
+<section id="tema-1" class="level3" data-number="6.6.7">
+<h3 data-number="6.6.7" class="anchored" data-anchor-id="tema-1"><span class="header-section-number">6.6.7</span> <strong>TEMA</strong></h3>
+<p>Controla a aparência geral do gráfico, incluindo fundo, grades, textos, legenda e demais elementos visuais que não representam diretamente os dados.</p>
+<section id="temas-prontos" class="level4" data-number="6.6.7.1">
+<h4 data-number="6.6.7.1" class="anchored" data-anchor-id="temas-prontos"><span class="header-section-number">6.6.7.1</span> <strong>Temas prontos</strong></h4>
+<ul>
+<li><p><code>theme_gray()</code> → Tema padrão do <code>ggplot2</code>, com fundo cinza e grades brancas.</p></li>
+<li><p><code>theme_bw()</code> → Fundo branco com bordas e grades, produzindo um gráfico mais limpo.</p></li>
+<li><p><code>theme_classic()</code> → Fundo branco, sem grades, mantendo apenas os eixos.</p></li>
+<li><p><code>theme_minimal()</code> → Tema minimalista, com poucos elementos visuais.</p></li>
+<li><p><code>theme_light()</code> → Fundo claro com grades leves.</p></li>
+<li><p><code>theme_dark()</code> → Fundo escuro com grades claras.</p></li>
+<li><p><code>theme_void()</code> → Remove praticamente todos os elementos do gráfico, incluindo eixos, grades e fundo.</p></li>
+</ul>
+<p>Todos esses temas permitem utilizar o argumento <code>base_size</code> para alterar proporcionalmente o tamanho dos textos do gráfico:</p>
+<ul>
+<li><code>theme_bw(base_size = 14)</code> → Aplica o tema e define o tamanho-base dos textos como 14.</li>
+</ul>
+</section>
+<section id="personalização-com-theme" class="level4" data-number="6.6.7.2">
+<h4 data-number="6.6.7.2" class="anchored" data-anchor-id="personalização-com-theme"><span class="header-section-number">6.6.7.2</span> <strong>Personalização com <code>theme()</code></strong></h4>
+<ul>
+<li><p><code>theme(legend.position = "none")</code> → Remove a legenda. Também podem ser utilizadas <code>"top"</code>, <code>"bottom"</code>, <code>"left"</code> e <code>"right"</code> para alterar sua posição.</p></li>
+<li><p><code>theme(text = element_text(size = 14))</code> → Altera o tamanho de todos os textos do gráfico.</p></li>
+</ul>
+</section>
+<section id="controle-do-tamanho-de-cada-componente" class="level4" data-number="6.6.7.3">
+<h4 data-number="6.6.7.3" class="anchored" data-anchor-id="controle-do-tamanho-de-cada-componente"><span class="header-section-number">6.6.7.3</span> <strong>Controle do tamanho de cada componente</strong></h4>
+<ul>
+<li><p><code>theme(axis.title = element_text(size = 16))</code> → Altera o tamanho dos títulos dos dois eixos.</p></li>
+<li><p><code>theme(axis.title.x = element_text(size = 16))</code> → Altera o tamanho do título do eixo x.</p></li>
+<li><p><code>theme(axis.title.y = element_text(size = 16))</code> → Altera o tamanho do título do eixo y.</p></li>
+<li><p><code>theme(axis.text = element_text(size = 14))</code> → Altera o tamanho dos valores ou categorias apresentados nos dois eixos.</p></li>
+<li><p><code>theme(axis.text.x = element_text(size = 14))</code> → Altera o tamanho dos valores ou categorias do eixo x.</p></li>
+<li><p><code>theme(axis.text.y = element_text(size = 14))</code> → Altera o tamanho dos valores ou categorias do eixo y.</p></li>
+<li><p><code>theme(plot.title = element_text(size = 18))</code> → Altera o tamanho do título principal do gráfico.</p></li>
+<li><p><code>theme(plot.subtitle = element_text(size = 16))</code> → Altera o tamanho do subtítulo do gráfico.</p></li>
+<li><p><code>theme(plot.caption = element_text(size = 12))</code> → Altera o tamanho do texto de rodapé do gráfico.</p></li>
+<li><p><code>theme(legend.title = element_text(size = 14))</code> → Altera o tamanho do título da legenda.</p></li>
+<li><p><code>theme(legend.text = element_text(size = 12))</code> → Altera o tamanho dos textos das categorias da legenda.</p></li>
+<li><p><code>theme(strip.text = element_text(size = 14))</code> → Altera o tamanho dos títulos dos painéis criados por facetas.</p></li>
+</ul>
+</section>
+<section id="outras-opções-de-element_text" class="level4" data-number="6.6.7.4">
+<h4 data-number="6.6.7.4" class="anchored" data-anchor-id="outras-opções-de-element_text"><span class="header-section-number">6.6.7.4</span> <strong>Outras opções de <code>element_text()</code></strong></h4>
+<p>Os comandos anteriores podem ser combinados com outros argumentos de <code>element_text()</code>:</p>
+<ul>
+<li><p><code>element_text(size = 14)</code> → Altera o tamanho do texto.</p></li>
+<li><p><code>element_text(color = "red")</code> → Altera a cor do texto.</p></li>
+<li><p><code>element_text(face = "bold")</code> → Coloca o texto em negrito. Também podem ser utilizados <code>"plain"</code>, <code>"italic"</code> e <code>"bold.italic"</code>.</p></li>
+<li><p><code>element_text(angle = 45)</code> → Rotaciona o texto pelo ângulo especificado.</p></li>
+<li><p><code>element_text(hjust = 0.5)</code> → Controla o alinhamento horizontal do texto.</p></li>
+<li><p><code>element_text(vjust = 0.5)</code> → Controla o alinhamento vertical do texto.</p></li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="funções-auxiliares" class="level3" data-number="6.6.8">
+<h3 data-number="6.6.8" class="anchored" data-anchor-id="funções-auxiliares"><span class="header-section-number">6.6.8</span> <strong>FUNÇÕES AUXILIARES</strong></h3>
+<p>Funções que não pertencem diretamente ao <code>ggplot2</code>, mas são úteis na preparação das variáveis para a construção dos gráficos.</p>
+<ul>
+<li><p><code>factor(Variavel, levels = c(...))</code> → Transforma ou redefine uma variável como fator. O argumento <code>levels</code> determina a ordem das categorias.</p></li>
+<li><p><code>fct_infreq(Variavel)</code> → Ordena as categorias de uma variável da <strong>maior para a menor frequência</strong>.</p></li>
+<li><p><code>fct_rev(Variavel)</code> → Inverte a ordem dos níveis de uma variável. Com <code>fct_rev(fct_infreq(Variavel))</code>, as categorias são apresentadas da <strong>menor para a maior frequência</strong>.</p></li>
+</ul>
+
+
+<!-- -->
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copiada");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copiada");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+    const viewSource = window.document.getElementById('quarto-view-source') ||
+                       window.document.getElementById('quarto-code-tools-source');
+    if (viewSource) {
+      const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+      viewSource.addEventListener("click", function(e) {
+        if (sourceUrl) {
+          // rstudio viewer pane
+          if (/\bcapabilities=\b/.test(window.location)) {
+            window.open(sourceUrl);
+          } else {
+            window.location.href = sourceUrl;
+          }
+        } else {
+          const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+          modal.show();
+        }
+        return false;
+      });
+    }
+    function toggleCodeHandler(show) {
+      return function(e) {
+        const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+        for (let i=0; i<detailsSrc.length; i++) {
+          const details = detailsSrc[i].parentElement;
+          if (show) {
+            details.open = true;
+          } else {
+            details.removeAttribute("open");
+          }
+        }
+        const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+        const fromCls = show ? "hidden" : "unhidden";
+        const toCls = show ? "unhidden" : "hidden";
+        for (let i=0; i<cellCodeDivs.length; i++) {
+          const codeDiv = cellCodeDivs[i];
+          if (codeDiv.classList.contains(fromCls)) {
+            codeDiv.classList.remove(fromCls);
+            codeDiv.classList.add(toCls);
+          } 
+        }
+        return false;
+      }
+    }
+    const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+    if (hideAllCode) {
+      hideAllCode.addEventListener("click", toggleCodeHandler(false));
+    }
+    const showAllCode = window.document.getElementById("quarto-show-all-code");
+    if (showAllCode) {
+      showAllCode.addEventListener("click", toggleCodeHandler(true));
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+            // default icon
+            link.classList.add("external");
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./Capitulo2.html" class="pagination-link" aria-label="**TABELAS AUTOMÁTICAS COM O PACOTE `gtsummary`**">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title"><strong>TABELAS AUTOMÁTICAS COM O PACOTE <code>gtsummary</code></strong></span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./Capitulo4.html" class="pagination-link" aria-label="**VARIÁVEIS QUALITATIVAS**">
+        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title"><strong>VARIÁVEIS QUALITATIVAS</strong></span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Código fonte</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb9" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="an">output:</span><span class="co"> html_document</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="an">editor_options:</span><span class="co"> </span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co">  chunk_output_type: console</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="in">```{r,include=FALSE}</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="fu"># **O PACOTE `ggplot2`**</span></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a><span class="fu">## **INTRODUÇÃO**</span></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>O <span class="in">`ggplot2`</span> é um dos pacotes mais importantes já criados para o R. Mais do que uma simples ferramenta de visualização, ele representa uma **nova forma de pensar gráficos**, baseada em teoria estatística sólida e em um ecossistema que **mudou a cultura da ciência de dados**.</span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>Nesta introdução, veremos a **história do `ggplot2`**, sua **importância**, seu criador **Hadley Wickham**, e por que o pacote **nunca foi superado**.</span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a><span class="fu">### **A HISTÓRIA DO `ggplot2`**</span></span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>O <span class="in">`ggplot2`</span> foi criado por **Hadley Wickham**, estatístico e cientista da computação da Nova Zelândia, hoje uma das figuras mais influentes na ciência de dados.</span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/Exemplo30.jpg)</span>{width="30%" fig-align="center"}</span>
+<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a>A história do <span class="in">`ggplot2`</span> passou pelos seguintes:</span>
+<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Origem**: desenvolvido a partir da **tese de doutorado** de Hadley Wickham (2005, Iowa State University) --- *"Practical tools for exploring data and models"*.\</span>
+<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Fundamento**: baseado na **Gramática dos Gráficos** (*Grammar of Graphics*), proposta por **Leland Wilkinson**.\</span>
+<span id="cb9-31"><a href="#cb9-31" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Ideia central**: construção **declarativa** de gráficos --- o usuário **especifica dados, estéticas e camadas**, em vez de "desenhar" cada elemento manualmente.\</span>
+<span id="cb9-32"><a href="#cb9-32" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Primeiro lançamento**: disponibilizado no **CRAN em 2007**.\</span>
+<span id="cb9-33"><a href="#cb9-33" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Nome**: *ggplot* vem de **Grammar of Graphics plot**.\</span>
+<span id="cb9-34"><a href="#cb9-34" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Evolução**: consolidado na versão **ggplot2**, reescrita e considerada a forma estável e atual da ferramenta.</span>
+<span id="cb9-35"><a href="#cb9-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-36"><a href="#cb9-36" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
+<span id="cb9-37"><a href="#cb9-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-38"><a href="#cb9-38" aria-hidden="true" tabindex="-1"></a><span class="fu">### **A IMPORTÂNCIA DO `ggplot2`**</span></span>
+<span id="cb9-39"><a href="#cb9-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-40"><a href="#cb9-40" aria-hidden="true" tabindex="-1"></a>Antes do <span class="in">`ggplot2`</span>, existiam duas grandes opções:\</span>
+<span id="cb9-41"><a href="#cb9-41" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Base R** -- flexível, mas exigia muito código para customizações.\</span>
+<span id="cb9-42"><a href="#cb9-42" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Lattice** -- mais estruturado, porém rígido e pouco intuitivo.</span>
+<span id="cb9-43"><a href="#cb9-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-44"><a href="#cb9-44" aria-hidden="true" tabindex="-1"></a>O <span class="in">`ggplot2`</span> revolucionou ao trazer:\</span>
+<span id="cb9-45"><a href="#cb9-45" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Uma **sintaxe consistente** e baseada em teoria.\</span>
+<span id="cb9-46"><a href="#cb9-46" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>A lógica de **camadas** para construir gráficos.\</span>
+<span id="cb9-47"><a href="#cb9-47" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Um **ecossistema expansível** (<span class="in">`ggrepel`</span>, <span class="in">`gganimate`</span>, <span class="in">`patchwork`</span>).</span>
+<span id="cb9-48"><a href="#cb9-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-49"><a href="#cb9-49" aria-hidden="true" tabindex="-1"></a>Hoje, ele é:\</span>
+<span id="cb9-50"><a href="#cb9-50" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>O **pacote de visualização mais usado em R**.\</span>
+<span id="cb9-51"><a href="#cb9-51" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Um dos **mais baixados do CRAN**.\</span>
+<span id="cb9-52"><a href="#cb9-52" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Ferramenta básica de ensino** em ciência de dados.\</span>
+<span id="cb9-53"><a href="#cb9-53" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Tão influente que inspirou o **plotnine** no Python.</span>
+<span id="cb9-54"><a href="#cb9-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-55"><a href="#cb9-55" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
+<span id="cb9-56"><a href="#cb9-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-57"><a href="#cb9-57" aria-hidden="true" tabindex="-1"></a><span class="fu">### **HADLEY WICKHAM E SUAS CRIAÇÕES**</span></span>
+<span id="cb9-58"><a href="#cb9-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-59"><a href="#cb9-59" aria-hidden="true" tabindex="-1"></a>Hadley não parou no <span class="in">`ggplot2`</span>: criou um **ecossistema inteiro** que mudou a análise de dados no R -- o **tidyverse**.</span>
+<span id="cb9-60"><a href="#cb9-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-61"><a href="#cb9-61" aria-hidden="true" tabindex="-1"></a>**Manipulação de dados**\</span>
+<span id="cb9-62"><a href="#cb9-62" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**dplyr** -- verbos intuitivos para transformar dados.\</span>
+<span id="cb9-63"><a href="#cb9-63" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**tidyr** -- organização.\</span>
+<span id="cb9-64"><a href="#cb9-64" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**readr** -- leitura rápida e padronizada.\</span>
+<span id="cb9-65"><a href="#cb9-65" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**lubridate** -- datas e horários.\</span>
+<span id="cb9-66"><a href="#cb9-66" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**forcats** -- fatores.</span>
+<span id="cb9-67"><a href="#cb9-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-68"><a href="#cb9-68" aria-hidden="true" tabindex="-1"></a>**Estrutura e programação**\</span>
+<span id="cb9-69"><a href="#cb9-69" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**tibble** -- moderniza os data frames.\</span>
+<span id="cb9-70"><a href="#cb9-70" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**purrr** -- programação funcional.\</span>
+<span id="cb9-71"><a href="#cb9-71" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**stringr** -- manipulação de textos.\</span>
+<span id="cb9-72"><a href="#cb9-72" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**rvest** -- web scraping.\</span>
+<span id="cb9-73"><a href="#cb9-73" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**roxygen2** -- documentação de pacotes.</span>
+<span id="cb9-74"><a href="#cb9-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-75"><a href="#cb9-75" aria-hidden="true" tabindex="-1"></a>**O tidyverse (2016)**\</span>
+<span id="cb9-76"><a href="#cb9-76" aria-hidden="true" tabindex="-1"></a>Reunião desses pacotes sob uma mesma filosofia:\</span>
+<span id="cb9-77"><a href="#cb9-77" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Dados **arrumados**\</span>
+<span id="cb9-78"><a href="#cb9-78" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Sintaxe coerente** e intuitiva.\</span>
+<span id="cb9-79"><a href="#cb9-79" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Documentação clara** e acessível.</span>
+<span id="cb9-80"><a href="#cb9-80" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-81"><a href="#cb9-81" aria-hidden="true" tabindex="-1"></a><span class="fu">## **A GRAMÁTICA DOS GRÁFICOS**</span></span>
+<span id="cb9-82"><a href="#cb9-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-83"><a href="#cb9-83" aria-hidden="true" tabindex="-1"></a>**Wilkinson** em 2005 criou a **Gramática dos Gráficos** para descrever as **características fundamentais** que sustentam todos os gráficos estatísticos. A gramática dos gráficos é uma resposta à pergunta: *o que é um gráfico estatístico?* O `ggplot2` se baseia na gramática de Wilkinson, dando ênfase à **sobreposição de camadas** e adaptando-a para uso no <span class="in">`R`</span>.</span>
+<span id="cb9-84"><a href="#cb9-84" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-85"><a href="#cb9-85" aria-hidden="true" tabindex="-1"></a>Para entender a estrutura da **Gramática dos Gráficos**, analisamos as **7 partes componíveis** que se unem como um **conjunto de instruções** sobre como desenhar um gráfico:</span>
+<span id="cb9-86"><a href="#cb9-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-87"><a href="#cb9-87" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/Exemplo30.png)</span></span>
+<span id="cb9-88"><a href="#cb9-88" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-89"><a href="#cb9-89" aria-hidden="true" tabindex="-1"></a>Esse esquema mostra sete losangos sobrepostos indicando as diferentes partes componíveis. De baixo para cima, os rótulos são: **Dados**, **Mapeamento**, **Geometria**, **Escalas**, **Facetas**, **Coordenadas** e **Tema**.</span>
+<span id="cb9-90"><a href="#cb9-90" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-91"><a href="#cb9-91" aria-hidden="true" tabindex="-1"></a>Entre esses componentes, o <span class="in">`ggplot2`</span> precisa de pelo menos três para produzir um gráfico: **dados**, **um mapeamento** e **uma geometria**. As escalas, facetas, coordenadas e temas possuem padrões razoáveis que evitam muito trabalho detalhado.</span>
+<span id="cb9-92"><a href="#cb9-92" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-93"><a href="#cb9-93" aria-hidden="true" tabindex="-1"></a><span class="fu">### **DADOS**</span></span>
+<span id="cb9-94"><a href="#cb9-94" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-95"><a href="#cb9-95" aria-hidden="true" tabindex="-1"></a>Como **base** de todo gráfico, o `ggplot2` usa dados para construir a **visualização**. O sistema funciona melhor se os **dados estiverem em uma estrutura retangular em que as linhas representam observações e as colunas representam variáveis**.</span>
+<span id="cb9-96"><a href="#cb9-96" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-97"><a href="#cb9-97" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; O </span><span class="in">`ggplot2`</span><span class="at"> opera melhor com bases de dados em formato longo. Isso facilita a funcionalidade da próxima estrutura: mapeamento</span></span>
+<span id="cb9-98"><a href="#cb9-98" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-99"><a href="#cb9-99" aria-hidden="true" tabindex="-1"></a>Por exemplo, utilizemos a base de dados <span class="in">`mpg`</span> (disponível no próprio pacote <span class="in">`ggplot2`</span> para **exemplos introdutórios**). Essa base contém **informações** sobre consumo de combustível de **carros** testados pelo **EPA (Environmental Protection Agency)** nos Estados Unidos.</span>
+<span id="cb9-100"><a href="#cb9-100" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-101"><a href="#cb9-101" aria-hidden="true" tabindex="-1"></a>Essa base é muito **utilizada** em exemplos por ser **simples**, **realista** e já vir pronta dentro do pacote. A base possui **234 observações** (linhas) e **11 variáveis** (colunas). Algumas das variáveis são:</span>
+<span id="cb9-102"><a href="#cb9-102" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-103"><a href="#cb9-103" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Variável  <span class="pp">|</span> Descrição                                                         <span class="pp">|</span></span>
+<span id="cb9-104"><a href="#cb9-104" aria-hidden="true" tabindex="-1"></a><span class="pp">|----------------------------------------|--------------------------------|</span></span>
+<span id="cb9-105"><a href="#cb9-105" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **year**  <span class="pp">|</span> Ano de fabricação (1999 ou 2008).                                 <span class="pp">|</span></span>
+<span id="cb9-106"><a href="#cb9-106" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **drv**   | Tipo de tração: **f = dianteira**, **r = traseira**, **4 = 4x4**. <span class="pp">|</span></span>
+<span id="cb9-107"><a href="#cb9-107" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **cty**   <span class="pp">|</span> Consumo de combustível na cidade (milhas por galão, mpg).         <span class="pp">|</span></span>
+<span id="cb9-108"><a href="#cb9-108" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **hwy**   <span class="pp">|</span> Consumo de combustível na estrada (milhas por galão, mpg).        <span class="pp">|</span></span>
+<span id="cb9-109"><a href="#cb9-109" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **class** <span class="pp">|</span> Categoria do veículo (compact, suv, pickup, etc.).                <span class="pp">|</span></span>
+<span id="cb9-110"><a href="#cb9-110" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-111"><a href="#cb9-111" aria-hidden="true" tabindex="-1"></a>Considere o **objetivo de estudar a relação entre o consumo de combustivel na estrada com o consumo de combustível na cidade**. Além disso, **avaliar como essa relação** varia de acordo com o tipo da **tração**, o **ano de fabricação** do carro e a **categoria**.</span>
+<span id="cb9-112"><a href="#cb9-112" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-113"><a href="#cb9-113" aria-hidden="true" tabindex="-1"></a>O **primeiro passo** em todos os gráficos é passar os dados para a função `ggplot()`, que **armazena a informação a ser usada pelas demais partes do sistema**. Os dados entram no argumento <span class="in">`data`</span> dessa função:</span>
+<span id="cb9-114"><a href="#cb9-114" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-115"><a href="#cb9-115" aria-hidden="true" tabindex="-1"></a><span class="in">```{r,eval=FALSE}</span></span>
+<span id="cb9-116"><a href="#cb9-116" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> mpg)</span>
+<span id="cb9-117"><a href="#cb9-117" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb9-118"><a href="#cb9-118" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-119"><a href="#cb9-119" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; A função </span><span class="in">`ggplot`</span><span class="at"> é a função base de qualquer gráfico com o pacote </span><span class="in">`ggplot2`</span><span class="at">.</span></span>
+<span id="cb9-120"><a href="#cb9-120" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-121"><a href="#cb9-121" aria-hidden="true" tabindex="-1"></a><span class="fu">### **MAPEAMENTO**</span></span>
+<span id="cb9-122"><a href="#cb9-122" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-123"><a href="#cb9-123" aria-hidden="true" tabindex="-1"></a>O **mapeamento** de um gráfico é **um conjunto de instruções** sobre como **partes dos dados** são associadas a atributos estéticos dos objetos geométricos. É como um "dicionário" que **traduz os dados organizados para o sistema gráfico**.</span>
+<span id="cb9-124"><a href="#cb9-124" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-125"><a href="#cb9-125" aria-hidden="true" tabindex="-1"></a>O **mapeamento** é feito com a função `aes()` no argumento `mapping` da função `ggplot`. Por exemplo, para **mapear as colunas** <span class="in">`cty`</span> e <span class="in">`hwy`</span> para os eixos *x* e *y*:</span>
+<span id="cb9-126"><a href="#cb9-126" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-127"><a href="#cb9-127" aria-hidden="true" tabindex="-1"></a><span class="in">```{r,eval=FALSE}</span></span>
+<span id="cb9-128"><a href="#cb9-128" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>mpg, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> cty, <span class="at">y =</span> hwy))</span>
+<span id="cb9-129"><a href="#cb9-129" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb9-130"><a href="#cb9-130" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-131"><a href="#cb9-131" aria-hidden="true" tabindex="-1"></a>Se você executar **somente** este comando em seu computador, verá o **seguinte gráfico**:</span>
+<span id="cb9-132"><a href="#cb9-132" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-133"><a href="#cb9-133" aria-hidden="true" tabindex="-1"></a><span class="in">```{r,echo=FALSE}</span></span>
+<span id="cb9-134"><a href="#cb9-134" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>mpg, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> cty, <span class="at">y =</span> hwy))</span>
+<span id="cb9-135"><a href="#cb9-135" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb9-136"><a href="#cb9-136" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-137"><a href="#cb9-137" aria-hidden="true" tabindex="-1"></a>É a **primeira camada** do seu gráfico. Para **adicionar qualquer nova camada a este gráfico**, você deve **sempre** utilizar o **OPERADOR DE ADIÇÃO "+"**.</span>
+<span id="cb9-138"><a href="#cb9-138" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-139"><a href="#cb9-139" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Assim o mapeamento expresso na função </span><span class="in">`ggplot()`</span><span class="at"> estabelece um mapeamento global do seu gráfico.</span></span>
+<span id="cb9-140"><a href="#cb9-140" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-141"><a href="#cb9-141" aria-hidden="true" tabindex="-1"></a><span class="fu">### **GEOMETRIA**</span></span>
+<span id="cb9-142"><a href="#cb9-142" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-143"><a href="#cb9-143" aria-hidden="true" tabindex="-1"></a>O **coração de qualquer gráfico** é a **geometria**. Ela pega os dados mapeados e os **exibem de forma compreensível**. A **geometria**, define como os dados são **exibidos** (pontos, linhas, retângulos...). Basicamente, a **geometria** é construída com o **comando** `geom_*()`. Podemos, por exemplo, **exibir um gráfico de dispersão**:</span>
+<span id="cb9-144"><a href="#cb9-144" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-147"><a href="#cb9-147" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb9-148"><a href="#cb9-148" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>mpg, <span class="fu">aes</span>(<span class="at">x=</span>cty, <span class="at">y=</span>hwy)) <span class="sc">+</span></span>
+<span id="cb9-149"><a href="#cb9-149" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()   </span>
+<span id="cb9-150"><a href="#cb9-150" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb9-151"><a href="#cb9-151" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-152"><a href="#cb9-152" aria-hidden="true" tabindex="-1"></a>De um modo geral, cada **gráfico diferente terá uma função `geom_*()` apropriada** e **um gráfico pode ser resultado da adição de várias funções `geom_*()`**. As geometrias mais **comuns** são:</span>
+<span id="cb9-153"><a href="#cb9-153" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-154"><a href="#cb9-154" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`geom_point()`</span> → gráfico de dispersão (pontos)\</span>
+<span id="cb9-155"><a href="#cb9-155" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`geom_line()`</span> → gráfico de linhas\</span>
+<span id="cb9-156"><a href="#cb9-156" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`geom_bar()`</span> → gráfico de barras\</span>
+<span id="cb9-157"><a href="#cb9-157" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`geom_histogram()`</span> → histograma\</span>
+<span id="cb9-158"><a href="#cb9-158" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`geom_boxplot()`</span> → boxplot\</span>
+<span id="cb9-159"><a href="#cb9-159" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`geom_density()`</span> → curva de densidade\</span>
+<span id="cb9-160"><a href="#cb9-160" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`geom_area()`</span> → área preenchida sob a curva\</span>
+<span id="cb9-161"><a href="#cb9-161" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`geom_smooth()`</span> → linha de tendência / suavização\</span>
+<span id="cb9-162"><a href="#cb9-162" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`geom_violin()`</span> → gráfico violino (distribuição de dados)</span>
+<span id="cb9-163"><a href="#cb9-163" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-164"><a href="#cb9-164" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Dentro das funções </span><span class="in">`geom_*`</span><span class="at"> também podemos fazer mapeamentos com o argumento </span><span class="in">`mapping(aes=)`</span><span class="at">. Isso permite mapear variáveis dos dados para propriedades estéticas específicas da geometria.</span></span>
+<span id="cb9-165"><a href="#cb9-165" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-166"><a href="#cb9-166" aria-hidden="true" tabindex="-1"></a><span class="fu">### **ESCALAS**</span></span>
+<span id="cb9-167"><a href="#cb9-167" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-168"><a href="#cb9-168" aria-hidden="true" tabindex="-1"></a>As escalas são responsáveis por traduzir o que aparece no **gráfico de volta para os dados**. Normalmente aparecem como eixos ou legendas. Elas definem limites, intervalos, rótulos e cores.</span>
+<span id="cb9-169"><a href="#cb9-169" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-170"><a href="#cb9-170" aria-hidden="true" tabindex="-1"></a>Por exemplo, para colorir os pontos segundo a variável <span class="in">`class`</span>:</span>
+<span id="cb9-171"><a href="#cb9-171" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-174"><a href="#cb9-174" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb9-175"><a href="#cb9-175" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>mpg, <span class="fu">aes</span>(<span class="at">x=</span>cty, <span class="at">y=</span>hwy, <span class="at">colour =</span> class)) <span class="sc">+</span></span>
+<span id="cb9-176"><a href="#cb9-176" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb9-177"><a href="#cb9-177" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_colour_viridis_d</span>()</span>
+<span id="cb9-178"><a href="#cb9-178" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb9-179"><a href="#cb9-179" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-180"><a href="#cb9-180" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Nas escalas podemos **ajustar como os valores dos dados são representados visualmente**, controlando a aparência dos eixos. É possível **definir intervalos**, **transformações**, **gradientes**, **paletas de cores**, **proporções de tamanhos** e a maneira como variáveis contínuas ou categóricas são **exibidas**.</span></span>
+<span id="cb9-181"><a href="#cb9-181" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-182"><a href="#cb9-182" aria-hidden="true" tabindex="-1"></a><span class="fu">### **FACETAS**</span></span>
+<span id="cb9-183"><a href="#cb9-183" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-184"><a href="#cb9-184" aria-hidden="true" tabindex="-1"></a>As facetas permitem criar **múltiplos gráficos pequenos** para subconjuntos dos dados. É uma **forma poderosa** de comparar padrões em **grupos**.</span>
+<span id="cb9-185"><a href="#cb9-185" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-186"><a href="#cb9-186" aria-hidden="true" tabindex="-1"></a>Exemplo: realizar o **mesmo gráfico** de dispersão mas agora estratificando por <span class="in">`drv`</span> e <span class="in">`year`</span>:</span>
+<span id="cb9-187"><a href="#cb9-187" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-190"><a href="#cb9-190" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb9-191"><a href="#cb9-191" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(cty, hwy)) <span class="sc">+</span></span>
+<span id="cb9-192"><a href="#cb9-192" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb9-193"><a href="#cb9-193" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_grid</span>(year <span class="sc">~</span> drv)</span>
+<span id="cb9-194"><a href="#cb9-194" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb9-195"><a href="#cb9-195" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-196"><a href="#cb9-196" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; As facetas **evitam** que você tenha que criar vários códigos para replicar o mesmo gráfico.</span></span>
+<span id="cb9-197"><a href="#cb9-197" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-198"><a href="#cb9-198" aria-hidden="true" tabindex="-1"></a><span class="fu">### **COORDENADAS**</span></span>
+<span id="cb9-199"><a href="#cb9-199" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-200"><a href="#cb9-200" aria-hidden="true" tabindex="-1"></a>O componente de coordenadas no <span class="in">`ggplot2`</span> define o **sistema de referência** usado para **exibir os dados**, determinando a forma do gráfico e **como os elementos são posicionados**. Podemos **ajustar a proporção dos eixos**, **limitar os valores exibidos**, **inverter direções**, transformar escalas (como logarítmica) ou alterar o tipo de coordenadas, por exemplo, de cartesiano para polar, **permitindo representar os dados de maneiras diferentes**.</span>
+<span id="cb9-201"><a href="#cb9-201" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-202"><a href="#cb9-202" aria-hidden="true" tabindex="-1"></a>Por exemplo, suponha que seja do interesse que **uma unidade no eixo x tenha o mesmo comprimento visual que uma unidade no eixo y**, mantendo proporções reais entre os dados. O comando a seguir faz isso:</span>
+<span id="cb9-203"><a href="#cb9-203" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-206"><a href="#cb9-206" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb9-207"><a href="#cb9-207" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>mpg, <span class="fu">aes</span>(<span class="at">x=</span>cty, <span class="at">y=</span>hwy)) <span class="sc">+</span></span>
+<span id="cb9-208"><a href="#cb9-208" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb9-209"><a href="#cb9-209" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_fixed</span>()</span>
+<span id="cb9-210"><a href="#cb9-210" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb9-211"><a href="#cb9-211" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-212"><a href="#cb9-212" aria-hidden="true" tabindex="-1"></a><span class="fu">### **TEMA**</span></span>
+<span id="cb9-213"><a href="#cb9-213" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-214"><a href="#cb9-214" aria-hidden="true" tabindex="-1"></a>O sistema de **temas** controla **todos os aspectos visuais** que **não dependem dos dados**: **posição de legendas**, fundo, linhas dos eixos, etc.</span>
+<span id="cb9-215"><a href="#cb9-215" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-216"><a href="#cb9-216" aria-hidden="true" tabindex="-1"></a>Exemplo:</span>
+<span id="cb9-217"><a href="#cb9-217" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-220"><a href="#cb9-220" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb9-221"><a href="#cb9-221" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(cty, hwy, <span class="at">colour =</span> class)) <span class="sc">+</span></span>
+<span id="cb9-222"><a href="#cb9-222" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb9-223"><a href="#cb9-223" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb9-224"><a href="#cb9-224" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb9-225"><a href="#cb9-225" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.position =</span> <span class="st">"top"</span>,</span>
+<span id="cb9-226"><a href="#cb9-226" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.line =</span> <span class="fu">element_line</span>(<span class="at">linewidth =</span> <span class="fl">0.75</span>),</span>
+<span id="cb9-227"><a href="#cb9-227" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.line.x.bottom =</span> <span class="fu">element_line</span>(<span class="at">colour =</span> <span class="st">"blue"</span>)</span>
+<span id="cb9-228"><a href="#cb9-228" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb9-229"><a href="#cb9-229" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb9-230"><a href="#cb9-230" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-231"><a href="#cb9-231" aria-hidden="true" tabindex="-1"></a>Por fim, **todas as peças podem ser combinadas para criar gráficos personalizados**:</span>
+<span id="cb9-232"><a href="#cb9-232" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-235"><a href="#cb9-235" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb9-236"><a href="#cb9-236" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(cty, hwy)) <span class="sc">+</span></span>
+<span id="cb9-237"><a href="#cb9-237" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">colour =</span> displ)) <span class="sc">+</span></span>
+<span id="cb9-238"><a href="#cb9-238" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_colour_viridis_c</span>() <span class="sc">+</span></span>
+<span id="cb9-239"><a href="#cb9-239" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_grid</span>(year <span class="sc">~</span> drv) <span class="sc">+</span></span>
+<span id="cb9-240"><a href="#cb9-240" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_fixed</span>() <span class="sc">+</span></span>
+<span id="cb9-241"><a href="#cb9-241" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() </span>
+<span id="cb9-242"><a href="#cb9-242" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb9-243"><a href="#cb9-243" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-244"><a href="#cb9-244" aria-hidden="true" tabindex="-1"></a><span class="fu">## **PACOTES DERIVADOS DO GGPLOT2**</span></span>
+<span id="cb9-245"><a href="#cb9-245" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-246"><a href="#cb9-246" aria-hidden="true" tabindex="-1"></a>Diversos pacotes ampliam as funcionalidades do <span class="in">`ggplot2`</span>, oferecendo recursos específicos para visualização, interatividade e apresentação de resultados.</span>
+<span id="cb9-247"><a href="#cb9-247" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-248"><a href="#cb9-248" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**`ggsurvfit`** → criação de curvas de sobrevivência no estilo <span class="in">`ggplot2`</span>, com tabelas de risco e recursos específicos para análise de sobrevivência.</span>
+<span id="cb9-249"><a href="#cb9-249" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-250"><a href="#cb9-250" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**`ggiraph`** → adiciona interatividade aos gráficos do <span class="in">`ggplot2`</span>, permitindo *tooltips*, efeitos de *hover* e seleção de elementos.</span>
+<span id="cb9-251"><a href="#cb9-251" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-252"><a href="#cb9-252" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**`plotly`** → transforma gráficos do <span class="in">`ggplot2`</span> em gráficos interativos, permitindo *zoom*, *hover*, seleção e outras formas de interação.</span>
+<span id="cb9-253"><a href="#cb9-253" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-254"><a href="#cb9-254" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**`ggrepel`** → posiciona automaticamente rótulos de texto, evitando sobreposição entre eles.</span>
+<span id="cb9-255"><a href="#cb9-255" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-256"><a href="#cb9-256" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**`ggridges`** → cria gráficos de densidades sobrepostas (*ridgeline plots*), úteis para comparar distribuições entre grupos.</span>
+<span id="cb9-257"><a href="#cb9-257" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-258"><a href="#cb9-258" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**`ggdist`** → oferece visualizações avançadas de distribuições e incerteza, como intervalos e *half-eye plots*.</span>
+<span id="cb9-259"><a href="#cb9-259" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-260"><a href="#cb9-260" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**`ggforce`** → amplia o <span class="in">`ggplot2`</span> com novas geometrias, facetas e recursos para visualizações mais complexas.</span>
+<span id="cb9-261"><a href="#cb9-261" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-262"><a href="#cb9-262" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**`gganimate`** → permite criar animações a partir de gráficos construídos com <span class="in">`ggplot2`</span>.</span>
+<span id="cb9-263"><a href="#cb9-263" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-264"><a href="#cb9-264" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**`patchwork`** → combina vários gráficos do <span class="in">`ggplot2`</span> em uma única figura de maneira simples e organizada.</span>
+<span id="cb9-265"><a href="#cb9-265" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-266"><a href="#cb9-266" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**`ggtext`** → permite formatação avançada de textos nos gráficos utilizando Markdown e HTML.</span>
+<span id="cb9-267"><a href="#cb9-267" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-268"><a href="#cb9-268" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**`ggthemes`** → disponibiliza temas e escalas adicionais para personalizar a aparência dos gráficos.</span>
+<span id="cb9-269"><a href="#cb9-269" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-270"><a href="#cb9-270" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**`ggmosaic`** → permite construir gráficos de mosaico para representar relações entre variáveis categóricas.</span>
+<span id="cb9-271"><a href="#cb9-271" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-272"><a href="#cb9-272" aria-hidden="true" tabindex="-1"></a><span class="fu">## **MATERIAIS ÚTEIS**</span></span>
+<span id="cb9-273"><a href="#cb9-273" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-274"><a href="#cb9-274" aria-hidden="true" tabindex="-1"></a>Existem diversos **materiais de referência e inspiração** que podem ajudar na **prática diária** e no aprofundamento do **conteúdo** aprendido aqui. A seguir, segue uma **seleção dos principais**:</span>
+<span id="cb9-275"><a href="#cb9-275" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-276"><a href="#cb9-276" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
+<span id="cb9-277"><a href="#cb9-277" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-278"><a href="#cb9-278" aria-hidden="true" tabindex="-1"></a><span class="fu">### **DOCUMENTAÇÃO OFICIAL**</span></span>
+<span id="cb9-279"><a href="#cb9-279" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-280"><a href="#cb9-280" aria-hidden="true" tabindex="-1"></a>📖 <span class="co">[</span><span class="ot">ggplot2.tidyverse.org</span><span class="co">](https://ggplot2.tidyverse.org/)</span></span>
+<span id="cb9-281"><a href="#cb9-281" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-282"><a href="#cb9-282" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Página oficial do pacote.\</span>
+<span id="cb9-283"><a href="#cb9-283" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Contém documentação completa, tutoriais e exemplos.\</span>
+<span id="cb9-284"><a href="#cb9-284" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Referência essencial para explorar funções em detalhe.</span>
+<span id="cb9-285"><a href="#cb9-285" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-286"><a href="#cb9-286" aria-hidden="true" tabindex="-1"></a><span class="fu">### **CHEATSHEET OFICIAL DO PACOTE**</span></span>
+<span id="cb9-287"><a href="#cb9-287" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-288"><a href="#cb9-288" aria-hidden="true" tabindex="-1"></a>📎 <span class="co">[</span><span class="ot">Data Visualization Cheatsheet</span><span class="co">](https://github.com/rstudio/cheatsheets/blob/main/data-visualization.pdf)</span></span>
+<span id="cb9-289"><a href="#cb9-289" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-290"><a href="#cb9-290" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Guia rápido produzido pelo RStudio.\</span>
+<span id="cb9-291"><a href="#cb9-291" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Resume os principais comandos do <span class="in">`ggplot2`</span>, mapeamentos estéticos, geometrias e funções auxiliares.\</span>
+<span id="cb9-292"><a href="#cb9-292" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Ideal para **consulta rápida** durante a prática.</span>
+<span id="cb9-293"><a href="#cb9-293" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-294"><a href="#cb9-294" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
+<span id="cb9-295"><a href="#cb9-295" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-296"><a href="#cb9-296" aria-hidden="true" tabindex="-1"></a><span class="fu">### **R GRAPH GALLERY**</span></span>
+<span id="cb9-297"><a href="#cb9-297" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-298"><a href="#cb9-298" aria-hidden="true" tabindex="-1"></a>🌐 <span class="co">[</span><span class="ot">R Graph Gallery</span><span class="co">](https://r-graph-gallery.com/)</span></span>
+<span id="cb9-299"><a href="#cb9-299" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-300"><a href="#cb9-300" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Grande coleção de gráficos em R, com código reproduzível.\</span>
+<span id="cb9-301"><a href="#cb9-301" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Muitos exemplos feitos diretamente com <span class="in">`ggplot2`</span>.\</span>
+<span id="cb9-302"><a href="#cb9-302" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Ótimo para **inspiração** e para aprender a customizar gráficos.</span>
+<span id="cb9-303"><a href="#cb9-303" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-304"><a href="#cb9-304" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
+<span id="cb9-305"><a href="#cb9-305" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-306"><a href="#cb9-306" aria-hidden="true" tabindex="-1"></a><span class="fu">### **DATA TO VIZ**</span></span>
+<span id="cb9-307"><a href="#cb9-307" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-308"><a href="#cb9-308" aria-hidden="true" tabindex="-1"></a>🌐 <span class="co">[</span><span class="ot">Data to Viz</span><span class="co">](https://www.data-to-viz.com/)</span></span>
+<span id="cb9-309"><a href="#cb9-309" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-310"><a href="#cb9-310" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Ajuda a escolher **qual gráfico usar** de acordo com a estrutura dos dados.\</span>
+<span id="cb9-311"><a href="#cb9-311" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Explica vantagens, desvantagens e erros comuns em cada tipo de visualização.\</span>
+<span id="cb9-312"><a href="#cb9-312" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Excelente para entender **quando usar cada geom**.</span>
+<span id="cb9-313"><a href="#cb9-313" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-314"><a href="#cb9-314" aria-hidden="true" tabindex="-1"></a><span class="fu">### **LIVRO "R para ciência de dados"**</span></span>
+<span id="cb9-315"><a href="#cb9-315" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-316"><a href="#cb9-316" aria-hidden="true" tabindex="-1"></a>📖 <span class="co">[</span><span class="ot">Disponível online gratuitamente</span><span class="co">](https://pt.r4ds.hadley.nz/)</span></span>
+<span id="cb9-317"><a href="#cb9-317" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-318"><a href="#cb9-318" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Escrito por Hadley Wickham e Garrett Grolemund.\</span>
+<span id="cb9-319"><a href="#cb9-319" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Um dos livros mais usados no mundo para aprender R e <span class="in">`ggplot2`</span>.\</span>
+<span id="cb9-320"><a href="#cb9-320" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Apresenta exemplos claros e integrados ao **tidyverse**.</span>
+<span id="cb9-321"><a href="#cb9-321" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-322"><a href="#cb9-322" aria-hidden="true" tabindex="-1"></a><span class="fu">### **LIVRO `ggplot2`: ELEGANT GRAPHICS FOR DATA ANALISYS**</span></span>
+<span id="cb9-323"><a href="#cb9-323" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-324"><a href="#cb9-324" aria-hidden="true" tabindex="-1"></a>📖 <span class="co">[</span><span class="ot">Disponível online gratuitamente</span><span class="co">](https://ggplot2-book.org/)</span></span>
+<span id="cb9-325"><a href="#cb9-325" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-326"><a href="#cb9-326" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Escrito por Hadley Wickham.</span>
+<span id="cb9-327"><a href="#cb9-327" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Traz desde os fundamentos teóricos do **Grammar of Graphics** até aplicações práticas detalhadas.</span>
+<span id="cb9-328"><a href="#cb9-328" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>É leitura essencial para quem deseja dominar </span>
+<span id="cb9-329"><a href="#cb9-329" aria-hidden="true" tabindex="-1"></a>o ggplot2 em profundidade.</span>
+<span id="cb9-330"><a href="#cb9-330" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-331"><a href="#cb9-331" aria-hidden="true" tabindex="-1"></a><span class="fu">## **PALETAS DE CORES DO `R`**</span></span>
+<span id="cb9-332"><a href="#cb9-332" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-333"><a href="#cb9-333" aria-hidden="true" tabindex="-1"></a>No <span class="in">`R`</span>, podemos definir cores diretamente pelo **nome**, como por exemplo <span class="in">`"red"`</span>, <span class="in">`"yellow"`</span> e <span class="in">`"blue"`</span>.</span>
+<span id="cb9-334"><a href="#cb9-334" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-335"><a href="#cb9-335" aria-hidden="true" tabindex="-1"></a>A lista completa de cores reconhecidas pelo <span class="in">`R`</span> pode ser consultada em</span>
+<span id="cb9-336"><a href="#cb9-336" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-337"><a href="#cb9-337" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/Paleta1.png)</span>{fig-align="center"}</span>
+<span id="cb9-338"><a href="#cb9-338" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-339"><a href="#cb9-339" aria-hidden="true" tabindex="-1"></a>Também podemos utilizar **códigos hexadecimais**, iniciados por <span class="in">`#`</span> como, por exemplo, <span class="in">`"#FF0000"`</span> (vermelho), <span class="in">`"#0000FF"`</span> (azul) ou <span class="in">`"#FFD700"`</span> (dourado). Mais exemplos de cores nessa codificação podem ser consultados aqui:</span>
+<span id="cb9-340"><a href="#cb9-340" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-341"><a href="#cb9-341" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/Paleta2.gif)</span>{fig-align="center"}</span>
+<span id="cb9-342"><a href="#cb9-342" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-343"><a href="#cb9-343" aria-hidden="true" tabindex="-1"></a>No <span class="in">`ggplot2`</span>, as cores podem ser definidas ou modificadas por meio dos comandos apropriados. Por exemplo, <span class="in">`scale_color_manual()`</span> e <span class="in">`scale_fill_manual()`</span>, em que:</span>
+<span id="cb9-344"><a href="#cb9-344" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-345"><a href="#cb9-345" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-346"><a href="#cb9-346" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`scale_color_manual()`</span> → define manualmente as cores de **pontos, linhas e contornos**.</span>
+<span id="cb9-347"><a href="#cb9-347" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span><span class="in">`scale_color_manual(values = c("red", "blue", "green")`</span></span>
+<span id="cb9-348"><a href="#cb9-348" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`scale_fill_manual()`</span> → define manualmente as cores de **preenchimento**.</span>
+<span id="cb9-349"><a href="#cb9-349" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span><span class="in">`scale_fill_manual(values = c("red", "blue", "green")`</span></span>
+<span id="cb9-350"><a href="#cb9-350" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-351"><a href="#cb9-351" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-352"><a href="#cb9-352" aria-hidden="true" tabindex="-1"></a><span class="fu">### **PALETAS PRONTAS**</span></span>
+<span id="cb9-353"><a href="#cb9-353" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-354"><a href="#cb9-354" aria-hidden="true" tabindex="-1"></a>Existem diversos pacotes que disponibilizam conjuntos de cores já construídos.</span>
+<span id="cb9-355"><a href="#cb9-355" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-356"><a href="#cb9-356" aria-hidden="true" tabindex="-1"></a><span class="fu">#### **`RColorBrewer`**</span></span>
+<span id="cb9-357"><a href="#cb9-357" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-358"><a href="#cb9-358" aria-hidden="true" tabindex="-1"></a>Um dos pacotes clássicos para escolha de paletas. As diferentes paletas estão disponíveis na seguinte imagem: </span>
+<span id="cb9-359"><a href="#cb9-359" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-360"><a href="#cb9-360" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/Paleta3.png)</span>{fig-align="center"}</span>
+<span id="cb9-361"><a href="#cb9-361" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-362"><a href="#cb9-362" aria-hidden="true" tabindex="-1"></a>No <span class="in">`ggplot2`</span>, usaremos os comandos</span>
+<span id="cb9-363"><a href="#cb9-363" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-364"><a href="#cb9-364" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`scale_color_brewer()`</span> → aplica uma paleta aos **pontos, linhas e contornos**.</span>
+<span id="cb9-365"><a href="#cb9-365" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span><span class="in">`scale_color_brewer(palette = "Set1")`</span></span>
+<span id="cb9-366"><a href="#cb9-366" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`scale_fill_brewer()`</span> → aplica uma paleta aos **preenchimentos**.</span>
+<span id="cb9-367"><a href="#cb9-367" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span><span class="in">`scale_fill_brewer(palette = "Set2")`</span></span>
+<span id="cb9-368"><a href="#cb9-368" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-369"><a href="#cb9-369" aria-hidden="true" tabindex="-1"></a>Para visualizar as paletas disponíveis:</span>
+<span id="cb9-370"><a href="#cb9-370" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-371"><a href="#cb9-371" aria-hidden="true" tabindex="-1"></a><span class="fu">#### **`viridis`**</span></span>
+<span id="cb9-372"><a href="#cb9-372" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-373"><a href="#cb9-373" aria-hidden="true" tabindex="-1"></a>Muito utilizada em visualização científica, com boas propriedades de percepção e acessibilidade. Seguem a paleta principal desse pacote:</span>
+<span id="cb9-374"><a href="#cb9-374" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-375"><a href="#cb9-375" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/Paleta5.png)</span>{fig-align="center"}</span>
+<span id="cb9-376"><a href="#cb9-376" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-377"><a href="#cb9-377" aria-hidden="true" tabindex="-1"></a>No <span class="in">`ggplot2`</span>, usaremos estes comandos:</span>
+<span id="cb9-378"><a href="#cb9-378" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-379"><a href="#cb9-379" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`scale_color_viridis_d()`</span> → aplica uma paleta a uma variável **discreta**.</span>
+<span id="cb9-380"><a href="#cb9-380" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span><span class="in">`scale_color_viridis_d(option = "viridis")`</span></span>
+<span id="cb9-381"><a href="#cb9-381" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`scale_fill_viridis_d()`</span> → aplica a paleta aos **preenchimentos** de uma variável discreta.</span>
+<span id="cb9-382"><a href="#cb9-382" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span><span class="in">`scale_fill_viridis_d(option = "viridis")`</span></span>
+<span id="cb9-383"><a href="#cb9-383" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`scale_color_viridis_c()`</span> → aplica uma paleta a uma variável **contínua**.</span>
+<span id="cb9-384"><a href="#cb9-384" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span><span class="in">`scale_color_viridis_c(option = "viridis")`</span></span>
+<span id="cb9-385"><a href="#cb9-385" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`scale_fill_viridis_c()`</span> → aplica a paleta aos **preenchimentos** de uma variável contínua.</span>
+<span id="cb9-386"><a href="#cb9-386" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span><span class="in">`scale_fill_viridis_c(option = "viridis")`</span></span>
+<span id="cb9-387"><a href="#cb9-387" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-388"><a href="#cb9-388" aria-hidden="true" tabindex="-1"></a><span class="fu">#### **`ggsci`**</span></span>
+<span id="cb9-389"><a href="#cb9-389" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-390"><a href="#cb9-390" aria-hidden="true" tabindex="-1"></a>Disponibiliza paletas inspiradas em revistas e publicações científicas. As principais paletas podem ser consultadas no seguinte link <span class="co">[</span><span class="ot">GGSCI</span><span class="co">](https://nanx.me/ggsci/)</span>. No <span class="in">`ggplot2`</span>, para cada paleta, utilize os comandos <span class="in">`scale_color`</span> e <span class="in">`scale_fill`</span>, como nos seguintes exemplos:</span>
+<span id="cb9-391"><a href="#cb9-391" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-392"><a href="#cb9-392" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`scale_color_lancet()`</span> → paleta inspirada na **The Lancet**.</span>
+<span id="cb9-393"><a href="#cb9-393" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`scale_fill_npg()`</span> → paleta inspirada na **Nature Publishing Group**.</span>
+<span id="cb9-394"><a href="#cb9-394" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`scale_color_nejm()`</span> → paleta inspirada no **New England Journal of Medicine**.</span>
+<span id="cb9-395"><a href="#cb9-395" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`scale_fill_jama()`</span> → paleta inspirada na **JAMA**.</span>
+<span id="cb9-396"><a href="#cb9-396" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-397"><a href="#cb9-397" aria-hidden="true" tabindex="-1"></a><span class="fu">## **FUNÇÕES DO `ggplot2` USADAS NESTA DISCIPLINA**</span></span>
+<span id="cb9-398"><a href="#cb9-398" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-399"><a href="#cb9-399" aria-hidden="true" tabindex="-1"></a>Ao longo da disciplina, utilizaremos diversas funções do <span class="in">`ggplot2`</span> que formam a base da **gramática dos gráficos**.</span>
+<span id="cb9-400"><a href="#cb9-400" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-401"><a href="#cb9-401" aria-hidden="true" tabindex="-1"></a>Para facilitar o estudo, essas funções serão organizadas em sete grandes grupos:</span>
+<span id="cb9-402"><a href="#cb9-402" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-403"><a href="#cb9-403" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Dados**: define o conjunto de dados utilizado no gráfico;</span>
+<span id="cb9-404"><a href="#cb9-404" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Mapeamento**: define como as variáveis dos dados são associadas aos elementos visuais do gráfico;</span>
+<span id="cb9-405"><a href="#cb9-405" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Geometria**: especifica o tipo de representação gráfica a ser construída;</span>
+<span id="cb9-406"><a href="#cb9-406" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Escalas**: controla como os dados são representados nos eixos, cores e demais propriedades visuais;</span>
+<span id="cb9-407"><a href="#cb9-407" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Facetas**: permite dividir o gráfico em múltiplos painéis para comparar subconjuntos dos dados;</span>
+<span id="cb9-408"><a href="#cb9-408" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Coordenadas**: define o sistema de coordenadas e a orientação do gráfico;</span>
+<span id="cb9-409"><a href="#cb9-409" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Tema**: controla os elementos visuais do gráfico que não representam diretamente os dados.</span>
+<span id="cb9-410"><a href="#cb9-410" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-411"><a href="#cb9-411" aria-hidden="true" tabindex="-1"></a><span class="fu">### **DADOS**</span></span>
+<span id="cb9-412"><a href="#cb9-412" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-413"><a href="#cb9-413" aria-hidden="true" tabindex="-1"></a>Define o conjunto de dados utilizado no gráfico.</span>
+<span id="cb9-414"><a href="#cb9-414" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-415"><a href="#cb9-415" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`ggplot(data = Base_de_Dados, ...)`</span> → Inicia a construção do gráfico. O argumento <span class="in">`data`</span> define a base de dados utilizada.</span>
+<span id="cb9-416"><a href="#cb9-416" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-417"><a href="#cb9-417" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
+<span id="cb9-418"><a href="#cb9-418" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-419"><a href="#cb9-419" aria-hidden="true" tabindex="-1"></a><span class="fu">### **MAPEAMENTO**</span></span>
+<span id="cb9-420"><a href="#cb9-420" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-421"><a href="#cb9-421" aria-hidden="true" tabindex="-1"></a>Define como as variáveis dos dados são associadas às propriedades visuais do gráfico.</span>
+<span id="cb9-422"><a href="#cb9-422" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-423"><a href="#cb9-423" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`aes(x = Variavel, y = Variavel, fill = Variavel, ...)`</span> → Define os mapeamentos estéticos. <span class="in">`x`</span> associa uma variável ao eixo x; <span class="in">`y`</span>, ao eixo y; e <span class="in">`fill`</span>, à cor de preenchimento.</span>
+<span id="cb9-424"><a href="#cb9-424" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-425"><a href="#cb9-425" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
+<span id="cb9-426"><a href="#cb9-426" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-427"><a href="#cb9-427" aria-hidden="true" tabindex="-1"></a><span class="fu">### **GEOMETRIA**</span></span>
+<span id="cb9-428"><a href="#cb9-428" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-429"><a href="#cb9-429" aria-hidden="true" tabindex="-1"></a>Define o tipo de representação gráfica utilizada.</span>
+<span id="cb9-430"><a href="#cb9-430" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-431"><a href="#cb9-431" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`geom_bar()`</span> → Cria um gráfico de barras e realiza automaticamente a contagem das observações de cada categoria.</span>
+<span id="cb9-432"><a href="#cb9-432" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-433"><a href="#cb9-433" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`geom_text(stat = "count", aes(label = after_stat(count)), vjust = -0.5, size = 3)`</span> → Adiciona textos ao gráfico. <span class="in">`stat = "count"`</span> calcula as frequências; <span class="in">`label = after_stat(count)`</span> utiliza essas frequências como rótulos; <span class="in">`vjust`</span> controla a posição vertical; e <span class="in">`size`</span> controla o tamanho do texto.</span>
+<span id="cb9-434"><a href="#cb9-434" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-435"><a href="#cb9-435" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
+<span id="cb9-436"><a href="#cb9-436" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-437"><a href="#cb9-437" aria-hidden="true" tabindex="-1"></a><span class="fu">### **ESCALAS**</span></span>
+<span id="cb9-438"><a href="#cb9-438" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-439"><a href="#cb9-439" aria-hidden="true" tabindex="-1"></a>Controla como os dados são apresentados nos eixos, cores e demais propriedades visuais.</span>
+<span id="cb9-440"><a href="#cb9-440" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-441"><a href="#cb9-441" aria-hidden="true" tabindex="-1"></a><span class="fu">#### **Eixos**</span></span>
+<span id="cb9-442"><a href="#cb9-442" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-443"><a href="#cb9-443" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`xlab("nome_do_eixo_x")`</span> → Define o título do eixo x.</span>
+<span id="cb9-444"><a href="#cb9-444" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-445"><a href="#cb9-445" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`ylab("nome_do_eixo_y")`</span> → Define o título do eixo y.</span>
+<span id="cb9-446"><a href="#cb9-446" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-447"><a href="#cb9-447" aria-hidden="true" tabindex="-1"></a><span class="fu">#### **Cores**</span></span>
+<span id="cb9-448"><a href="#cb9-448" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-449"><a href="#cb9-449" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`scale_fill_manual(values = c(...))`</span> → Define manualmente as cores de preenchimento. O argumento <span class="in">`values`</span> recebe as cores que serão utilizadas nas categorias.</span>
+<span id="cb9-450"><a href="#cb9-450" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-451"><a href="#cb9-451" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`scale_fill_brewer(palette = "...")`</span> → Utiliza uma paleta do <span class="in">`RColorBrewer`</span>. O argumento <span class="in">`palette`</span> define a paleta utilizada.</span>
+<span id="cb9-452"><a href="#cb9-452" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-453"><a href="#cb9-453" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`scale_fill_viridis_d(option = "...")`</span> → Utiliza uma paleta discreta do <span class="in">`viridis`</span>. O argumento <span class="in">`option`</span> define a paleta utilizada.</span>
+<span id="cb9-454"><a href="#cb9-454" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-455"><a href="#cb9-455" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
+<span id="cb9-456"><a href="#cb9-456" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-457"><a href="#cb9-457" aria-hidden="true" tabindex="-1"></a><span class="fu">### **FACETAS**</span></span>
+<span id="cb9-458"><a href="#cb9-458" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-459"><a href="#cb9-459" aria-hidden="true" tabindex="-1"></a>Permite dividir o gráfico em múltiplos painéis de acordo com uma ou mais variáveis.</span>
+<span id="cb9-460"><a href="#cb9-460" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-461"><a href="#cb9-461" aria-hidden="true" tabindex="-1"></a>*Nenhum comando utilizado até o momento.*</span>
+<span id="cb9-462"><a href="#cb9-462" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-463"><a href="#cb9-463" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
+<span id="cb9-464"><a href="#cb9-464" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-465"><a href="#cb9-465" aria-hidden="true" tabindex="-1"></a><span class="fu">### **COORDENADAS**</span></span>
+<span id="cb9-466"><a href="#cb9-466" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-467"><a href="#cb9-467" aria-hidden="true" tabindex="-1"></a>Define o sistema de coordenadas e a orientação utilizada na representação gráfica.</span>
+<span id="cb9-468"><a href="#cb9-468" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-469"><a href="#cb9-469" aria-hidden="true" tabindex="-1"></a>*Nenhum comando utilizado até o momento.*</span>
+<span id="cb9-470"><a href="#cb9-470" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-471"><a href="#cb9-471" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
+<span id="cb9-472"><a href="#cb9-472" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-473"><a href="#cb9-473" aria-hidden="true" tabindex="-1"></a><span class="fu">### **TEMA**</span></span>
+<span id="cb9-474"><a href="#cb9-474" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-475"><a href="#cb9-475" aria-hidden="true" tabindex="-1"></a>Controla a aparência geral do gráfico, incluindo fundo, grades, textos, legenda e demais elementos visuais que não representam diretamente os dados.</span>
+<span id="cb9-476"><a href="#cb9-476" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-477"><a href="#cb9-477" aria-hidden="true" tabindex="-1"></a><span class="fu">#### **Temas prontos**</span></span>
+<span id="cb9-478"><a href="#cb9-478" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-479"><a href="#cb9-479" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`theme_gray()`</span> → Tema padrão do <span class="in">`ggplot2`</span>, com fundo cinza e grades brancas.</span>
+<span id="cb9-480"><a href="#cb9-480" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-481"><a href="#cb9-481" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`theme_bw()`</span> → Fundo branco com bordas e grades, produzindo um gráfico mais limpo.</span>
+<span id="cb9-482"><a href="#cb9-482" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-483"><a href="#cb9-483" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`theme_classic()`</span> → Fundo branco, sem grades, mantendo apenas os eixos.</span>
+<span id="cb9-484"><a href="#cb9-484" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-485"><a href="#cb9-485" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`theme_minimal()`</span> → Tema minimalista, com poucos elementos visuais.</span>
+<span id="cb9-486"><a href="#cb9-486" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-487"><a href="#cb9-487" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`theme_light()`</span> → Fundo claro com grades leves.</span>
+<span id="cb9-488"><a href="#cb9-488" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-489"><a href="#cb9-489" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`theme_dark()`</span> → Fundo escuro com grades claras.</span>
+<span id="cb9-490"><a href="#cb9-490" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-491"><a href="#cb9-491" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`theme_void()`</span> → Remove praticamente todos os elementos do gráfico, incluindo eixos, grades e fundo.</span>
+<span id="cb9-492"><a href="#cb9-492" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-493"><a href="#cb9-493" aria-hidden="true" tabindex="-1"></a>Todos esses temas permitem utilizar o argumento <span class="in">`base_size`</span> para alterar proporcionalmente o tamanho dos textos do gráfico:</span>
+<span id="cb9-494"><a href="#cb9-494" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-495"><a href="#cb9-495" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`theme_bw(base_size = 14)`</span> → Aplica o tema e define o tamanho-base dos textos como 14.</span>
+<span id="cb9-496"><a href="#cb9-496" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-497"><a href="#cb9-497" aria-hidden="true" tabindex="-1"></a><span class="fu">#### **Personalização com `theme()`**</span></span>
+<span id="cb9-498"><a href="#cb9-498" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-499"><a href="#cb9-499" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`theme(legend.position = "none")`</span> → Remove a legenda. Também podem ser utilizadas <span class="in">`"top"`</span>, <span class="in">`"bottom"`</span>, <span class="in">`"left"`</span> e <span class="in">`"right"`</span> para alterar sua posição.</span>
+<span id="cb9-500"><a href="#cb9-500" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-501"><a href="#cb9-501" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`theme(text = element_text(size = 14))`</span> → Altera o tamanho de todos os textos do gráfico.</span>
+<span id="cb9-502"><a href="#cb9-502" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-503"><a href="#cb9-503" aria-hidden="true" tabindex="-1"></a><span class="fu">#### **Controle do tamanho de cada componente**</span></span>
+<span id="cb9-504"><a href="#cb9-504" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-505"><a href="#cb9-505" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`theme(axis.title = element_text(size = 16))`</span> → Altera o tamanho dos títulos dos dois eixos.</span>
+<span id="cb9-506"><a href="#cb9-506" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-507"><a href="#cb9-507" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`theme(axis.title.x = element_text(size = 16))`</span> → Altera o tamanho do título do eixo x.</span>
+<span id="cb9-508"><a href="#cb9-508" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-509"><a href="#cb9-509" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`theme(axis.title.y = element_text(size = 16))`</span> → Altera o tamanho do título do eixo y.</span>
+<span id="cb9-510"><a href="#cb9-510" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-511"><a href="#cb9-511" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`theme(axis.text = element_text(size = 14))`</span> → Altera o tamanho dos valores ou categorias apresentados nos dois eixos.</span>
+<span id="cb9-512"><a href="#cb9-512" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-513"><a href="#cb9-513" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`theme(axis.text.x = element_text(size = 14))`</span> → Altera o tamanho dos valores ou categorias do eixo x.</span>
+<span id="cb9-514"><a href="#cb9-514" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-515"><a href="#cb9-515" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`theme(axis.text.y = element_text(size = 14))`</span> → Altera o tamanho dos valores ou categorias do eixo y.</span>
+<span id="cb9-516"><a href="#cb9-516" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-517"><a href="#cb9-517" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`theme(plot.title = element_text(size = 18))`</span> → Altera o tamanho do título principal do gráfico.</span>
+<span id="cb9-518"><a href="#cb9-518" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-519"><a href="#cb9-519" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`theme(plot.subtitle = element_text(size = 16))`</span> → Altera o tamanho do subtítulo do gráfico.</span>
+<span id="cb9-520"><a href="#cb9-520" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-521"><a href="#cb9-521" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`theme(plot.caption = element_text(size = 12))`</span> → Altera o tamanho do texto de rodapé do gráfico.</span>
+<span id="cb9-522"><a href="#cb9-522" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-523"><a href="#cb9-523" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`theme(legend.title = element_text(size = 14))`</span> → Altera o tamanho do título da legenda.</span>
+<span id="cb9-524"><a href="#cb9-524" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-525"><a href="#cb9-525" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`theme(legend.text = element_text(size = 12))`</span> → Altera o tamanho dos textos das categorias da legenda.</span>
+<span id="cb9-526"><a href="#cb9-526" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-527"><a href="#cb9-527" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`theme(strip.text = element_text(size = 14))`</span> → Altera o tamanho dos títulos dos painéis criados por facetas.</span>
+<span id="cb9-528"><a href="#cb9-528" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-529"><a href="#cb9-529" aria-hidden="true" tabindex="-1"></a><span class="fu">#### **Outras opções de `element_text()`**</span></span>
+<span id="cb9-530"><a href="#cb9-530" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-531"><a href="#cb9-531" aria-hidden="true" tabindex="-1"></a>Os comandos anteriores podem ser combinados com outros argumentos de <span class="in">`element_text()`</span>:</span>
+<span id="cb9-532"><a href="#cb9-532" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-533"><a href="#cb9-533" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`element_text(size = 14)`</span> → Altera o tamanho do texto.</span>
+<span id="cb9-534"><a href="#cb9-534" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-535"><a href="#cb9-535" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`element_text(color = "red")`</span> → Altera a cor do texto.</span>
+<span id="cb9-536"><a href="#cb9-536" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-537"><a href="#cb9-537" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`element_text(face = "bold")`</span> → Coloca o texto em negrito. Também podem ser utilizados <span class="in">`"plain"`</span>, <span class="in">`"italic"`</span> e <span class="in">`"bold.italic"`</span>.</span>
+<span id="cb9-538"><a href="#cb9-538" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-539"><a href="#cb9-539" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`element_text(angle = 45)`</span> → Rotaciona o texto pelo ângulo especificado.</span>
+<span id="cb9-540"><a href="#cb9-540" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-541"><a href="#cb9-541" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`element_text(hjust = 0.5)`</span> → Controla o alinhamento horizontal do texto.</span>
+<span id="cb9-542"><a href="#cb9-542" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-543"><a href="#cb9-543" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`element_text(vjust = 0.5)`</span> → Controla o alinhamento vertical do texto.</span>
+<span id="cb9-544"><a href="#cb9-544" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-545"><a href="#cb9-545" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
+<span id="cb9-546"><a href="#cb9-546" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-547"><a href="#cb9-547" aria-hidden="true" tabindex="-1"></a><span class="fu">### **FUNÇÕES AUXILIARES**</span></span>
+<span id="cb9-548"><a href="#cb9-548" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-549"><a href="#cb9-549" aria-hidden="true" tabindex="-1"></a>Funções que não pertencem diretamente ao <span class="in">`ggplot2`</span>, mas são úteis na preparação das variáveis para a construção dos gráficos.</span>
+<span id="cb9-550"><a href="#cb9-550" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-551"><a href="#cb9-551" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`factor(Variavel, levels = c(...))`</span> → Transforma ou redefine uma variável como fator. O argumento <span class="in">`levels`</span> determina a ordem das categorias.</span>
+<span id="cb9-552"><a href="#cb9-552" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-553"><a href="#cb9-553" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`fct_infreq(Variavel)`</span> → Ordena as categorias de uma variável da **maior para a menor frequência**.</span>
+<span id="cb9-554"><a href="#cb9-554" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-555"><a href="#cb9-555" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`fct_rev(Variavel)`</span> → Inverte a ordem dos níveis de uma variável. Com <span class="in">`fct_rev(fct_infreq(Variavel))`</span>, as categorias são apresentadas da **menor para a maior frequência**.</span>
+</code><button title="Copiar para a área de transferência" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
