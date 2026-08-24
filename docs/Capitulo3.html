@@ -261,15 +261,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#elementos-vazios" id="toc-elementos-vazios" class="nav-link" data-scroll-target="#elementos-vazios"><span class="header-section-number">6.6.7.4</span> <strong>Elementos vazios</strong></a></li>
   <li><a href="#outras-opções-de-element_text" id="toc-outras-opções-de-element_text" class="nav-link" data-scroll-target="#outras-opções-de-element_text"><span class="header-section-number">6.6.7.5</span> <strong>Outras opções de <code>element_text()</code></strong></a></li>
   </ul></li>
-  <li><a href="#funções-auxiliares" id="toc-funções-auxiliares" class="nav-link" data-scroll-target="#funções-auxiliares"><span class="header-section-number">6.6.8</span> <strong>FUNÇÕES AUXILIARES</strong></a>
-  <ul class="collapse">
-  <li><a href="#ordenação-e-fatores" id="toc-ordenação-e-fatores" class="nav-link" data-scroll-target="#ordenação-e-fatores"><span class="header-section-number">6.6.8.1</span> <strong>Ordenação e fatores</strong></a></li>
-  <li><a href="#formatação-de-percentuais" id="toc-formatação-de-percentuais" class="nav-link" data-scroll-target="#formatação-de-percentuais"><span class="header-section-number">6.6.8.2</span> <strong>Formatação de percentuais</strong></a></li>
-  <li><a href="#contagens" id="toc-contagens" class="nav-link" data-scroll-target="#contagens"><span class="header-section-number">6.6.8.3</span> <strong>Contagens</strong></a></li>
-  <li><a href="#construção-de-rótulos" id="toc-construção-de-rótulos" class="nav-link" data-scroll-target="#construção-de-rótulos"><span class="header-section-number">6.6.8.4</span> <strong>Construção de rótulos</strong></a></li>
-  <li><a href="#criação-de-sequências" id="toc-criação-de-sequências" class="nav-link" data-scroll-target="#criação-de-sequências"><span class="header-section-number">6.6.8.5</span> <strong>Criação de sequências</strong></a></li>
-  </ul></li>
-  <li><a href="#resumo-das-principais-posições-das-barras" id="toc-resumo-das-principais-posições-das-barras" class="nav-link" data-scroll-target="#resumo-das-principais-posições-das-barras"><span class="header-section-number">6.6.9</span> <strong>RESUMO DAS PRINCIPAIS POSIÇÕES DAS BARRAS</strong></a></li>
   </ul></li>
   </ul>
 </nav>
@@ -974,65 +965,11 @@ Reunião desses pacotes sob uma mesma filosofia:<br>
 <li><p><code>element_text(hjust = 0.5)</code> → Controla o alinhamento horizontal do texto.</p></li>
 <li><p><code>element_text(vjust = 0.5)</code> → Controla o alinhamento vertical do texto.</p></li>
 </ul>
-<hr>
-</section>
-</section>
-<section id="funções-auxiliares" class="level3" data-number="6.6.8">
-<h3 data-number="6.6.8" class="anchored" data-anchor-id="funções-auxiliares"><span class="header-section-number">6.6.8</span> <strong>FUNÇÕES AUXILIARES</strong></h3>
-<p>Funções que não pertencem diretamente ao <code>ggplot2</code>, mas são úteis na preparação das variáveis, cálculos ou formatação dos gráficos.</p>
-<section id="ordenação-e-fatores" class="level4" data-number="6.6.8.1">
-<h4 data-number="6.6.8.1" class="anchored" data-anchor-id="ordenação-e-fatores"><span class="header-section-number">6.6.8.1</span> <strong>Ordenação e fatores</strong></h4>
-<ul>
-<li><p><code>factor(Variavel, levels = c(...))</code> → Transforma ou redefine uma variável como fator. O argumento <code>levels</code> determina a ordem das categorias.</p></li>
-<li><p><code>fct_infreq(Variavel)</code> → Ordena as categorias de uma variável da <strong>maior para a menor frequência</strong>.</p></li>
-<li><p><code>fct_rev(Variavel)</code> → Inverte a ordem dos níveis de uma variável. Com <code>fct_rev(fct_infreq(Variavel))</code>, as categorias são apresentadas da <strong>menor para a maior frequência</strong>.</p></li>
-</ul>
-</section>
-<section id="formatação-de-percentuais" class="level4" data-number="6.6.8.2">
-<h4 data-number="6.6.8.2" class="anchored" data-anchor-id="formatação-de-percentuais"><span class="header-section-number">6.6.8.2</span> <strong>Formatação de percentuais</strong></h4>
-<ul>
-<li><p><code>scales::percent(Variavel)</code> → Formata valores proporcionais como porcentagens.</p></li>
-<li><p><code>scales::percent(Variavel, accuracy = 0.1)</code> → Formata valores como porcentagens com precisão de uma casa decimal.</p></li>
-</ul>
-</section>
-<section id="contagens" class="level4" data-number="6.6.8.3">
-<h4 data-number="6.6.8.3" class="anchored" data-anchor-id="contagens"><span class="header-section-number">6.6.8.3</span> <strong>Contagens</strong></h4>
-<ul>
-<li><code>dplyr::count(Variavel1, Variavel2, ...)</code> → Conta o número de observações para cada combinação das variáveis especificadas.</li>
-</ul>
-</section>
-<section id="construção-de-rótulos" class="level4" data-number="6.6.8.4">
-<h4 data-number="6.6.8.4" class="anchored" data-anchor-id="construção-de-rótulos"><span class="header-section-number">6.6.8.4</span> <strong>Construção de rótulos</strong></h4>
-<ul>
-<li><code>paste0("texto", Variavel)</code> → Concatena textos e valores sem inserir espaços automaticamente. Pode ser utilizado, por exemplo, para criar rótulos como <code>"n = 35"</code>.</li>
-</ul>
-</section>
-<section id="criação-de-sequências" class="level4" data-number="6.6.8.5">
-<h4 data-number="6.6.8.5" class="anchored" data-anchor-id="criação-de-sequências"><span class="header-section-number">6.6.8.5</span> <strong>Criação de sequências</strong></h4>
-<ul>
-<li><code>seq(inicio, fim, passo)</code> → Cria uma sequência numérica. Por exemplo, <code>seq(0, 1, 0.25)</code> gera os valores <code>0</code>, <code>0.25</code>, <code>0.50</code>, <code>0.75</code> e <code>1</code>.</li>
-</ul>
-<hr>
-</section>
-</section>
-<section id="resumo-das-principais-posições-das-barras" class="level3" data-number="6.6.9">
-<h3 data-number="6.6.9" class="anchored" data-anchor-id="resumo-das-principais-posições-das-barras"><span class="header-section-number">6.6.9</span> <strong>RESUMO DAS PRINCIPAIS POSIÇÕES DAS BARRAS</strong></h3>
-<p>Alguns argumentos de posição aparecem repetidamente nos gráficos de barras:</p>
-<ul>
-<li><p><code>position = "stack"</code> → Empilha as categorias. É o comportamento padrão de <code>geom_bar()</code> quando existe uma variável em <code>fill</code>.</p></li>
-<li><p><code>position = "fill"</code> → Empilha as categorias e transforma cada barra em 100%, permitindo comparar proporções.</p></li>
-<li><p><code>position = position_dodge()</code> → Coloca as categorias lado a lado.</p></li>
-</ul>
-<p>Para os textos:</p>
-<ul>
-<li><p><code>position_stack(vjust = 0.5)</code> → Coloca os textos no centro dos segmentos de barras empilhadas.</p></li>
-<li><p><code>position_fill(0.5)</code> → Coloca os textos no centro dos segmentos de barras relativas.</p></li>
-<li><p><code>position_dodge(width = 0.9)</code> → Faz os textos acompanharem barras apresentadas lado a lado.</p></li>
-</ul>
 
 
 <!-- -->
 
+</section>
 </section>
 </section>
 
@@ -2117,58 +2054,6 @@ Reunião desses pacotes sob uma mesma filosofia:<br>
 <span id="cb9-621"><a href="#cb9-621" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`element_text(hjust = 0.5)`</span> → Controla o alinhamento horizontal do texto.</span>
 <span id="cb9-622"><a href="#cb9-622" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-623"><a href="#cb9-623" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`element_text(vjust = 0.5)`</span> → Controla o alinhamento vertical do texto.</span>
-<span id="cb9-624"><a href="#cb9-624" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-625"><a href="#cb9-625" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
-<span id="cb9-626"><a href="#cb9-626" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-627"><a href="#cb9-627" aria-hidden="true" tabindex="-1"></a><span class="fu">### **FUNÇÕES AUXILIARES**</span></span>
-<span id="cb9-628"><a href="#cb9-628" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-629"><a href="#cb9-629" aria-hidden="true" tabindex="-1"></a>Funções que não pertencem diretamente ao <span class="in">`ggplot2`</span>, mas são úteis na preparação das variáveis, cálculos ou formatação dos gráficos.</span>
-<span id="cb9-630"><a href="#cb9-630" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-631"><a href="#cb9-631" aria-hidden="true" tabindex="-1"></a><span class="fu">#### **Ordenação e fatores**</span></span>
-<span id="cb9-632"><a href="#cb9-632" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-633"><a href="#cb9-633" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`factor(Variavel, levels = c(...))`</span> → Transforma ou redefine uma variável como fator. O argumento <span class="in">`levels`</span> determina a ordem das categorias.</span>
-<span id="cb9-634"><a href="#cb9-634" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-635"><a href="#cb9-635" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`fct_infreq(Variavel)`</span> → Ordena as categorias de uma variável da **maior para a menor frequência**.</span>
-<span id="cb9-636"><a href="#cb9-636" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-637"><a href="#cb9-637" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`fct_rev(Variavel)`</span> → Inverte a ordem dos níveis de uma variável. Com <span class="in">`fct_rev(fct_infreq(Variavel))`</span>, as categorias são apresentadas da **menor para a maior frequência**.</span>
-<span id="cb9-638"><a href="#cb9-638" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-639"><a href="#cb9-639" aria-hidden="true" tabindex="-1"></a><span class="fu">#### **Formatação de percentuais**</span></span>
-<span id="cb9-640"><a href="#cb9-640" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-641"><a href="#cb9-641" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`scales::percent(Variavel)`</span> → Formata valores proporcionais como porcentagens.</span>
-<span id="cb9-642"><a href="#cb9-642" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-643"><a href="#cb9-643" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`scales::percent(Variavel, accuracy = 0.1)`</span> → Formata valores como porcentagens com precisão de uma casa decimal.</span>
-<span id="cb9-644"><a href="#cb9-644" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-645"><a href="#cb9-645" aria-hidden="true" tabindex="-1"></a><span class="fu">#### **Contagens**</span></span>
-<span id="cb9-646"><a href="#cb9-646" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-647"><a href="#cb9-647" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`dplyr::count(Variavel1, Variavel2, ...)`</span> → Conta o número de observações para cada combinação das variáveis especificadas.</span>
-<span id="cb9-648"><a href="#cb9-648" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-649"><a href="#cb9-649" aria-hidden="true" tabindex="-1"></a><span class="fu">#### **Construção de rótulos**</span></span>
-<span id="cb9-650"><a href="#cb9-650" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-651"><a href="#cb9-651" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`paste0("texto", Variavel)`</span> → Concatena textos e valores sem inserir espaços automaticamente. Pode ser utilizado, por exemplo, para criar rótulos como <span class="in">`"n = 35"`</span>.</span>
-<span id="cb9-652"><a href="#cb9-652" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-653"><a href="#cb9-653" aria-hidden="true" tabindex="-1"></a><span class="fu">#### **Criação de sequências**</span></span>
-<span id="cb9-654"><a href="#cb9-654" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-655"><a href="#cb9-655" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`seq(inicio, fim, passo)`</span> → Cria uma sequência numérica. Por exemplo, <span class="in">`seq(0, 1, 0.25)`</span> gera os valores <span class="in">`0`</span>, <span class="in">`0.25`</span>, <span class="in">`0.50`</span>, <span class="in">`0.75`</span> e <span class="in">`1`</span>.</span>
-<span id="cb9-656"><a href="#cb9-656" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-657"><a href="#cb9-657" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
-<span id="cb9-658"><a href="#cb9-658" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-659"><a href="#cb9-659" aria-hidden="true" tabindex="-1"></a><span class="fu">### **RESUMO DAS PRINCIPAIS POSIÇÕES DAS BARRAS**</span></span>
-<span id="cb9-660"><a href="#cb9-660" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-661"><a href="#cb9-661" aria-hidden="true" tabindex="-1"></a>Alguns argumentos de posição aparecem repetidamente nos gráficos de barras:</span>
-<span id="cb9-662"><a href="#cb9-662" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-663"><a href="#cb9-663" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`position = "stack"`</span> → Empilha as categorias. É o comportamento padrão de <span class="in">`geom_bar()`</span> quando existe uma variável em <span class="in">`fill`</span>.</span>
-<span id="cb9-664"><a href="#cb9-664" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-665"><a href="#cb9-665" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`position = "fill"`</span> → Empilha as categorias e transforma cada barra em 100%, permitindo comparar proporções.</span>
-<span id="cb9-666"><a href="#cb9-666" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-667"><a href="#cb9-667" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`position = position_dodge()`</span> → Coloca as categorias lado a lado.</span>
-<span id="cb9-668"><a href="#cb9-668" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-669"><a href="#cb9-669" aria-hidden="true" tabindex="-1"></a>Para os textos:</span>
-<span id="cb9-670"><a href="#cb9-670" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-671"><a href="#cb9-671" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`position_stack(vjust = 0.5)`</span> → Coloca os textos no centro dos segmentos de barras empilhadas.</span>
-<span id="cb9-672"><a href="#cb9-672" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-673"><a href="#cb9-673" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`position_fill(0.5)`</span> → Coloca os textos no centro dos segmentos de barras relativas.</span>
-<span id="cb9-674"><a href="#cb9-674" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-675"><a href="#cb9-675" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`position_dodge(width = 0.9)`</span> → Faz os textos acompanharem barras apresentadas lado a lado.</span>
 </code><button title="Copiar para a área de transferência" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
