@@ -1585,7 +1585,7 @@ A escolha correta ajuda a garantir que seu correlograma represente de forma fiel
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="Capitulo5_files/figure-html/unnamed-chunk-32-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="Capitulo5_files/figure-html/unnamed-chunk-32-1.png" class="img-fluid figure-img" width="960"></p>
 </figure>
 </div>
 </div>
@@ -1625,7 +1625,7 @@ A escolha correta ajuda a garantir que seu correlograma represente de forma fiel
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="Capitulo5_files/figure-html/unnamed-chunk-33-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="Capitulo5_files/figure-html/unnamed-chunk-33-1.png" class="img-fluid figure-img" width="960"></p>
 </figure>
 </div>
 </div>
@@ -3539,398 +3539,398 @@ Define os <strong>rótulos exibidos na legenda</strong>, correspondentes aos val
 <span id="cb56-1067"><a href="#cb56-1067" aria-hidden="true" tabindex="-1"></a>Para os nossos dados, por exemplo, podemos fazer o seguinte **correlograma com base na correlação de Pearson**:</span>
 <span id="cb56-1068"><a href="#cb56-1068" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb56-1069"><a href="#cb56-1069" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-1072"><a href="#cb56-1072" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb56-1073"><a href="#cb56-1073" aria-hidden="true" tabindex="-1"></a>M <span class="ot">=</span> <span class="fu">cor</span>(Dados,<span class="at">method=</span><span class="st">"pearson"</span>)</span>
-<span id="cb56-1074"><a href="#cb56-1074" aria-hidden="true" tabindex="-1"></a><span class="fu">corrplot</span>(M,</span>
-<span id="cb56-1075"><a href="#cb56-1075" aria-hidden="true" tabindex="-1"></a>         <span class="at">method =</span> <span class="st">"circle"</span>,</span>
-<span id="cb56-1076"><a href="#cb56-1076" aria-hidden="true" tabindex="-1"></a>         <span class="at">type =</span> <span class="st">"upper"</span>,</span>
-<span id="cb56-1077"><a href="#cb56-1077" aria-hidden="true" tabindex="-1"></a>         <span class="at">addCoef.col =</span> <span class="st">"black"</span>)</span>
-<span id="cb56-1078"><a href="#cb56-1078" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb56-1070"><a href="#cb56-1070" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, fig.width=10, fig.height=10}</span></span>
+<span id="cb56-1071"><a href="#cb56-1071" aria-hidden="true" tabindex="-1"></a>M <span class="ot">=</span> <span class="fu">cor</span>(Dados,<span class="at">method=</span><span class="st">"pearson"</span>)</span>
+<span id="cb56-1072"><a href="#cb56-1072" aria-hidden="true" tabindex="-1"></a><span class="fu">corrplot</span>(M,</span>
+<span id="cb56-1073"><a href="#cb56-1073" aria-hidden="true" tabindex="-1"></a>         <span class="at">method =</span> <span class="st">"circle"</span>,</span>
+<span id="cb56-1074"><a href="#cb56-1074" aria-hidden="true" tabindex="-1"></a>         <span class="at">type =</span> <span class="st">"upper"</span>,</span>
+<span id="cb56-1075"><a href="#cb56-1075" aria-hidden="true" tabindex="-1"></a>         <span class="at">addCoef.col =</span> <span class="st">"black"</span>)</span>
+<span id="cb56-1076"><a href="#cb56-1076" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb56-1077"><a href="#cb56-1077" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-1078"><a href="#cb56-1078" aria-hidden="true" tabindex="-1"></a>**Correlações entre variáveis físico-químicas:**</span>
 <span id="cb56-1079"><a href="#cb56-1079" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-1080"><a href="#cb56-1080" aria-hidden="true" tabindex="-1"></a>**Correlações entre variáveis físico-químicas:**</span>
-<span id="cb56-1081"><a href="#cb56-1081" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-1082"><a href="#cb56-1082" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Açúcar residual e densidade**: correlação fortíssima positiva (0.86), coerente com o fato de que açúcares aumentam a densidade do vinho.  </span>
-<span id="cb56-1083"><a href="#cb56-1083" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Álcool e densidade**: correlação forte negativa (-0.82), já que o álcool é menos denso que a água.  </span>
-<span id="cb56-1084"><a href="#cb56-1084" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Álcool e açúcar residual**: correlação negativa moderada (-0.52), indicando que vinhos mais alcoólicos tendem a ter menos açúcar residual.  </span>
-<span id="cb56-1085"><a href="#cb56-1085" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**SO2 livre e SO2 total**: correlação positiva forte (0.62), esperado porque o total inclui a fração livre.  </span>
+<span id="cb56-1080"><a href="#cb56-1080" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Açúcar residual e densidade**: correlação fortíssima positiva (0.86), coerente com o fato de que açúcares aumentam a densidade do vinho.  </span>
+<span id="cb56-1081"><a href="#cb56-1081" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Álcool e densidade**: correlação forte negativa (-0.82), já que o álcool é menos denso que a água.  </span>
+<span id="cb56-1082"><a href="#cb56-1082" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Álcool e açúcar residual**: correlação negativa moderada (-0.52), indicando que vinhos mais alcoólicos tendem a ter menos açúcar residual.  </span>
+<span id="cb56-1083"><a href="#cb56-1083" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**SO2 livre e SO2 total**: correlação positiva forte (0.62), esperado porque o total inclui a fração livre.  </span>
+<span id="cb56-1084"><a href="#cb56-1084" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-1085"><a href="#cb56-1085" aria-hidden="true" tabindex="-1"></a>**Correlações com a qualidade:**</span>
 <span id="cb56-1086"><a href="#cb56-1086" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-1087"><a href="#cb56-1087" aria-hidden="true" tabindex="-1"></a>**Correlações com a qualidade:**</span>
-<span id="cb56-1088"><a href="#cb56-1088" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-1089"><a href="#cb56-1089" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Álcool**: correlação positiva moderada (0.49), sugerindo que vinhos mais alcoólicos tendem a ter melhor avaliação.  </span>
-<span id="cb56-1090"><a href="#cb56-1090" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Acidez volátil**: correlação negativa (-0.22), indicando que altos níveis de acidez volátil reduzem a qualidade percebida.  </span>
-<span id="cb56-1091"><a href="#cb56-1091" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Densidade**: correlação negativa moderada (-0.31), mostrando que vinhos mais densos (geralmente menos alcoólicos e mais doces) têm menor qualidade.  </span>
-<span id="cb56-1092"><a href="#cb56-1092" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Cloretos**: correlação negativa fraca (-0.18), indicando que excesso de sais compromete a qualidade.  </span>
-<span id="cb56-1093"><a href="#cb56-1093" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Outras variáveis**: relações muito fracas ou próximas de zero (ex.: açúcar residual, sulfatos)</span>
-<span id="cb56-1094"><a href="#cb56-1094" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-1087"><a href="#cb56-1087" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Álcool**: correlação positiva moderada (0.49), sugerindo que vinhos mais alcoólicos tendem a ter melhor avaliação.  </span>
+<span id="cb56-1088"><a href="#cb56-1088" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Acidez volátil**: correlação negativa (-0.22), indicando que altos níveis de acidez volátil reduzem a qualidade percebida.  </span>
+<span id="cb56-1089"><a href="#cb56-1089" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Densidade**: correlação negativa moderada (-0.31), mostrando que vinhos mais densos (geralmente menos alcoólicos e mais doces) têm menor qualidade.  </span>
+<span id="cb56-1090"><a href="#cb56-1090" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Cloretos**: correlação negativa fraca (-0.18), indicando que excesso de sais compromete a qualidade.  </span>
+<span id="cb56-1091"><a href="#cb56-1091" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Outras variáveis**: relações muito fracas ou próximas de zero (ex.: açúcar residual, sulfatos)</span>
+<span id="cb56-1092"><a href="#cb56-1092" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-1093"><a href="#cb56-1093" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-1094"><a href="#cb56-1094" aria-hidden="true" tabindex="-1"></a>Analogamente, tem-se o ***seguinte correlograma com base na correlação de Spearman**:</span>
 <span id="cb56-1095"><a href="#cb56-1095" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-1096"><a href="#cb56-1096" aria-hidden="true" tabindex="-1"></a>Analogamente, tem-se o ***seguinte correlograma com base na correlação de Spearman**:</span>
-<span id="cb56-1097"><a href="#cb56-1097" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-1100"><a href="#cb56-1100" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb56-1101"><a href="#cb56-1101" aria-hidden="true" tabindex="-1"></a>M <span class="ot">=</span> <span class="fu">cor</span>(Dados,<span class="at">method=</span><span class="st">"spearman"</span>)</span>
-<span id="cb56-1102"><a href="#cb56-1102" aria-hidden="true" tabindex="-1"></a><span class="fu">corrplot</span>(M,</span>
-<span id="cb56-1103"><a href="#cb56-1103" aria-hidden="true" tabindex="-1"></a>         <span class="at">method =</span> <span class="st">"circle"</span>,</span>
-<span id="cb56-1104"><a href="#cb56-1104" aria-hidden="true" tabindex="-1"></a>         <span class="at">type =</span> <span class="st">"upper"</span>,</span>
-<span id="cb56-1105"><a href="#cb56-1105" aria-hidden="true" tabindex="-1"></a>         <span class="at">addCoef.col =</span> <span class="st">"black"</span>)</span>
-<span id="cb56-1106"><a href="#cb56-1106" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb56-1107"><a href="#cb56-1107" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-1108"><a href="#cb56-1108" aria-hidden="true" tabindex="-1"></a>**Correlações entre variáveis físico-químicas:**</span>
-<span id="cb56-1109"><a href="#cb56-1109" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-1110"><a href="#cb56-1110" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Açúcar residual e densidade**: correlação muito forte (0.81), reforçando a relação monotônica entre as duas.  </span>
-<span id="cb56-1111"><a href="#cb56-1111" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Álcool e densidade**: correlação muito forte negativa (-0.85).  </span>
-<span id="cb56-1112"><a href="#cb56-1112" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**SO₂ livre e SO₂ total**: forte correlação (0.61), consistente com Pearson.  </span>
-<span id="cb56-1113"><a href="#cb56-1113" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Cloretos e densidade**: correlação mais intensa em Spearman (0.55 contra 0.29 em Pearson), sugerindo que a associação é mais monotônica que linear.  </span>
-<span id="cb56-1114"><a href="#cb56-1114" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-1115"><a href="#cb56-1115" aria-hidden="true" tabindex="-1"></a>**Correlações com a qualidade:**</span>
-<span id="cb56-1116"><a href="#cb56-1116" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-1117"><a href="#cb56-1117" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Álcool**: correlação positiva moderada-forte (0.50), praticamente idêntica à de Pearson.  </span>
-<span id="cb56-1118"><a href="#cb56-1118" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Densidade**: correlação negativa moderada (-0.34).  </span>
-<span id="cb56-1119"><a href="#cb56-1119" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Acidez volátil**: correlação negativa (-0.20), similar à de Pearson.  </span>
-<span id="cb56-1120"><a href="#cb56-1120" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Cloretos**: correlação negativa mais intensa (-0.28 em Spearman contra -0.18 em Pearson), sugerindo efeito monotônico mais claro.  </span>
-<span id="cb56-1121"><a href="#cb56-1121" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Outras variáveis**: correlações muito fracas ou próximas de zero.  </span>
-<span id="cb56-1122"><a href="#cb56-1122" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-1123"><a href="#cb56-1123" aria-hidden="true" tabindex="-1"></a>**Contraste entre Pearson e Spearman**:</span>
-<span id="cb56-1124"><a href="#cb56-1124" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-1125"><a href="#cb56-1125" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Ambas as matrizes **apontam as mesmas variáveis principais relacionadas à qualidade**:  </span>
-<span id="cb56-1126"><a href="#cb56-1126" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>**Positivo**: teor alcoólico.  </span>
-<span id="cb56-1127"><a href="#cb56-1127" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>**Negativo**: densidade, acidez volátil e cloretos.  </span>
-<span id="cb56-1128"><a href="#cb56-1128" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>As diferenças estão na **intensidade**:  </span>
-<span id="cb56-1129"><a href="#cb56-1129" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>**Spearman** detecta correlações mais fortes em algumas relações monotônicas (ex.: cloretos × qualidade, cloretos × álcool).  </span>
-<span id="cb56-1130"><a href="#cb56-1130" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>**Pearson** captura bem as relações lineares fortes (ex.: densidade × álcool, açúcar × densidade), que permanecem estáveis também em Spearman.  </span>
-<span id="cb56-1131"><a href="#cb56-1131" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-1132"><a href="#cb56-1132" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; A interpretação dos dois métodos é consistente: álcool é o </span></span>
-<span id="cb56-1133"><a href="#cb56-1133" aria-hidden="true" tabindex="-1"></a><span class="at">principal indicador positivo de qualidade, enquanto acidez </span></span>
-<span id="cb56-1134"><a href="#cb56-1134" aria-hidden="true" tabindex="-1"></a><span class="at">volátil, densidade e cloretos prejudicam a avaliação. </span></span>
-<span id="cb56-1135"><a href="#cb56-1135" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Spearman reforça que algumas associações não seguem uma linha reta, mas mantêm uma ordem clara, especialmente envolvendo os </span></span>
-<span id="cb56-1136"><a href="#cb56-1136" aria-hidden="true" tabindex="-1"></a><span class="at">cloretos.</span>  </span>
-<span id="cb56-1137"><a href="#cb56-1137" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb56-1138"><a href="#cb56-1138" aria-hidden="true" tabindex="-1"></a><span class="fu">## **GRÁFICO BOLHA**</span></span>
+<span id="cb56-1096"><a href="#cb56-1096" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, fig.width=10, fig.height=10}</span></span>
+<span id="cb56-1097"><a href="#cb56-1097" aria-hidden="true" tabindex="-1"></a>M <span class="ot">=</span> <span class="fu">cor</span>(Dados,<span class="at">method=</span><span class="st">"spearman"</span>)</span>
+<span id="cb56-1098"><a href="#cb56-1098" aria-hidden="true" tabindex="-1"></a><span class="fu">corrplot</span>(M,</span>
+<span id="cb56-1099"><a href="#cb56-1099" aria-hidden="true" tabindex="-1"></a>         <span class="at">method =</span> <span class="st">"circle"</span>,</span>
+<span id="cb56-1100"><a href="#cb56-1100" aria-hidden="true" tabindex="-1"></a>         <span class="at">type =</span> <span class="st">"upper"</span>,</span>
+<span id="cb56-1101"><a href="#cb56-1101" aria-hidden="true" tabindex="-1"></a>         <span class="at">addCoef.col =</span> <span class="st">"black"</span>)</span>
+<span id="cb56-1102"><a href="#cb56-1102" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb56-1103"><a href="#cb56-1103" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-1104"><a href="#cb56-1104" aria-hidden="true" tabindex="-1"></a>**Correlações entre variáveis físico-químicas:**</span>
+<span id="cb56-1105"><a href="#cb56-1105" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-1106"><a href="#cb56-1106" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Açúcar residual e densidade**: correlação muito forte (0.81), reforçando a relação monotônica entre as duas.  </span>
+<span id="cb56-1107"><a href="#cb56-1107" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Álcool e densidade**: correlação muito forte negativa (-0.85).  </span>
+<span id="cb56-1108"><a href="#cb56-1108" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**SO₂ livre e SO₂ total**: forte correlação (0.61), consistente com Pearson.  </span>
+<span id="cb56-1109"><a href="#cb56-1109" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Cloretos e densidade**: correlação mais intensa em Spearman (0.55 contra 0.29 em Pearson), sugerindo que a associação é mais monotônica que linear.  </span>
+<span id="cb56-1110"><a href="#cb56-1110" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-1111"><a href="#cb56-1111" aria-hidden="true" tabindex="-1"></a>**Correlações com a qualidade:**</span>
+<span id="cb56-1112"><a href="#cb56-1112" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-1113"><a href="#cb56-1113" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Álcool**: correlação positiva moderada-forte (0.50), praticamente idêntica à de Pearson.  </span>
+<span id="cb56-1114"><a href="#cb56-1114" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Densidade**: correlação negativa moderada (-0.34).  </span>
+<span id="cb56-1115"><a href="#cb56-1115" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Acidez volátil**: correlação negativa (-0.20), similar à de Pearson.  </span>
+<span id="cb56-1116"><a href="#cb56-1116" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Cloretos**: correlação negativa mais intensa (-0.28 em Spearman contra -0.18 em Pearson), sugerindo efeito monotônico mais claro.  </span>
+<span id="cb56-1117"><a href="#cb56-1117" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Outras variáveis**: correlações muito fracas ou próximas de zero.  </span>
+<span id="cb56-1118"><a href="#cb56-1118" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-1119"><a href="#cb56-1119" aria-hidden="true" tabindex="-1"></a>**Contraste entre Pearson e Spearman**:</span>
+<span id="cb56-1120"><a href="#cb56-1120" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-1121"><a href="#cb56-1121" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Ambas as matrizes **apontam as mesmas variáveis principais relacionadas à qualidade**:  </span>
+<span id="cb56-1122"><a href="#cb56-1122" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>**Positivo**: teor alcoólico.  </span>
+<span id="cb56-1123"><a href="#cb56-1123" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>**Negativo**: densidade, acidez volátil e cloretos.  </span>
+<span id="cb56-1124"><a href="#cb56-1124" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>As diferenças estão na **intensidade**:  </span>
+<span id="cb56-1125"><a href="#cb56-1125" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>**Spearman** detecta correlações mais fortes em algumas relações monotônicas (ex.: cloretos × qualidade, cloretos × álcool).  </span>
+<span id="cb56-1126"><a href="#cb56-1126" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>**Pearson** captura bem as relações lineares fortes (ex.: densidade × álcool, açúcar × densidade), que permanecem estáveis também em Spearman.  </span>
+<span id="cb56-1127"><a href="#cb56-1127" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-1128"><a href="#cb56-1128" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; A interpretação dos dois métodos é consistente: álcool é o </span></span>
+<span id="cb56-1129"><a href="#cb56-1129" aria-hidden="true" tabindex="-1"></a><span class="at">principal indicador positivo de qualidade, enquanto acidez </span></span>
+<span id="cb56-1130"><a href="#cb56-1130" aria-hidden="true" tabindex="-1"></a><span class="at">volátil, densidade e cloretos prejudicam a avaliação. </span></span>
+<span id="cb56-1131"><a href="#cb56-1131" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Spearman reforça que algumas associações não seguem uma linha reta, mas mantêm uma ordem clara, especialmente envolvendo os </span></span>
+<span id="cb56-1132"><a href="#cb56-1132" aria-hidden="true" tabindex="-1"></a><span class="at">cloretos.</span>  </span>
+<span id="cb56-1133"><a href="#cb56-1133" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb56-1134"><a href="#cb56-1134" aria-hidden="true" tabindex="-1"></a><span class="fu">## **GRÁFICO BOLHA**</span></span>
+<span id="cb56-1135"><a href="#cb56-1135" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-1136"><a href="#cb56-1136" aria-hidden="true" tabindex="-1"></a>O **gráfico bolha** é uma ferramenta visual poderosa para a análise de **três dimensões de dados simultaneamente**. Ele representa duas variáveis quantitativas nos eixos X e Y, enquanto uma **terceira variável é indicada pelo tamanho da bolha**, permitindo identificar padrões, tendências e concentrações de dados de forma intuitiva. Esse tipo de gráfico é amplamente utilizado em estatística exploratória, visualização de negócios e análise multivariada.</span>
+<span id="cb56-1137"><a href="#cb56-1137" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-1138"><a href="#cb56-1138" aria-hidden="true" tabindex="-1"></a>**As características de um gráfico bolha são:**</span>
 <span id="cb56-1139"><a href="#cb56-1139" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-1140"><a href="#cb56-1140" aria-hidden="true" tabindex="-1"></a>O **gráfico bolha** é uma ferramenta visual poderosa para a análise de **três dimensões de dados simultaneamente**. Ele representa duas variáveis quantitativas nos eixos X e Y, enquanto uma **terceira variável é indicada pelo tamanho da bolha**, permitindo identificar padrões, tendências e concentrações de dados de forma intuitiva. Esse tipo de gráfico é amplamente utilizado em estatística exploratória, visualização de negócios e análise multivariada.</span>
+<span id="cb56-1140"><a href="#cb56-1140" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**Representação tripla de variáveis:** Cada ponto no gráfico representa uma observação, onde a posição em X e Y indica duas variáveis e o tamanho da bolha indica a magnitude de uma terceira variável, fornecendo **uma visão simultânea de múltiplos aspectos do dado**.</span>
 <span id="cb56-1141"><a href="#cb56-1141" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-1142"><a href="#cb56-1142" aria-hidden="true" tabindex="-1"></a>**As características de um gráfico bolha são:**</span>
+<span id="cb56-1142"><a href="#cb56-1142" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**Identificação de padrões e tendências:** O gráfico permite **visualizar agrupamentos, relações proporcionais e possíveis tendências** entre as variáveis, ajudando a compreender interações complexas.</span>
 <span id="cb56-1143"><a href="#cb56-1143" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-1144"><a href="#cb56-1144" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**Representação tripla de variáveis:** Cada ponto no gráfico representa uma observação, onde a posição em X e Y indica duas variáveis e o tamanho da bolha indica a magnitude de uma terceira variável, fornecendo **uma visão simultânea de múltiplos aspectos do dado**.</span>
+<span id="cb56-1144"><a href="#cb56-1144" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**Destaque para outliers ou valores extremos:** Bolhas desproporcionalmente grandes ou pequenas podem indicar **observações atípicas** ou eventos relevantes que merecem investigação detalhada.</span>
 <span id="cb56-1145"><a href="#cb56-1145" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-1146"><a href="#cb56-1146" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**Identificação de padrões e tendências:** O gráfico permite **visualizar agrupamentos, relações proporcionais e possíveis tendências** entre as variáveis, ajudando a compreender interações complexas.</span>
+<span id="cb56-1146"><a href="#cb56-1146" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>**Complementos visuais:** Cores e transparências podem ser utilizadas para adicionar **uma quarta dimensão categórica ou contínua**, enriquecendo a interpretação e permitindo identificar subgrupos ou categorias.</span>
 <span id="cb56-1147"><a href="#cb56-1147" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-1148"><a href="#cb56-1148" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**Destaque para outliers ou valores extremos:** Bolhas desproporcionalmente grandes ou pequenas podem indicar **observações atípicas** ou eventos relevantes que merecem investigação detalhada.</span>
+<span id="cb56-1148"><a href="#cb56-1148" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>**Aplicações estratégicas:** Gráficos bolha são úteis para **análises de mercado, planejamento de recursos, avaliação de desempenho e monitoramento de indicadores**, servindo como ferramenta para **tomada de decisão baseada em múltiplos critérios**.</span>
 <span id="cb56-1149"><a href="#cb56-1149" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-1150"><a href="#cb56-1150" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>**Complementos visuais:** Cores e transparências podem ser utilizadas para adicionar **uma quarta dimensão categórica ou contínua**, enriquecendo a interpretação e permitindo identificar subgrupos ou categorias.</span>
+<span id="cb56-1150"><a href="#cb56-1150" aria-hidden="true" tabindex="-1"></a>O gráfico bolha oferece, portanto, **uma visão simultânea de múltiplas variáveis**, permitindo identificar padrões complexos, destacar observações relevantes e orientar **análises futuras ou decisões estratégicas**.</span>
 <span id="cb56-1151"><a href="#cb56-1151" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-1152"><a href="#cb56-1152" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>**Aplicações estratégicas:** Gráficos bolha são úteis para **análises de mercado, planejamento de recursos, avaliação de desempenho e monitoramento de indicadores**, servindo como ferramenta para **tomada de decisão baseada em múltiplos critérios**.</span>
+<span id="cb56-1152"><a href="#cb56-1152" aria-hidden="true" tabindex="-1"></a>No <span class="in">`R`</span>, esse gráfico é feito **acrescentando no gráfico de dispersão o mapeamento `size`** que receberá a **variável que ditará o tamanho dos pontos**. Assim, o esquema geral é dado pelos seguintes comandos:</span>
 <span id="cb56-1153"><a href="#cb56-1153" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-1154"><a href="#cb56-1154" aria-hidden="true" tabindex="-1"></a>O gráfico bolha oferece, portanto, **uma visão simultânea de múltiplas variáveis**, permitindo identificar padrões complexos, destacar observações relevantes e orientar **análises futuras ou decisões estratégicas**.</span>
-<span id="cb56-1155"><a href="#cb56-1155" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-1156"><a href="#cb56-1156" aria-hidden="true" tabindex="-1"></a>No <span class="in">`R`</span>, esse gráfico é feito **acrescentando no gráfico de dispersão o mapeamento `size`** que receberá a **variável que ditará o tamanho dos pontos**. Assim, o esquema geral é dado pelos seguintes comandos:</span>
-<span id="cb56-1157"><a href="#cb56-1157" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-1158"><a href="#cb56-1158" aria-hidden="true" tabindex="-1"></a><span class="in">```r</span></span>
-<span id="cb56-1159"><a href="#cb56-1159" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(Dados,<span class="fu">aes</span>(<span class="at">x=</span>variavelX,</span>
-<span id="cb56-1160"><a href="#cb56-1160" aria-hidden="true" tabindex="-1"></a>                 <span class="at">y=</span>variavelY,</span>
-<span id="cb56-1161"><a href="#cb56-1161" aria-hidden="true" tabindex="-1"></a>                 <span class="at">size=</span>variavelSize))<span class="sc">+</span></span>
-<span id="cb56-1162"><a href="#cb56-1162" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_point</span>()</span>
-<span id="cb56-1163"><a href="#cb56-1163" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb56-1164"><a href="#cb56-1164" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-1165"><a href="#cb56-1165" aria-hidden="true" tabindex="-1"></a>Para o nosso banco de dados, vamos fazer um gráfico de dispersão das variávels <span class="in">`teor_alcoolico`</span> com <span class="in">`acucar_residual`</span>. Adicionalmente, vamos estabelecer que o tamanho dos pontos varie de acordo com a <span class="in">`densidade`</span>. Como sabemos que a densidade é função dessas duas variáveis, pode ser um gráfico interessante para ilustrar isso. Segue, então os comandos para isso:</span>
-<span id="cb56-1166"><a href="#cb56-1166" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-1169"><a href="#cb56-1169" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb56-1170"><a href="#cb56-1170" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>( Dados, <span class="fu">aes</span>(<span class="at">x=</span>teor_alcoolico,</span>
-<span id="cb56-1171"><a href="#cb56-1171" aria-hidden="true" tabindex="-1"></a>                   <span class="at">y=</span>acucar_residual,</span>
-<span id="cb56-1172"><a href="#cb56-1172" aria-hidden="true" tabindex="-1"></a>                   <span class="at">size =</span> densidade)) <span class="sc">+</span></span>
-<span id="cb56-1173"><a href="#cb56-1173" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha=</span><span class="fl">0.7</span>)<span class="sc">+</span></span>
-<span id="cb56-1174"><a href="#cb56-1174" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Teor alcoólico (%)"</span>) <span class="sc">+</span></span>
-<span id="cb56-1175"><a href="#cb56-1175" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="fu">expression</span>(<span class="st">"Açucar residual (g/"</span><span class="sc">*</span>dm<span class="sc">^</span><span class="dv">3</span><span class="sc">*</span><span class="st">")"</span>)) <span class="sc">+</span></span>
-<span id="cb56-1176"><a href="#cb56-1176" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
-<span id="cb56-1177"><a href="#cb56-1177" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">labels=</span><span class="cf">function</span>(x) <span class="fu">paste0</span>(x, <span class="st">"%"</span>))<span class="sc">+</span></span>
-<span id="cb56-1178"><a href="#cb56-1178" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">14</span>))</span>
-<span id="cb56-1179"><a href="#cb56-1179" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb56-1180"><a href="#cb56-1180" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-1181"><a href="#cb56-1181" aria-hidden="true" tabindex="-1"></a>Antes de interpretarmos o gráfico, note que o <span class="in">`ggplot2`</span> escolhe os próprios pontos de corte para o tamanho dos pontos. Essa escolha é arbitrária e pode não ser representativa para os dados. Vamos acrescentar a camada <span class="in">`scale_size_continuous`</span> para então melhorar essa representação. Essa camada tem os seguintes argumentos:</span>
+<span id="cb56-1154"><a href="#cb56-1154" aria-hidden="true" tabindex="-1"></a><span class="in">```r</span></span>
+<span id="cb56-1155"><a href="#cb56-1155" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(Dados,<span class="fu">aes</span>(<span class="at">x=</span>variavelX,</span>
+<span id="cb56-1156"><a href="#cb56-1156" aria-hidden="true" tabindex="-1"></a>                 <span class="at">y=</span>variavelY,</span>
+<span id="cb56-1157"><a href="#cb56-1157" aria-hidden="true" tabindex="-1"></a>                 <span class="at">size=</span>variavelSize))<span class="sc">+</span></span>
+<span id="cb56-1158"><a href="#cb56-1158" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_point</span>()</span>
+<span id="cb56-1159"><a href="#cb56-1159" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb56-1160"><a href="#cb56-1160" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-1161"><a href="#cb56-1161" aria-hidden="true" tabindex="-1"></a>Para o nosso banco de dados, vamos fazer um gráfico de dispersão das variávels <span class="in">`teor_alcoolico`</span> com <span class="in">`acucar_residual`</span>. Adicionalmente, vamos estabelecer que o tamanho dos pontos varie de acordo com a <span class="in">`densidade`</span>. Como sabemos que a densidade é função dessas duas variáveis, pode ser um gráfico interessante para ilustrar isso. Segue, então os comandos para isso:</span>
+<span id="cb56-1162"><a href="#cb56-1162" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-1165"><a href="#cb56-1165" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb56-1166"><a href="#cb56-1166" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>( Dados, <span class="fu">aes</span>(<span class="at">x=</span>teor_alcoolico,</span>
+<span id="cb56-1167"><a href="#cb56-1167" aria-hidden="true" tabindex="-1"></a>                   <span class="at">y=</span>acucar_residual,</span>
+<span id="cb56-1168"><a href="#cb56-1168" aria-hidden="true" tabindex="-1"></a>                   <span class="at">size =</span> densidade)) <span class="sc">+</span></span>
+<span id="cb56-1169"><a href="#cb56-1169" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha=</span><span class="fl">0.7</span>)<span class="sc">+</span></span>
+<span id="cb56-1170"><a href="#cb56-1170" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Teor alcoólico (%)"</span>) <span class="sc">+</span></span>
+<span id="cb56-1171"><a href="#cb56-1171" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="fu">expression</span>(<span class="st">"Açucar residual (g/"</span><span class="sc">*</span>dm<span class="sc">^</span><span class="dv">3</span><span class="sc">*</span><span class="st">")"</span>)) <span class="sc">+</span></span>
+<span id="cb56-1172"><a href="#cb56-1172" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb56-1173"><a href="#cb56-1173" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">labels=</span><span class="cf">function</span>(x) <span class="fu">paste0</span>(x, <span class="st">"%"</span>))<span class="sc">+</span></span>
+<span id="cb56-1174"><a href="#cb56-1174" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">14</span>))</span>
+<span id="cb56-1175"><a href="#cb56-1175" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb56-1176"><a href="#cb56-1176" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-1177"><a href="#cb56-1177" aria-hidden="true" tabindex="-1"></a>Antes de interpretarmos o gráfico, note que o <span class="in">`ggplot2`</span> escolhe os próprios pontos de corte para o tamanho dos pontos. Essa escolha é arbitrária e pode não ser representativa para os dados. Vamos acrescentar a camada <span class="in">`scale_size_continuous`</span> para então melhorar essa representação. Essa camada tem os seguintes argumentos:</span>
+<span id="cb56-1178"><a href="#cb56-1178" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-1179"><a href="#cb56-1179" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**`name`**  </span>
+<span id="cb56-1180"><a href="#cb56-1180" aria-hidden="true" tabindex="-1"></a>  Define o **título da legenda** associada ao tamanho dos pontos.  </span>
+<span id="cb56-1181"><a href="#cb56-1181" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Exemplo: <span class="in">`name = "nome da legenda"`</span>.</span>
 <span id="cb56-1182"><a href="#cb56-1182" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-1183"><a href="#cb56-1183" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**`name`**  </span>
-<span id="cb56-1184"><a href="#cb56-1184" aria-hidden="true" tabindex="-1"></a>  Define o **título da legenda** associada ao tamanho dos pontos.  </span>
-<span id="cb56-1185"><a href="#cb56-1185" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Exemplo: <span class="in">`name = "nome da legenda"`</span>.</span>
+<span id="cb56-1183"><a href="#cb56-1183" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**`range`**  </span>
+<span id="cb56-1184"><a href="#cb56-1184" aria-hidden="true" tabindex="-1"></a>  Define o **tamanho mínimo e máximo** dos pontos no gráfico.  </span>
+<span id="cb56-1185"><a href="#cb56-1185" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Exemplo: <span class="in">`range = c(1, 10)`</span>.</span>
 <span id="cb56-1186"><a href="#cb56-1186" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-1187"><a href="#cb56-1187" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**`range`**  </span>
-<span id="cb56-1188"><a href="#cb56-1188" aria-hidden="true" tabindex="-1"></a>  Define o **tamanho mínimo e máximo** dos pontos no gráfico.  </span>
-<span id="cb56-1189"><a href="#cb56-1189" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Exemplo: <span class="in">`range = c(1, 10)`</span>.</span>
-<span id="cb56-1190"><a href="#cb56-1190" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-1191"><a href="#cb56-1191" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**`breaks`**  </span>
-<span id="cb56-1192"><a href="#cb56-1192" aria-hidden="true" tabindex="-1"></a>  Especifica os **valores que aparecerão na legenda**.  </span>
-<span id="cb56-1193"><a href="#cb56-1193" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Pode ser um vetor numérico ou função.  </span>
-<span id="cb56-1194"><a href="#cb56-1194" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Exemplo: <span class="in">`breaks = c(0,0.25,0.5,1)`</span>.</span>
+<span id="cb56-1187"><a href="#cb56-1187" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**`breaks`**  </span>
+<span id="cb56-1188"><a href="#cb56-1188" aria-hidden="true" tabindex="-1"></a>  Especifica os **valores que aparecerão na legenda**.  </span>
+<span id="cb56-1189"><a href="#cb56-1189" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Pode ser um vetor numérico ou função.  </span>
+<span id="cb56-1190"><a href="#cb56-1190" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Exemplo: <span class="in">`breaks = c(0,0.25,0.5,1)`</span>.</span>
+<span id="cb56-1191"><a href="#cb56-1191" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-1192"><a href="#cb56-1192" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**`labels`**  </span>
+<span id="cb56-1193"><a href="#cb56-1193" aria-hidden="true" tabindex="-1"></a>  Define os **rótulos exibidos na legenda**, correspondentes aos valores em <span class="in">`breaks`</span>.  </span>
+<span id="cb56-1194"><a href="#cb56-1194" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Pode ser um vetor de textos ou os próprios valores do <span class="in">`breaks`</span>.  </span>
 <span id="cb56-1195"><a href="#cb56-1195" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-1196"><a href="#cb56-1196" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**`labels`**  </span>
-<span id="cb56-1197"><a href="#cb56-1197" aria-hidden="true" tabindex="-1"></a>  Define os **rótulos exibidos na legenda**, correspondentes aos valores em <span class="in">`breaks`</span>.  </span>
-<span id="cb56-1198"><a href="#cb56-1198" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Pode ser um vetor de textos ou os próprios valores do <span class="in">`breaks`</span>.  </span>
-<span id="cb56-1199"><a href="#cb56-1199" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-1200"><a href="#cb56-1200" aria-hidden="true" tabindex="-1"></a>Como não temos pontos de corte determinísticos, podemos usar os quintis (cada quintil contem 20% dos dados):</span>
-<span id="cb56-1201"><a href="#cb56-1201" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-1204"><a href="#cb56-1204" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb56-1205"><a href="#cb56-1205" aria-hidden="true" tabindex="-1"></a>breaks <span class="ot">=</span> <span class="fu">quantile</span>(Dados<span class="sc">$</span>densidade, <span class="at">probs =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="fl">0.2</span>,<span class="fl">0.4</span>,<span class="fl">0.6</span>,<span class="fl">0.8</span>,<span class="dv">1</span>))</span>
-<span id="cb56-1206"><a href="#cb56-1206" aria-hidden="true" tabindex="-1"></a>breaks <span class="ot">=</span> <span class="fu">round</span>(breaks,<span class="dv">4</span>)</span>
-<span id="cb56-1207"><a href="#cb56-1207" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb56-1208"><a href="#cb56-1208" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-1209"><a href="#cb56-1209" aria-hidden="true" tabindex="-1"></a>Assim, temos os valores mínimo e máximo, juntamente com os quintis. Por fim, podemos fazer um gráfico melhor ajustado:</span>
-<span id="cb56-1210"><a href="#cb56-1210" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-1213"><a href="#cb56-1213" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb56-1214"><a href="#cb56-1214" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(Dados, <span class="fu">aes</span>(<span class="at">x=</span>teor_alcoolico,</span>
-<span id="cb56-1215"><a href="#cb56-1215" aria-hidden="true" tabindex="-1"></a>                   <span class="at">y=</span>acucar_residual,</span>
-<span id="cb56-1216"><a href="#cb56-1216" aria-hidden="true" tabindex="-1"></a>                   <span class="at">size =</span> densidade)) <span class="sc">+</span></span>
-<span id="cb56-1217"><a href="#cb56-1217" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha=</span><span class="fl">0.7</span>)<span class="sc">+</span></span>
-<span id="cb56-1218"><a href="#cb56-1218" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_size_continuous</span>(</span>
-<span id="cb56-1219"><a href="#cb56-1219" aria-hidden="true" tabindex="-1"></a>           <span class="at">name =</span> <span class="fu">expression</span>(<span class="st">"Densidade (g/"</span><span class="sc">*</span>cm<span class="sc">^</span><span class="dv">3</span><span class="sc">*</span><span class="st">")"</span>),   </span>
-<span id="cb56-1220"><a href="#cb56-1220" aria-hidden="true" tabindex="-1"></a>           <span class="at">breaks =</span> breaks,</span>
-<span id="cb56-1221"><a href="#cb56-1221" aria-hidden="true" tabindex="-1"></a>           <span class="at">range=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">10</span>),</span>
-<span id="cb56-1222"><a href="#cb56-1222" aria-hidden="true" tabindex="-1"></a>           <span class="at">labels =</span> breaks)<span class="sc">+</span></span>
-<span id="cb56-1223"><a href="#cb56-1223" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Teor alcoólico (%)"</span>) <span class="sc">+</span></span>
-<span id="cb56-1224"><a href="#cb56-1224" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="fu">expression</span>(<span class="st">"Açucar residual (g/"</span><span class="sc">*</span>dm<span class="sc">^</span><span class="dv">3</span><span class="sc">*</span><span class="st">")"</span>)) <span class="sc">+</span></span>
-<span id="cb56-1225"><a href="#cb56-1225" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
-<span id="cb56-1226"><a href="#cb56-1226" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">labels=</span><span class="cf">function</span>(x) <span class="fu">paste0</span>(x, <span class="st">"%"</span>))<span class="sc">+</span></span>
-<span id="cb56-1227"><a href="#cb56-1227" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">14</span>))</span>
-<span id="cb56-1228"><a href="#cb56-1228" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb56-1229"><a href="#cb56-1229" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb56-1196"><a href="#cb56-1196" aria-hidden="true" tabindex="-1"></a>Como não temos pontos de corte determinísticos, podemos usar os quintis (cada quintil contem 20% dos dados):</span>
+<span id="cb56-1197"><a href="#cb56-1197" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-1200"><a href="#cb56-1200" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb56-1201"><a href="#cb56-1201" aria-hidden="true" tabindex="-1"></a>breaks <span class="ot">=</span> <span class="fu">quantile</span>(Dados<span class="sc">$</span>densidade, <span class="at">probs =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="fl">0.2</span>,<span class="fl">0.4</span>,<span class="fl">0.6</span>,<span class="fl">0.8</span>,<span class="dv">1</span>))</span>
+<span id="cb56-1202"><a href="#cb56-1202" aria-hidden="true" tabindex="-1"></a>breaks <span class="ot">=</span> <span class="fu">round</span>(breaks,<span class="dv">4</span>)</span>
+<span id="cb56-1203"><a href="#cb56-1203" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb56-1204"><a href="#cb56-1204" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-1205"><a href="#cb56-1205" aria-hidden="true" tabindex="-1"></a>Assim, temos os valores mínimo e máximo, juntamente com os quintis. Por fim, podemos fazer um gráfico melhor ajustado:</span>
+<span id="cb56-1206"><a href="#cb56-1206" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-1209"><a href="#cb56-1209" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb56-1210"><a href="#cb56-1210" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(Dados, <span class="fu">aes</span>(<span class="at">x=</span>teor_alcoolico,</span>
+<span id="cb56-1211"><a href="#cb56-1211" aria-hidden="true" tabindex="-1"></a>                   <span class="at">y=</span>acucar_residual,</span>
+<span id="cb56-1212"><a href="#cb56-1212" aria-hidden="true" tabindex="-1"></a>                   <span class="at">size =</span> densidade)) <span class="sc">+</span></span>
+<span id="cb56-1213"><a href="#cb56-1213" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha=</span><span class="fl">0.7</span>)<span class="sc">+</span></span>
+<span id="cb56-1214"><a href="#cb56-1214" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_size_continuous</span>(</span>
+<span id="cb56-1215"><a href="#cb56-1215" aria-hidden="true" tabindex="-1"></a>           <span class="at">name =</span> <span class="fu">expression</span>(<span class="st">"Densidade (g/"</span><span class="sc">*</span>cm<span class="sc">^</span><span class="dv">3</span><span class="sc">*</span><span class="st">")"</span>),   </span>
+<span id="cb56-1216"><a href="#cb56-1216" aria-hidden="true" tabindex="-1"></a>           <span class="at">breaks =</span> breaks,</span>
+<span id="cb56-1217"><a href="#cb56-1217" aria-hidden="true" tabindex="-1"></a>           <span class="at">range=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">10</span>),</span>
+<span id="cb56-1218"><a href="#cb56-1218" aria-hidden="true" tabindex="-1"></a>           <span class="at">labels =</span> breaks)<span class="sc">+</span></span>
+<span id="cb56-1219"><a href="#cb56-1219" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Teor alcoólico (%)"</span>) <span class="sc">+</span></span>
+<span id="cb56-1220"><a href="#cb56-1220" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="fu">expression</span>(<span class="st">"Açucar residual (g/"</span><span class="sc">*</span>dm<span class="sc">^</span><span class="dv">3</span><span class="sc">*</span><span class="st">")"</span>)) <span class="sc">+</span></span>
+<span id="cb56-1221"><a href="#cb56-1221" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb56-1222"><a href="#cb56-1222" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">labels=</span><span class="cf">function</span>(x) <span class="fu">paste0</span>(x, <span class="st">"%"</span>))<span class="sc">+</span></span>
+<span id="cb56-1223"><a href="#cb56-1223" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">14</span>))</span>
+<span id="cb56-1224"><a href="#cb56-1224" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb56-1225"><a href="#cb56-1225" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb56-1226"><a href="#cb56-1226" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-1227"><a href="#cb56-1227" aria-hidden="true" tabindex="-1"></a>Agora sim podemos verificar em quais regiões do teor alcoolico e o açúcar reidual a densidade é mais elevada ou pequena. Para valores altos de açucar e baixos de teor alóolico, são detectadas as maiores densidades. Por outro lado, para valores maioes de álcool e menores de açucar, são detectados os menores valores de densidade.</span>
+<span id="cb56-1228"><a href="#cb56-1228" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-1229"><a href="#cb56-1229" aria-hidden="true" tabindex="-1"></a><span class="fu">## **GRÁFICO QUANTIL-QUANTIL (Q-Q PLOT)**</span></span>
 <span id="cb56-1230"><a href="#cb56-1230" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-1231"><a href="#cb56-1231" aria-hidden="true" tabindex="-1"></a>Agora sim podemos verificar em quais regiões do teor alcoolico e o açúcar reidual a densidade é mais elevada ou pequena. Para valores altos de açucar e baixos de teor alóolico, são detectadas as maiores densidades. Por outro lado, para valores maioes de álcool e menores de açucar, são detectados os menores valores de densidade.</span>
+<span id="cb56-1231"><a href="#cb56-1231" aria-hidden="true" tabindex="-1"></a>O **gráfico quantil-quantil (Q-Q plot)** é uma ferramenta poderosa na estatística exploratória que nos permite **comparar a distribuição de um conjunto de dados com uma distribuição teórica**. Ele é especialmente útil para avaliar se nossos dados seguem um comportamento esperado, como a **distribuição normal**, que é central em muitas análises estatísticas.</span>
 <span id="cb56-1232"><a href="#cb56-1232" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-1233"><a href="#cb56-1233" aria-hidden="true" tabindex="-1"></a><span class="fu">## **GRÁFICO QUANTIL-QUANTIL (Q-Q PLOT)**</span></span>
+<span id="cb56-1233"><a href="#cb56-1233" aria-hidden="true" tabindex="-1"></a>Antes de explorarmos o Q-Q plot, é importante entender a **distribuição normal**. Ela é uma distribuição de probabilidades muito comum, conhecida pelo **formato** de **sino simétrico**. Muitas **variáveis naturais e sociais tendem a se comportar de forma aproximadamente normal** quando observadas em **grandes quantidades**. Por exemplo:</span>
 <span id="cb56-1234"><a href="#cb56-1234" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-1235"><a href="#cb56-1235" aria-hidden="true" tabindex="-1"></a>O **gráfico quantil-quantil (Q-Q plot)** é uma ferramenta poderosa na estatística exploratória que nos permite **comparar a distribuição de um conjunto de dados com uma distribuição teórica**. Ele é especialmente útil para avaliar se nossos dados seguem um comportamento esperado, como a **distribuição normal**, que é central em muitas análises estatísticas.</span>
-<span id="cb56-1236"><a href="#cb56-1236" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-1237"><a href="#cb56-1237" aria-hidden="true" tabindex="-1"></a>Antes de explorarmos o Q-Q plot, é importante entender a **distribuição normal**. Ela é uma distribuição de probabilidades muito comum, conhecida pelo **formato** de **sino simétrico**. Muitas **variáveis naturais e sociais tendem a se comportar de forma aproximadamente normal** quando observadas em **grandes quantidades**. Por exemplo:</span>
+<span id="cb56-1235"><a href="#cb56-1235" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Altura de pessoas adultas em uma população**;</span>
+<span id="cb56-1236"><a href="#cb56-1236" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Notas de uma prova aplicada a um grande grupo de estudantes**;</span>
+<span id="cb56-1237"><a href="#cb56-1237" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Erros de medição em experimentos científicos**.</span>
 <span id="cb56-1238"><a href="#cb56-1238" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-1239"><a href="#cb56-1239" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Altura de pessoas adultas em uma população**;</span>
-<span id="cb56-1240"><a href="#cb56-1240" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Notas de uma prova aplicada a um grande grupo de estudantes**;</span>
-<span id="cb56-1241"><a href="#cb56-1241" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Erros de medição em experimentos científicos**.</span>
+<span id="cb56-1239"><a href="#cb56-1239" aria-hidden="true" tabindex="-1"></a>Veja a **função densidade de probabilidade de uma variável que possui distribuição normal**:</span>
+<span id="cb56-1240"><a href="#cb56-1240" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-1241"><a href="#cb56-1241" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/Normal.png)</span></span>
 <span id="cb56-1242"><a href="#cb56-1242" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-1243"><a href="#cb56-1243" aria-hidden="true" tabindex="-1"></a>Veja a **função densidade de probabilidade de uma variável que possui distribuição normal**:</span>
+<span id="cb56-1243"><a href="#cb56-1243" aria-hidden="true" tabindex="-1"></a>A **distribuição normal** é importante porque muitas técnicas **estatísticas clássicas** assumem que os dados se comportam dessa maneira. Saber se **nossos dados se aproximam da normalidade ajuda** a **escolher os métodos estatísticos mais apropriados**.</span>
 <span id="cb56-1244"><a href="#cb56-1244" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-1245"><a href="#cb56-1245" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/Normal.png)</span></span>
+<span id="cb56-1245"><a href="#cb56-1245" aria-hidden="true" tabindex="-1"></a>O Q-Q plot nos ajuda a **visualizar diferenças entre a distribuição dos dados e a distribuição normal**. Ele faz isso ao comparar **quantis** — pontos que **dividem nossos dados em partes iguais** — com os quantis correspondentes da distribuição teórica (normal).  </span>
 <span id="cb56-1246"><a href="#cb56-1246" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-1247"><a href="#cb56-1247" aria-hidden="true" tabindex="-1"></a>A **distribuição normal** é importante porque muitas técnicas **estatísticas clássicas** assumem que os dados se comportam dessa maneira. Saber se **nossos dados se aproximam da normalidade ajuda** a **escolher os métodos estatísticos mais apropriados**.</span>
-<span id="cb56-1248"><a href="#cb56-1248" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-1249"><a href="#cb56-1249" aria-hidden="true" tabindex="-1"></a>O Q-Q plot nos ajuda a **visualizar diferenças entre a distribuição dos dados e a distribuição normal**. Ele faz isso ao comparar **quantis** — pontos que **dividem nossos dados em partes iguais** — com os quantis correspondentes da distribuição teórica (normal).  </span>
-<span id="cb56-1250"><a href="#cb56-1250" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-1251"><a href="#cb56-1251" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Se os pontos no gráfico se aproximarem de uma **linha reta**, podemos concluir que os dados são **aproximadamente normais**.  </span>
-<span id="cb56-1252"><a href="#cb56-1252" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Se houver desvios significativos da linha, isso indica que os dados **não seguem a normalidade**, podendo apresentar assimetria ou caudas mais longas/curtas do que o esperado.</span>
-<span id="cb56-1253"><a href="#cb56-1253" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-1254"><a href="#cb56-1254" aria-hidden="true" tabindex="-1"></a>Em resumo, o Q-Q plot é uma **ferramenta visual intuitiva** que nos permite:</span>
+<span id="cb56-1247"><a href="#cb56-1247" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Se os pontos no gráfico se aproximarem de uma **linha reta**, podemos concluir que os dados são **aproximadamente normais**.  </span>
+<span id="cb56-1248"><a href="#cb56-1248" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Se houver desvios significativos da linha, isso indica que os dados **não seguem a normalidade**, podendo apresentar assimetria ou caudas mais longas/curtas do que o esperado.</span>
+<span id="cb56-1249"><a href="#cb56-1249" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-1250"><a href="#cb56-1250" aria-hidden="true" tabindex="-1"></a>Em resumo, o Q-Q plot é uma **ferramenta visual intuitiva** que nos permite:</span>
+<span id="cb56-1251"><a href="#cb56-1251" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-1252"><a href="#cb56-1252" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Diagnosticar **rapidamente** a normalidade dos dados;</span>
+<span id="cb56-1253"><a href="#cb56-1253" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Identificar **padrões de desvio da normalidade** (assimetria, caudas longas ou curtas);</span>
+<span id="cb56-1254"><a href="#cb56-1254" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Tomar decisões **informadas sobre qual análise estatística aplicar**.</span>
 <span id="cb56-1255"><a href="#cb56-1255" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-1256"><a href="#cb56-1256" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Diagnosticar **rapidamente** a normalidade dos dados;</span>
-<span id="cb56-1257"><a href="#cb56-1257" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Identificar **padrões de desvio da normalidade** (assimetria, caudas longas ou curtas);</span>
-<span id="cb56-1258"><a href="#cb56-1258" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Tomar decisões **informadas sobre qual análise estatística aplicar**.</span>
-<span id="cb56-1259"><a href="#cb56-1259" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-1260"><a href="#cb56-1260" aria-hidden="true" tabindex="-1"></a>No R, podemos criar Q-Q plots de **maneira elegante** usando o **`ggplot2`**, juntamente com o pacote `qqplotr`. No pacote `qqplotr`, podemos usar **três funções que se complementam para construir um gráfico quantil-quantil mais completo e interpretável**:</span>
+<span id="cb56-1256"><a href="#cb56-1256" aria-hidden="true" tabindex="-1"></a>No R, podemos criar Q-Q plots de **maneira elegante** usando o **`ggplot2`**, juntamente com o pacote `qqplotr`. No pacote `qqplotr`, podemos usar **três funções que se complementam para construir um gráfico quantil-quantil mais completo e interpretável**:</span>
+<span id="cb56-1257"><a href="#cb56-1257" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-1258"><a href="#cb56-1258" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`stat_qq_point()`</span>  </span>
+<span id="cb56-1259"><a href="#cb56-1259" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Plota os **pontos** correspondentes à comparação entre os quantis amostrais (dos dados) e os quantis teóricos (da distribuição de referência).  </span>
+<span id="cb56-1260"><a href="#cb56-1260" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Permite visualizar se os dados seguem aproximadamente a distribuição teórica escolhida.  </span>
 <span id="cb56-1261"><a href="#cb56-1261" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-1262"><a href="#cb56-1262" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`stat_qq_point()`</span>  </span>
-<span id="cb56-1263"><a href="#cb56-1263" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Plota os **pontos** correspondentes à comparação entre os quantis amostrais (dos dados) e os quantis teóricos (da distribuição de referência).  </span>
-<span id="cb56-1264"><a href="#cb56-1264" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Permite visualizar se os dados seguem aproximadamente a distribuição teórica escolhida.  </span>
+<span id="cb56-1262"><a href="#cb56-1262" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`stat_qq_line()`</span>  </span>
+<span id="cb56-1263"><a href="#cb56-1263" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Adiciona uma **linha de referência** ao gráfico Q-Q.  </span>
+<span id="cb56-1264"><a href="#cb56-1264" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Essa linha é ajustada de acordo com os quantis da amostra, servindo como um guia visual para verificar o quanto os pontos estão alinhados com a distribuição teórica.  </span>
 <span id="cb56-1265"><a href="#cb56-1265" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-1266"><a href="#cb56-1266" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`stat_qq_line()`</span>  </span>
-<span id="cb56-1267"><a href="#cb56-1267" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Adiciona uma **linha de referência** ao gráfico Q-Q.  </span>
-<span id="cb56-1268"><a href="#cb56-1268" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Essa linha é ajustada de acordo com os quantis da amostra, servindo como um guia visual para verificar o quanto os pontos estão alinhados com a distribuição teórica.  </span>
-<span id="cb56-1269"><a href="#cb56-1269" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-1270"><a href="#cb56-1270" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`stat_qq_band()`</span>  </span>
-<span id="cb56-1271"><a href="#cb56-1271" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Cria uma **faixa de confiança (bandas)** em torno da linha teórica. </span>
-<span id="cb56-1272"><a href="#cb56-1272" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Essa faixa indica a variabilidade esperada devido ao acaso; pontos fora dela sugerem desvios mais significativos da distribuição teórica.  </span>
-<span id="cb56-1273"><a href="#cb56-1273" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>O argumento <span class="in">`fill`</span> permite colorir as bandas. </span>
-<span id="cb56-1274"><a href="#cb56-1274" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-1275"><a href="#cb56-1275" aria-hidden="true" tabindex="-1"></a>Como temos somente **uma variável** para ser associada à geometria, o **comando inicial** sempre será:</span>
-<span id="cb56-1276"><a href="#cb56-1276" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-1277"><a href="#cb56-1277" aria-hidden="true" tabindex="-1"></a><span class="in">```r</span></span>
-<span id="cb56-1278"><a href="#cb56-1278" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(Dados,<span class="fu">aes</span>(<span class="at">x=</span>variavelX))<span class="sc">+</span></span>
-<span id="cb56-1279"><a href="#cb56-1279" aria-hidden="true" tabindex="-1"></a>    <span class="fu">stat_qq_band</span>() <span class="sc">+</span></span>
-<span id="cb56-1280"><a href="#cb56-1280" aria-hidden="true" tabindex="-1"></a>    <span class="fu">stat_qq_line</span>() <span class="sc">+</span></span>
-<span id="cb56-1281"><a href="#cb56-1281" aria-hidden="true" tabindex="-1"></a>    <span class="fu">stat_qq_point</span>() <span class="sc">+</span></span>
-<span id="cb56-1282"><a href="#cb56-1282" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb56-1283"><a href="#cb56-1283" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-1284"><a href="#cb56-1284" aria-hidden="true" tabindex="-1"></a>Para estudar esse gráfico vamos fazê-lo juntamente com o gráfico de densidade. Para a variável <span class="in">`sulfatos`</span>, tem-se a seguinte análise:</span>
-<span id="cb56-1285"><a href="#cb56-1285" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-1288"><a href="#cb56-1288" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb56-1289"><a href="#cb56-1289" aria-hidden="true" tabindex="-1"></a>A <span class="ot">=</span> <span class="fu">ggplot</span>(Dados, <span class="fu">aes</span>(<span class="at">x =</span> sulfatos)) <span class="sc">+</span></span>
-<span id="cb56-1290"><a href="#cb56-1290" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">fill=</span><span class="st">"blue"</span>,</span>
-<span id="cb56-1291"><a href="#cb56-1291" aria-hidden="true" tabindex="-1"></a>               <span class="at">color=</span><span class="st">"black"</span>,</span>
-<span id="cb56-1292"><a href="#cb56-1292" aria-hidden="true" tabindex="-1"></a>               <span class="at">alpha=</span><span class="fl">0.5</span>,</span>
-<span id="cb56-1293"><a href="#cb56-1293" aria-hidden="true" tabindex="-1"></a>               <span class="at">linewidth =</span> <span class="fl">1.5</span>) <span class="sc">+</span></span>
-<span id="cb56-1294"><a href="#cb56-1294" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Sulfatos"</span>) <span class="sc">+</span> </span>
-<span id="cb56-1295"><a href="#cb56-1295" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Densidade"</span>) <span class="sc">+</span></span>
-<span id="cb56-1296"><a href="#cb56-1296" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
-<span id="cb56-1297"><a href="#cb56-1297" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">14</span>))</span>
-<span id="cb56-1298"><a href="#cb56-1298" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-1299"><a href="#cb56-1299" aria-hidden="true" tabindex="-1"></a>B <span class="ot">=</span> <span class="fu">ggplot</span>(Dados, <span class="fu">aes</span>(<span class="at">sample =</span> sulfatos)) <span class="sc">+</span></span>
-<span id="cb56-1300"><a href="#cb56-1300" aria-hidden="true" tabindex="-1"></a>    <span class="fu">stat_qq_band</span>(<span class="at">fill=</span><span class="st">"lightblue"</span>) <span class="sc">+</span></span>
-<span id="cb56-1301"><a href="#cb56-1301" aria-hidden="true" tabindex="-1"></a>    <span class="fu">stat_qq_line</span>() <span class="sc">+</span></span>
-<span id="cb56-1302"><a href="#cb56-1302" aria-hidden="true" tabindex="-1"></a>    <span class="fu">stat_qq_point</span>() <span class="sc">+</span></span>
-<span id="cb56-1303"><a href="#cb56-1303" aria-hidden="true" tabindex="-1"></a>    <span class="fu">xlab</span>(<span class="st">"Quantis Teóricos"</span>)<span class="sc">+</span></span>
-<span id="cb56-1304"><a href="#cb56-1304" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ylab</span>(<span class="st">"Quantis Amostrais"</span>)<span class="sc">+</span></span>
-<span id="cb56-1305"><a href="#cb56-1305" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
-<span id="cb56-1306"><a href="#cb56-1306" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">14</span>))</span>
-<span id="cb56-1307"><a href="#cb56-1307" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-1308"><a href="#cb56-1308" aria-hidden="true" tabindex="-1"></a>A<span class="sc">+</span>B</span>
-<span id="cb56-1309"><a href="#cb56-1309" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb56-1266"><a href="#cb56-1266" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`stat_qq_band()`</span>  </span>
+<span id="cb56-1267"><a href="#cb56-1267" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Cria uma **faixa de confiança (bandas)** em torno da linha teórica. </span>
+<span id="cb56-1268"><a href="#cb56-1268" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Essa faixa indica a variabilidade esperada devido ao acaso; pontos fora dela sugerem desvios mais significativos da distribuição teórica.  </span>
+<span id="cb56-1269"><a href="#cb56-1269" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>O argumento <span class="in">`fill`</span> permite colorir as bandas. </span>
+<span id="cb56-1270"><a href="#cb56-1270" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-1271"><a href="#cb56-1271" aria-hidden="true" tabindex="-1"></a>Como temos somente **uma variável** para ser associada à geometria, o **comando inicial** sempre será:</span>
+<span id="cb56-1272"><a href="#cb56-1272" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-1273"><a href="#cb56-1273" aria-hidden="true" tabindex="-1"></a><span class="in">```r</span></span>
+<span id="cb56-1274"><a href="#cb56-1274" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(Dados,<span class="fu">aes</span>(<span class="at">x=</span>variavelX))<span class="sc">+</span></span>
+<span id="cb56-1275"><a href="#cb56-1275" aria-hidden="true" tabindex="-1"></a>    <span class="fu">stat_qq_band</span>() <span class="sc">+</span></span>
+<span id="cb56-1276"><a href="#cb56-1276" aria-hidden="true" tabindex="-1"></a>    <span class="fu">stat_qq_line</span>() <span class="sc">+</span></span>
+<span id="cb56-1277"><a href="#cb56-1277" aria-hidden="true" tabindex="-1"></a>    <span class="fu">stat_qq_point</span>() <span class="sc">+</span></span>
+<span id="cb56-1278"><a href="#cb56-1278" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb56-1279"><a href="#cb56-1279" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-1280"><a href="#cb56-1280" aria-hidden="true" tabindex="-1"></a>Para estudar esse gráfico vamos fazê-lo juntamente com o gráfico de densidade. Para a variável <span class="in">`sulfatos`</span>, tem-se a seguinte análise:</span>
+<span id="cb56-1281"><a href="#cb56-1281" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-1284"><a href="#cb56-1284" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb56-1285"><a href="#cb56-1285" aria-hidden="true" tabindex="-1"></a>A <span class="ot">=</span> <span class="fu">ggplot</span>(Dados, <span class="fu">aes</span>(<span class="at">x =</span> sulfatos)) <span class="sc">+</span></span>
+<span id="cb56-1286"><a href="#cb56-1286" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">fill=</span><span class="st">"blue"</span>,</span>
+<span id="cb56-1287"><a href="#cb56-1287" aria-hidden="true" tabindex="-1"></a>               <span class="at">color=</span><span class="st">"black"</span>,</span>
+<span id="cb56-1288"><a href="#cb56-1288" aria-hidden="true" tabindex="-1"></a>               <span class="at">alpha=</span><span class="fl">0.5</span>,</span>
+<span id="cb56-1289"><a href="#cb56-1289" aria-hidden="true" tabindex="-1"></a>               <span class="at">linewidth =</span> <span class="fl">1.5</span>) <span class="sc">+</span></span>
+<span id="cb56-1290"><a href="#cb56-1290" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Sulfatos"</span>) <span class="sc">+</span> </span>
+<span id="cb56-1291"><a href="#cb56-1291" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Densidade"</span>) <span class="sc">+</span></span>
+<span id="cb56-1292"><a href="#cb56-1292" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb56-1293"><a href="#cb56-1293" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">14</span>))</span>
+<span id="cb56-1294"><a href="#cb56-1294" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-1295"><a href="#cb56-1295" aria-hidden="true" tabindex="-1"></a>B <span class="ot">=</span> <span class="fu">ggplot</span>(Dados, <span class="fu">aes</span>(<span class="at">sample =</span> sulfatos)) <span class="sc">+</span></span>
+<span id="cb56-1296"><a href="#cb56-1296" aria-hidden="true" tabindex="-1"></a>    <span class="fu">stat_qq_band</span>(<span class="at">fill=</span><span class="st">"lightblue"</span>) <span class="sc">+</span></span>
+<span id="cb56-1297"><a href="#cb56-1297" aria-hidden="true" tabindex="-1"></a>    <span class="fu">stat_qq_line</span>() <span class="sc">+</span></span>
+<span id="cb56-1298"><a href="#cb56-1298" aria-hidden="true" tabindex="-1"></a>    <span class="fu">stat_qq_point</span>() <span class="sc">+</span></span>
+<span id="cb56-1299"><a href="#cb56-1299" aria-hidden="true" tabindex="-1"></a>    <span class="fu">xlab</span>(<span class="st">"Quantis Teóricos"</span>)<span class="sc">+</span></span>
+<span id="cb56-1300"><a href="#cb56-1300" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ylab</span>(<span class="st">"Quantis Amostrais"</span>)<span class="sc">+</span></span>
+<span id="cb56-1301"><a href="#cb56-1301" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb56-1302"><a href="#cb56-1302" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">14</span>))</span>
+<span id="cb56-1303"><a href="#cb56-1303" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-1304"><a href="#cb56-1304" aria-hidden="true" tabindex="-1"></a>A<span class="sc">+</span>B</span>
+<span id="cb56-1305"><a href="#cb56-1305" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb56-1306"><a href="#cb56-1306" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-1307"><a href="#cb56-1307" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Note que, como a cauda à direita da distribuição é mais pesada os pontos finais no gráfico q-q plot se encontram fora da banda de confiança, reforçando a não normalidade dos dados.</span></span>
+<span id="cb56-1308"><a href="#cb56-1308" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-1309"><a href="#cb56-1309" aria-hidden="true" tabindex="-1"></a><span class="fu">## **SITUAÇÃO PRÁTICA MOTIVADORA II**</span></span>
 <span id="cb56-1310"><a href="#cb56-1310" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-1311"><a href="#cb56-1311" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Note que, como a cauda à direita da distribuição é mais pesada os pontos finais no gráfico q-q plot se encontram fora da banda de confiança, reforçando a não normalidade dos dados.</span></span>
+<span id="cb56-1311"><a href="#cb56-1311" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/Moto.jpg)</span></span>
 <span id="cb56-1312"><a href="#cb56-1312" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-1313"><a href="#cb56-1313" aria-hidden="true" tabindex="-1"></a><span class="fu">## **SITUAÇÃO PRÁTICA MOTIVADORA II**</span></span>
+<span id="cb56-1313"><a href="#cb56-1313" aria-hidden="true" tabindex="-1"></a>O *Global Burden of Disease* (GBD) é um dos maiores e mais abrangentes estudos epidemiológicos do mundo, conduzido pelo *Institute for Health Metrics and Evaluation* (IHME). Seu objetivo é estimar, de forma padronizada e comparável entre países e ao longo do tempo, o impacto de doenças, lesões e fatores de risco sobre a saúde das populações. O GBD reúne informações de múltiplas fontes, aplica métodos estatísticos rigorosos e produz indicadores que subsidiam gestores, pesquisadores e formuladores de políticas públicas.</span>
 <span id="cb56-1314"><a href="#cb56-1314" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-1315"><a href="#cb56-1315" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/Moto.jpg)</span></span>
+<span id="cb56-1315"><a href="#cb56-1315" aria-hidden="true" tabindex="-1"></a>Neste trabalho, utilizamos a base do GBD referente a **acidentes de transporte envolvendo motociclistas**, abrangendo o período de 1990 a 2023. O conjunto de dados inclui três variáveis:</span>
 <span id="cb56-1316"><a href="#cb56-1316" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-1317"><a href="#cb56-1317" aria-hidden="true" tabindex="-1"></a>O *Global Burden of Disease* (GBD) é um dos maiores e mais abrangentes estudos epidemiológicos do mundo, conduzido pelo *Institute for Health Metrics and Evaluation* (IHME). Seu objetivo é estimar, de forma padronizada e comparável entre países e ao longo do tempo, o impacto de doenças, lesões e fatores de risco sobre a saúde das populações. O GBD reúne informações de múltiplas fontes, aplica métodos estatísticos rigorosos e produz indicadores que subsidiam gestores, pesquisadores e formuladores de políticas públicas.</span>
-<span id="cb56-1318"><a href="#cb56-1318" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-1319"><a href="#cb56-1319" aria-hidden="true" tabindex="-1"></a>Neste trabalho, utilizamos a base do GBD referente a **acidentes de transporte envolvendo motociclistas**, abrangendo o período de 1990 a 2023. O conjunto de dados inclui três variáveis:</span>
+<span id="cb56-1317"><a href="#cb56-1317" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`Ano`</span>: Anos entre 1990 e 2023</span>
+<span id="cb56-1318"><a href="#cb56-1318" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`Numero`</span>: **Número absoluto de óbitos** por acidentes com motociclistas.  </span>
+<span id="cb56-1319"><a href="#cb56-1319" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`Taxa`</span>: **Taxa de mortalidade** por 100 mil habitantes.</span>
 <span id="cb56-1320"><a href="#cb56-1320" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-1321"><a href="#cb56-1321" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`Ano`</span>: Anos entre 1990 e 2023</span>
-<span id="cb56-1322"><a href="#cb56-1322" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`Numero`</span>: **Número absoluto de óbitos** por acidentes com motociclistas.  </span>
-<span id="cb56-1323"><a href="#cb56-1323" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`Taxa`</span>: **Taxa de mortalidade** por 100 mil habitantes.</span>
+<span id="cb56-1321"><a href="#cb56-1321" aria-hidden="true" tabindex="-1"></a>A partir desses dados, buscamos  **Descrever a evolução temporal** do número de óbitos e da taxa de mortalidade de motociclistas de 1990 a 2023. Assim, objetiva-se **identificar tendências e padrões epidemiológicos** que possam orientar estratégias de prevenção e políticas públicas de segurança viária.  </span>
+<span id="cb56-1322"><a href="#cb56-1322" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-1323"><a href="#cb56-1323" aria-hidden="true" tabindex="-1"></a>A base de dados está armazenada no arquivo <span class="in">`DadosQuanti2.xlsx`</span>. Os **comandos** a seguir fazem a **leitura** dessa base de dados:</span>
 <span id="cb56-1324"><a href="#cb56-1324" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-1325"><a href="#cb56-1325" aria-hidden="true" tabindex="-1"></a>A partir desses dados, buscamos  **Descrever a evolução temporal** do número de óbitos e da taxa de mortalidade de motociclistas de 1990 a 2023. Assim, objetiva-se **identificar tendências e padrões epidemiológicos** que possam orientar estratégias de prevenção e políticas públicas de segurança viária.  </span>
-<span id="cb56-1326"><a href="#cb56-1326" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-1327"><a href="#cb56-1327" aria-hidden="true" tabindex="-1"></a>A base de dados está armazenada no arquivo <span class="in">`DadosQuanti2.xlsx`</span>. Os **comandos** a seguir fazem a **leitura** dessa base de dados:</span>
-<span id="cb56-1328"><a href="#cb56-1328" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-1329"><a href="#cb56-1329" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-1332"><a href="#cb56-1332" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb56-1333"><a href="#cb56-1333" aria-hidden="true" tabindex="-1"></a>Dados <span class="ot">=</span> <span class="fu">read.xlsx</span>(<span class="st">"DadosMoto.xlsx"</span>)</span>
-<span id="cb56-1334"><a href="#cb56-1334" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb56-1325"><a href="#cb56-1325" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-1328"><a href="#cb56-1328" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb56-1329"><a href="#cb56-1329" aria-hidden="true" tabindex="-1"></a>Dados <span class="ot">=</span> <span class="fu">read.xlsx</span>(<span class="st">"DadosMoto.xlsx"</span>)</span>
+<span id="cb56-1330"><a href="#cb56-1330" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb56-1331"><a href="#cb56-1331" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-1332"><a href="#cb56-1332" aria-hidden="true" tabindex="-1"></a><span class="fu">## **GRÁFICO SÉRIE TEMPORAL**</span></span>
+<span id="cb56-1333"><a href="#cb56-1333" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-1334"><a href="#cb56-1334" aria-hidden="true" tabindex="-1"></a>O **gráfico de série temporal** é uma ferramenta essencial para a análise de **dados que variam ao longo do tempo**. Ele representa cada observação em função de um **eixo temporal**, permitindo visualizar **padrões, tendências e flutuações** de uma variável quantitativa. Esse tipo de gráfico é amplamente utilizado em economia, epidemiologia, demografia, meteorologia e em diversas áreas que lidam com dados cronológicos.  </span>
 <span id="cb56-1335"><a href="#cb56-1335" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-1336"><a href="#cb56-1336" aria-hidden="true" tabindex="-1"></a><span class="fu">## **GRÁFICO SÉRIE TEMPORAL**</span></span>
+<span id="cb56-1336"><a href="#cb56-1336" aria-hidden="true" tabindex="-1"></a>**Características principais:**</span>
 <span id="cb56-1337"><a href="#cb56-1337" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-1338"><a href="#cb56-1338" aria-hidden="true" tabindex="-1"></a>O **gráfico de série temporal** é uma ferramenta essencial para a análise de **dados que variam ao longo do tempo**. Ele representa cada observação em função de um **eixo temporal**, permitindo visualizar **padrões, tendências e flutuações** de uma variável quantitativa. Esse tipo de gráfico é amplamente utilizado em economia, epidemiologia, demografia, meteorologia e em diversas áreas que lidam com dados cronológicos.  </span>
+<span id="cb56-1338"><a href="#cb56-1338" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**Eixo temporal:** O eixo horizontal (**x**) corresponde ao tempo, que pode estar em **dias, meses, anos, trimestres ou qualquer outra unidade cronológica**. O eixo vertical (**y**) representa os valores da variável observada.</span>
 <span id="cb56-1339"><a href="#cb56-1339" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-1340"><a href="#cb56-1340" aria-hidden="true" tabindex="-1"></a>**Características principais:**</span>
+<span id="cb56-1340"><a href="#cb56-1340" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**Evolução ao longo do tempo:** O gráfico mostra **como a variável se comporta à medida que o tempo avança**, possibilitando identificar períodos de crescimento, queda ou estabilidade.</span>
 <span id="cb56-1341"><a href="#cb56-1341" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-1342"><a href="#cb56-1342" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**Eixo temporal:** O eixo horizontal (**x**) corresponde ao tempo, que pode estar em **dias, meses, anos, trimestres ou qualquer outra unidade cronológica**. O eixo vertical (**y**) representa os valores da variável observada.</span>
+<span id="cb56-1342"><a href="#cb56-1342" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**Tendência geral:** Muitas séries apresentam uma **tendência de longo prazo**. Essa tendência pode ser observada diretamente na linha que conecta os pontos.</span>
 <span id="cb56-1343"><a href="#cb56-1343" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-1344"><a href="#cb56-1344" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**Evolução ao longo do tempo:** O gráfico mostra **como a variável se comporta à medida que o tempo avança**, possibilitando identificar períodos de crescimento, queda ou estabilidade.</span>
+<span id="cb56-1344"><a href="#cb56-1344" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>**Sazonalidade e ciclos:** O gráfico facilita a identificação de **padrões repetitivos** ao longo do tempo (sazonalidade) ou **ciclos mais longos**.</span>
 <span id="cb56-1345"><a href="#cb56-1345" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-1346"><a href="#cb56-1346" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**Tendência geral:** Muitas séries apresentam uma **tendência de longo prazo**. Essa tendência pode ser observada diretamente na linha que conecta os pontos.</span>
+<span id="cb56-1346"><a href="#cb56-1346" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>**Variações aleatórias:** Nem todo comportamento segue um padrão claro. O gráfico mostra também **flutuações imprevisíveis**.</span>
 <span id="cb56-1347"><a href="#cb56-1347" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-1348"><a href="#cb56-1348" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>**Sazonalidade e ciclos:** O gráfico facilita a identificação de **padrões repetitivos** ao longo do tempo (sazonalidade) ou **ciclos mais longos**.</span>
+<span id="cb56-1348"><a href="#cb56-1348" aria-hidden="true" tabindex="-1"></a><span class="ss">6. </span>**Outliers:** Pontos isolados no tempo que destoam do padrão podem indicar **eventos específicos ou erros de medição**.</span>
 <span id="cb56-1349"><a href="#cb56-1349" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-1350"><a href="#cb56-1350" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>**Variações aleatórias:** Nem todo comportamento segue um padrão claro. O gráfico mostra também **flutuações imprevisíveis**.</span>
+<span id="cb56-1350"><a href="#cb56-1350" aria-hidden="true" tabindex="-1"></a><span class="ss">7. </span>**Complementos visuais:** Linhas de tendência, médias móveis ou marcações de períodos específicos podem enriquecer a análise.</span>
 <span id="cb56-1351"><a href="#cb56-1351" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-1352"><a href="#cb56-1352" aria-hidden="true" tabindex="-1"></a><span class="ss">6. </span>**Outliers:** Pontos isolados no tempo que destoam do padrão podem indicar **eventos específicos ou erros de medição**.</span>
+<span id="cb56-1352"><a href="#cb56-1352" aria-hidden="true" tabindex="-1"></a>No <span class="in">`R`</span> o gráfico de série temporal pode ser feito com o pacote <span class="in">`ggplot2`</span> a partir da função geométrica <span class="in">`geom_line()`</span>com a seguinte sintaxe:</span>
 <span id="cb56-1353"><a href="#cb56-1353" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-1354"><a href="#cb56-1354" aria-hidden="true" tabindex="-1"></a><span class="ss">7. </span>**Complementos visuais:** Linhas de tendência, médias móveis ou marcações de períodos específicos podem enriquecer a análise.</span>
-<span id="cb56-1355"><a href="#cb56-1355" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-1356"><a href="#cb56-1356" aria-hidden="true" tabindex="-1"></a>No <span class="in">`R`</span> o gráfico de série temporal pode ser feito com o pacote <span class="in">`ggplot2`</span> a partir da função geométrica <span class="in">`geom_line()`</span>com a seguinte sintaxe:</span>
-<span id="cb56-1357"><a href="#cb56-1357" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-1358"><a href="#cb56-1358" aria-hidden="true" tabindex="-1"></a><span class="in">```r</span></span>
-<span id="cb56-1359"><a href="#cb56-1359" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(Dados,<span class="fu">aes</span>(<span class="at">x =</span> tempo, <span class="at">y =</span> variavel)<span class="sc">+</span></span>
-<span id="cb56-1360"><a href="#cb56-1360" aria-hidden="true" tabindex="-1"></a>      <span class="fu">geom_line</span>()</span>
-<span id="cb56-1361"><a href="#cb56-1361" aria-hidden="true" tabindex="-1"></a><span class="st">```</span></span>
-<span id="cb56-1362"><a href="#cb56-1362" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-1363"><a href="#cb56-1363" aria-hidden="true" tabindex="-1"></a><span class="at">Por exemplo, vamos fazer o **gráfico série temporal** da **taxa de mortalidade por 100 mil habitantes envolvendo motociclistas no estado do Rio de Janeiro** de 1990 a 2023:</span></span>
-<span id="cb56-1364"><a href="#cb56-1364" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-1367"><a href="#cb56-1367" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb56-1368"><a href="#cb56-1368" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>Dados,<span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>Ano,</span>
-<span id="cb56-1369"><a href="#cb56-1369" aria-hidden="true" tabindex="-1"></a>                              <span class="at">y=</span>Taxa))<span class="sc">+</span></span>
-<span id="cb56-1370"><a href="#cb56-1370" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>()<span class="sc">+</span></span>
-<span id="cb56-1371"><a href="#cb56-1371" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Ano"</span>)<span class="sc">+</span></span>
-<span id="cb56-1372"><a href="#cb56-1372" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Taxa de mortalidade por 100 mil habitantes"</span>)<span class="sc">+</span></span>
-<span id="cb56-1373"><a href="#cb56-1373" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()<span class="sc">+</span></span>
-<span id="cb56-1374"><a href="#cb56-1374" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">14</span>))</span>
-<span id="cb56-1375"><a href="#cb56-1375" aria-hidden="true" tabindex="-1"></a><span class="st">```</span></span>
-<span id="cb56-1376"><a href="#cb56-1376" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-1377"><a href="#cb56-1377" aria-hidden="true" tabindex="-1"></a><span class="at">Neste gráfico, nota-se que:</span></span>
-<span id="cb56-1378"><a href="#cb56-1378" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-1379"><a href="#cb56-1379" aria-hidden="true" tabindex="-1"></a><span class="at">* Tendência geral (1990–2023): aumento da mortalidade de 2,66 para cerca de 5,0, quase o dobro no período.</span></span>
-<span id="cb56-1380"><a href="#cb56-1380" aria-hidden="true" tabindex="-1"></a><span class="at">* Década de 1990: crescimento inicial e estabilização.</span></span>
-<span id="cb56-1381"><a href="#cb56-1381" aria-hidden="true" tabindex="-1"></a><span class="at">* 2000–2015: período de maior aumento e consolidação de taxas mais altas.</span></span>
-<span id="cb56-1382"><a href="#cb56-1382" aria-hidden="true" tabindex="-1"></a><span class="at">* 2016 em diante: oscilações, com queda pré-pandemia, alta durante a COVID-19 e recuo em 2023.</span></span>
-<span id="cb56-1383"><a href="#cb56-1383" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-1384"><a href="#cb56-1384" aria-hidden="true" tabindex="-1"></a><span class="at">Para acrescentar **novos efeitos** estéticos a este **gráfico**, a função </span><span class="st">`</span><span class="fu">geom_line</span>()<span class="st">`</span><span class="at"> tem os seguintes argumentos:</span></span>
-<span id="cb56-1385"><a href="#cb56-1385" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-1386"><a href="#cb56-1386" aria-hidden="true" tabindex="-1"></a><span class="at">- **color**: Define a cor da linha, ex.: </span><span class="st">`</span><span class="fu">geom_line</span>(<span class="at">color =</span> <span class="st">"blue"</span>)<span class="st">`</span></span>
-<span id="cb56-1387"><a href="#cb56-1387" aria-hidden="true" tabindex="-1"></a><span class="at">- **linewidth**: Define a espessura da linha, ex.: </span><span class="st">`</span><span class="fu">geom_line</span>(<span class="at">size =</span> <span class="fl">1.5</span>)<span class="st">`</span></span>
-<span id="cb56-1388"><a href="#cb56-1388" aria-hidden="true" tabindex="-1"></a><span class="at">- **linetype**: Define o tipo da linha, ex.: </span><span class="st">`</span><span class="fu">geom_line</span>(<span class="at">linetype =</span> <span class="st">"dashed"</span>)<span class="st">`</span><span class="at">. Opções:  </span></span>
-<span id="cb56-1389"><a href="#cb56-1389" aria-hidden="true" tabindex="-1"></a><span class="at">![](images/Linetype.png)</span></span>
-<span id="cb56-1390"><a href="#cb56-1390" aria-hidden="true" tabindex="-1"></a><span class="at">- **alpha**: Define a transparência da linha (0 a 1), ex.: </span><span class="st">`</span><span class="fu">geom_line</span>(<span class="at">alpha =</span> <span class="fl">0.7</span>)<span class="st">`</span></span>
+<span id="cb56-1354"><a href="#cb56-1354" aria-hidden="true" tabindex="-1"></a><span class="in">```r</span></span>
+<span id="cb56-1355"><a href="#cb56-1355" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(Dados,<span class="fu">aes</span>(<span class="at">x =</span> tempo, <span class="at">y =</span> variavel)<span class="sc">+</span></span>
+<span id="cb56-1356"><a href="#cb56-1356" aria-hidden="true" tabindex="-1"></a>      <span class="fu">geom_line</span>()</span>
+<span id="cb56-1357"><a href="#cb56-1357" aria-hidden="true" tabindex="-1"></a><span class="st">```</span></span>
+<span id="cb56-1358"><a href="#cb56-1358" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-1359"><a href="#cb56-1359" aria-hidden="true" tabindex="-1"></a><span class="at">Por exemplo, vamos fazer o **gráfico série temporal** da **taxa de mortalidade por 100 mil habitantes envolvendo motociclistas no estado do Rio de Janeiro** de 1990 a 2023:</span></span>
+<span id="cb56-1360"><a href="#cb56-1360" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-1363"><a href="#cb56-1363" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb56-1364"><a href="#cb56-1364" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>Dados,<span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>Ano,</span>
+<span id="cb56-1365"><a href="#cb56-1365" aria-hidden="true" tabindex="-1"></a>                              <span class="at">y=</span>Taxa))<span class="sc">+</span></span>
+<span id="cb56-1366"><a href="#cb56-1366" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>()<span class="sc">+</span></span>
+<span id="cb56-1367"><a href="#cb56-1367" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Ano"</span>)<span class="sc">+</span></span>
+<span id="cb56-1368"><a href="#cb56-1368" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Taxa de mortalidade por 100 mil habitantes"</span>)<span class="sc">+</span></span>
+<span id="cb56-1369"><a href="#cb56-1369" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()<span class="sc">+</span></span>
+<span id="cb56-1370"><a href="#cb56-1370" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">14</span>))</span>
+<span id="cb56-1371"><a href="#cb56-1371" aria-hidden="true" tabindex="-1"></a><span class="st">```</span></span>
+<span id="cb56-1372"><a href="#cb56-1372" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-1373"><a href="#cb56-1373" aria-hidden="true" tabindex="-1"></a><span class="at">Neste gráfico, nota-se que:</span></span>
+<span id="cb56-1374"><a href="#cb56-1374" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-1375"><a href="#cb56-1375" aria-hidden="true" tabindex="-1"></a><span class="at">* Tendência geral (1990–2023): aumento da mortalidade de 2,66 para cerca de 5,0, quase o dobro no período.</span></span>
+<span id="cb56-1376"><a href="#cb56-1376" aria-hidden="true" tabindex="-1"></a><span class="at">* Década de 1990: crescimento inicial e estabilização.</span></span>
+<span id="cb56-1377"><a href="#cb56-1377" aria-hidden="true" tabindex="-1"></a><span class="at">* 2000–2015: período de maior aumento e consolidação de taxas mais altas.</span></span>
+<span id="cb56-1378"><a href="#cb56-1378" aria-hidden="true" tabindex="-1"></a><span class="at">* 2016 em diante: oscilações, com queda pré-pandemia, alta durante a COVID-19 e recuo em 2023.</span></span>
+<span id="cb56-1379"><a href="#cb56-1379" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-1380"><a href="#cb56-1380" aria-hidden="true" tabindex="-1"></a><span class="at">Para acrescentar **novos efeitos** estéticos a este **gráfico**, a função </span><span class="st">`</span><span class="fu">geom_line</span>()<span class="st">`</span><span class="at"> tem os seguintes argumentos:</span></span>
+<span id="cb56-1381"><a href="#cb56-1381" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-1382"><a href="#cb56-1382" aria-hidden="true" tabindex="-1"></a><span class="at">- **color**: Define a cor da linha, ex.: </span><span class="st">`</span><span class="fu">geom_line</span>(<span class="at">color =</span> <span class="st">"blue"</span>)<span class="st">`</span></span>
+<span id="cb56-1383"><a href="#cb56-1383" aria-hidden="true" tabindex="-1"></a><span class="at">- **linewidth**: Define a espessura da linha, ex.: </span><span class="st">`</span><span class="fu">geom_line</span>(<span class="at">size =</span> <span class="fl">1.5</span>)<span class="st">`</span></span>
+<span id="cb56-1384"><a href="#cb56-1384" aria-hidden="true" tabindex="-1"></a><span class="at">- **linetype**: Define o tipo da linha, ex.: </span><span class="st">`</span><span class="fu">geom_line</span>(<span class="at">linetype =</span> <span class="st">"dashed"</span>)<span class="st">`</span><span class="at">. Opções:  </span></span>
+<span id="cb56-1385"><a href="#cb56-1385" aria-hidden="true" tabindex="-1"></a><span class="at">![](images/Linetype.png)</span></span>
+<span id="cb56-1386"><a href="#cb56-1386" aria-hidden="true" tabindex="-1"></a><span class="at">- **alpha**: Define a transparência da linha (0 a 1), ex.: </span><span class="st">`</span><span class="fu">geom_line</span>(<span class="at">alpha =</span> <span class="fl">0.7</span>)<span class="st">`</span></span>
+<span id="cb56-1387"><a href="#cb56-1387" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-1388"><a href="#cb56-1388" aria-hidden="true" tabindex="-1"></a><span class="at">Além disso, você pode **acrescentar** a função</span><span class="st">`</span><span class="fu">geom_point</span>()<span class="st">`</span><span class="at"> para **incluir os pontos em cada observação**. As especificidades dessa função já foram **vistos na seção onde estudamos o gráfico de dispersão**.</span></span>
+<span id="cb56-1389"><a href="#cb56-1389" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-1390"><a href="#cb56-1390" aria-hidden="true" tabindex="-1"></a><span class="at">Portanto, um **gráfico melhor elaborado** pode ser o seguinte:</span></span>
 <span id="cb56-1391"><a href="#cb56-1391" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-1392"><a href="#cb56-1392" aria-hidden="true" tabindex="-1"></a><span class="at">Além disso, você pode **acrescentar** a função</span><span class="st">`</span><span class="fu">geom_point</span>()<span class="st">`</span><span class="at"> para **incluir os pontos em cada observação**. As especificidades dessa função já foram **vistos na seção onde estudamos o gráfico de dispersão**.</span></span>
-<span id="cb56-1393"><a href="#cb56-1393" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-1394"><a href="#cb56-1394" aria-hidden="true" tabindex="-1"></a><span class="at">Portanto, um **gráfico melhor elaborado** pode ser o seguinte:</span></span>
-<span id="cb56-1395"><a href="#cb56-1395" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-1398"><a href="#cb56-1398" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb56-1399"><a href="#cb56-1399" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>Dados,<span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>Ano,</span>
-<span id="cb56-1400"><a href="#cb56-1400" aria-hidden="true" tabindex="-1"></a>                              <span class="at">y=</span>Taxa))<span class="sc">+</span></span>
-<span id="cb56-1401"><a href="#cb56-1401" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">linewidth=</span><span class="dv">2</span>,</span>
-<span id="cb56-1402"><a href="#cb56-1402" aria-hidden="true" tabindex="-1"></a>            <span class="at">col=</span><span class="st">"red"</span>)<span class="sc">+</span></span>
-<span id="cb56-1403"><a href="#cb56-1403" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size=</span><span class="dv">4</span>)<span class="sc">+</span></span>
-<span id="cb56-1404"><a href="#cb56-1404" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Ano"</span>)<span class="sc">+</span></span>
-<span id="cb56-1405"><a href="#cb56-1405" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Taxa de mortalidade por 100 mil habitantes"</span>)<span class="sc">+</span></span>
-<span id="cb56-1406"><a href="#cb56-1406" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()<span class="sc">+</span></span>
-<span id="cb56-1407"><a href="#cb56-1407" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">14</span>))</span>
-<span id="cb56-1408"><a href="#cb56-1408" aria-hidden="true" tabindex="-1"></a><span class="st">```</span></span>
+<span id="cb56-1394"><a href="#cb56-1394" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb56-1395"><a href="#cb56-1395" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>Dados,<span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>Ano,</span>
+<span id="cb56-1396"><a href="#cb56-1396" aria-hidden="true" tabindex="-1"></a>                              <span class="at">y=</span>Taxa))<span class="sc">+</span></span>
+<span id="cb56-1397"><a href="#cb56-1397" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">linewidth=</span><span class="dv">2</span>,</span>
+<span id="cb56-1398"><a href="#cb56-1398" aria-hidden="true" tabindex="-1"></a>            <span class="at">col=</span><span class="st">"red"</span>)<span class="sc">+</span></span>
+<span id="cb56-1399"><a href="#cb56-1399" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size=</span><span class="dv">4</span>)<span class="sc">+</span></span>
+<span id="cb56-1400"><a href="#cb56-1400" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Ano"</span>)<span class="sc">+</span></span>
+<span id="cb56-1401"><a href="#cb56-1401" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Taxa de mortalidade por 100 mil habitantes"</span>)<span class="sc">+</span></span>
+<span id="cb56-1402"><a href="#cb56-1402" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()<span class="sc">+</span></span>
+<span id="cb56-1403"><a href="#cb56-1403" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">14</span>))</span>
+<span id="cb56-1404"><a href="#cb56-1404" aria-hidden="true" tabindex="-1"></a><span class="st">```</span></span>
+<span id="cb56-1405"><a href="#cb56-1405" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-1406"><a href="#cb56-1406" aria-hidden="true" tabindex="-1"></a><span class="at">## **GRÁFICO TEMPORAL COM DOIS EIXOS**</span></span>
+<span id="cb56-1407"><a href="#cb56-1407" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-1408"><a href="#cb56-1408" aria-hidden="true" tabindex="-1"></a><span class="at">O **gráfico de série temporal com dois eixos** é uma ferramenta poderosa quando queremos analisar **duas variáveis quantitativas distintas ao longo do tempo**, cada uma com **unidades ou escalas diferentes**. Esse tipo de gráfico permite comparar tendências, identificar correlações e observar como duas séries evoluem simultaneamente.</span></span>
 <span id="cb56-1409"><a href="#cb56-1409" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-1410"><a href="#cb56-1410" aria-hidden="true" tabindex="-1"></a><span class="at">## **GRÁFICO TEMPORAL COM DOIS EIXOS**</span></span>
+<span id="cb56-1410"><a href="#cb56-1410" aria-hidden="true" tabindex="-1"></a><span class="at">**Características principais:**</span></span>
 <span id="cb56-1411"><a href="#cb56-1411" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-1412"><a href="#cb56-1412" aria-hidden="true" tabindex="-1"></a><span class="at">O **gráfico de série temporal com dois eixos** é uma ferramenta poderosa quando queremos analisar **duas variáveis quantitativas distintas ao longo do tempo**, cada uma com **unidades ou escalas diferentes**. Esse tipo de gráfico permite comparar tendências, identificar correlações e observar como duas séries evoluem simultaneamente.</span></span>
+<span id="cb56-1412"><a href="#cb56-1412" aria-hidden="true" tabindex="-1"></a><span class="at">1. **Eixo temporal comum:** O eixo horizontal (**x**) representa o tempo, que pode ser medido em **dias, meses, anos, trimestres ou qualquer outra unidade cronológica**.</span></span>
 <span id="cb56-1413"><a href="#cb56-1413" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-1414"><a href="#cb56-1414" aria-hidden="true" tabindex="-1"></a><span class="at">**Características principais:**</span></span>
+<span id="cb56-1414"><a href="#cb56-1414" aria-hidden="true" tabindex="-1"></a><span class="at">2. **Eixos verticais distintos:** Cada variável tem seu próprio eixo vertical (**y1** e **y2**), permitindo **comparar grandezas diferentes** sem distorcer a visualização.</span></span>
 <span id="cb56-1415"><a href="#cb56-1415" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-1416"><a href="#cb56-1416" aria-hidden="true" tabindex="-1"></a><span class="at">1. **Eixo temporal comum:** O eixo horizontal (**x**) representa o tempo, que pode ser medido em **dias, meses, anos, trimestres ou qualquer outra unidade cronológica**.</span></span>
+<span id="cb56-1416"><a href="#cb56-1416" aria-hidden="true" tabindex="-1"></a><span class="at">3. **Comparação de tendências:** O gráfico facilita identificar se **as duas variáveis seguem padrões similares, divergentes ou inversos** ao longo do tempo.</span></span>
 <span id="cb56-1417"><a href="#cb56-1417" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-1418"><a href="#cb56-1418" aria-hidden="true" tabindex="-1"></a><span class="at">2. **Eixos verticais distintos:** Cada variável tem seu próprio eixo vertical (**y1** e **y2**), permitindo **comparar grandezas diferentes** sem distorcer a visualização.</span></span>
+<span id="cb56-1418"><a href="#cb56-1418" aria-hidden="true" tabindex="-1"></a><span class="at">4. **Sazonalidade e ciclos:** Permite observar **padrões repetitivos em cada variável**, mesmo que suas magnitudes sejam diferentes.</span></span>
 <span id="cb56-1419"><a href="#cb56-1419" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-1420"><a href="#cb56-1420" aria-hidden="true" tabindex="-1"></a><span class="at">3. **Comparação de tendências:** O gráfico facilita identificar se **as duas variáveis seguem padrões similares, divergentes ou inversos** ao longo do tempo.</span></span>
+<span id="cb56-1420"><a href="#cb56-1420" aria-hidden="true" tabindex="-1"></a><span class="at">5. **Variações aleatórias e outliers:** Mostra **flutuações imprevisíveis** em cada série e pontos isolados que destoam do padrão esperado.</span></span>
 <span id="cb56-1421"><a href="#cb56-1421" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-1422"><a href="#cb56-1422" aria-hidden="true" tabindex="-1"></a><span class="at">4. **Sazonalidade e ciclos:** Permite observar **padrões repetitivos em cada variável**, mesmo que suas magnitudes sejam diferentes.</span></span>
+<span id="cb56-1422"><a href="#cb56-1422" aria-hidden="true" tabindex="-1"></a><span class="at">6. **Complementos visuais:** Linhas de tendência, médias móveis ou marcações de períodos específicos podem enriquecer a análise, permitindo **visualizar interações ou diferenças entre as séries**.</span></span>
 <span id="cb56-1423"><a href="#cb56-1423" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-1424"><a href="#cb56-1424" aria-hidden="true" tabindex="-1"></a><span class="at">5. **Variações aleatórias e outliers:** Mostra **flutuações imprevisíveis** em cada série e pontos isolados que destoam do padrão esperado.</span></span>
+<span id="cb56-1424"><a href="#cb56-1424" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; ⚠️ **Atenção:** Gráficos com dois eixos devem ser usados com cuidado, para não induzir a interpretações equivocadas. É recomendável sempre **destacar cores, legendas e escalas** para que a leitura seja clara.</span></span>
 <span id="cb56-1425"><a href="#cb56-1425" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-1426"><a href="#cb56-1426" aria-hidden="true" tabindex="-1"></a><span class="at">6. **Complementos visuais:** Linhas de tendência, médias móveis ou marcações de períodos específicos podem enriquecer a análise, permitindo **visualizar interações ou diferenças entre as séries**.</span></span>
+<span id="cb56-1426"><a href="#cb56-1426" aria-hidden="true" tabindex="-1"></a><span class="at">A partir do pacote </span><span class="st">`</span>ggplot2<span class="st">`</span><span class="at">, vamos fazer um gráfico temporal com dos eixos. Um gráfico de barras será utilizado para o número absoluto de óbitos e um gráfico de série temporal será utilizado para representar a taxa de mortalidade. As duas variáveis tem escalas bem distintas. Por isso, este gráfico é interessante para este contexto.</span></span>
 <span id="cb56-1427"><a href="#cb56-1427" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-1428"><a href="#cb56-1428" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; ⚠️ **Atenção:** Gráficos com dois eixos devem ser usados com cuidado, para não induzir a interpretações equivocadas. É recomendável sempre **destacar cores, legendas e escalas** para que a leitura seja clara.</span></span>
-<span id="cb56-1429"><a href="#cb56-1429" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-1430"><a href="#cb56-1430" aria-hidden="true" tabindex="-1"></a><span class="at">A partir do pacote </span><span class="st">`</span>ggplot2<span class="st">`</span><span class="at">, vamos fazer um gráfico temporal com dos eixos. Um gráfico de barras será utilizado para o número absoluto de óbitos e um gráfico de série temporal será utilizado para representar a taxa de mortalidade. As duas variáveis tem escalas bem distintas. Por isso, este gráfico é interessante para este contexto.</span></span>
+<span id="cb56-1428"><a href="#cb56-1428" aria-hidden="true" tabindex="-1"></a><span class="at">Para construir o gráfico, primeiro definimos um coeficiente de escala chamado </span><span class="st">`</span>coef<span class="st">`</span><span class="at">, que serve para</span></span>
+<span id="cb56-1429"><a href="#cb56-1429" aria-hidden="true" tabindex="-1"></a><span class="at">colocar a taxa de mortalidade (que é menor em magnitude) na mesma ordem de grandeza do número absoluto de óbitos. Isso é necessário porque queremos exibir duas variáveis diferentes (número e taxa) </span></span>
+<span id="cb56-1430"><a href="#cb56-1430" aria-hidden="true" tabindex="-1"></a><span class="at">no mesmo gráfico, utilizando dois eixos-y. (Você vai testando o </span><span class="st">`</span>coef<span class="st">`</span><span class="at"> que melhor se ajusta aos seus dados)</span></span>
 <span id="cb56-1431"><a href="#cb56-1431" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-1432"><a href="#cb56-1432" aria-hidden="true" tabindex="-1"></a><span class="at">Para construir o gráfico, primeiro definimos um coeficiente de escala chamado </span><span class="st">`</span>coef<span class="st">`</span><span class="at">, que serve para</span></span>
-<span id="cb56-1433"><a href="#cb56-1433" aria-hidden="true" tabindex="-1"></a><span class="at">colocar a taxa de mortalidade (que é menor em magnitude) na mesma ordem de grandeza do número absoluto de óbitos. Isso é necessário porque queremos exibir duas variáveis diferentes (número e taxa) </span></span>
-<span id="cb56-1434"><a href="#cb56-1434" aria-hidden="true" tabindex="-1"></a><span class="at">no mesmo gráfico, utilizando dois eixos-y. (Você vai testando o </span><span class="st">`</span>coef<span class="st">`</span><span class="at"> que melhor se ajusta aos seus dados)</span></span>
-<span id="cb56-1435"><a href="#cb56-1435" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-1436"><a href="#cb56-1436" aria-hidden="true" tabindex="-1"></a><span class="at">Em seguida:</span></span>
-<span id="cb56-1437"><a href="#cb56-1437" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-1438"><a href="#cb56-1438" aria-hidden="true" tabindex="-1"></a><span class="at">1. Começamos chamando a função </span><span class="st">`</span><span class="fu">ggplot</span>(Dados, <span class="fu">aes</span>(<span class="at">x=</span>Ano))<span class="st">`</span><span class="at">, definindo o ano como variável no eixo-x.  </span></span>
-<span id="cb56-1439"><a href="#cb56-1439" aria-hidden="true" tabindex="-1"></a><span class="at">2. Utilizamos </span><span class="st">`</span><span class="fu">geom_bar</span>()<span class="st">`</span><span class="at"> para criar barras que representam o **número absoluto de óbitos**.  </span></span>
-<span id="cb56-1440"><a href="#cb56-1440" aria-hidden="true" tabindex="-1"></a><span class="at">   - Definimos </span><span class="st">`</span><span class="at">y=</span>Numero<span class="st">`</span><span class="at">, </span><span class="st">`</span><span class="at">fill=</span><span class="st">"cadetblue"`</span><span class="at"> para a cor e </span><span class="st">`</span><span class="at">stat=</span><span class="st">"identity"`</span><span class="at"> para que a altura da barra </span></span>
-<span id="cb56-1441"><a href="#cb56-1441" aria-hidden="true" tabindex="-1"></a><span class="at">     corresponda diretamente ao valor dos dados.  </span></span>
-<span id="cb56-1442"><a href="#cb56-1442" aria-hidden="true" tabindex="-1"></a><span class="at">3. Adicionamos uma linha com </span><span class="st">`</span><span class="fu">geom_line</span>()<span class="st">`</span><span class="at">, que representa a **taxa de mortalidade** multiplicada por </span><span class="st">`</span>coef<span class="st">`</span><span class="at">, para que ela se alinhe ao eixo principal.  </span></span>
-<span id="cb56-1443"><a href="#cb56-1443" aria-hidden="true" tabindex="-1"></a><span class="at">   - A linha é desenhada em vermelho, mais grossa (</span><span class="st">`</span><span class="at">linewidth=</span><span class="dv">2</span><span class="st">`</span><span class="at">).  </span></span>
-<span id="cb56-1444"><a href="#cb56-1444" aria-hidden="true" tabindex="-1"></a><span class="at">4. Para destacar os pontos dessa linha, adicionamos </span><span class="st">`</span><span class="fu">geom_point</span>()<span class="st">`</span><span class="at"> com </span><span class="st">`</span><span class="at">size=</span><span class="dv">3</span><span class="st">`</span><span class="at">.  </span></span>
-<span id="cb56-1445"><a href="#cb56-1445" aria-hidden="true" tabindex="-1"></a><span class="at">5. Em seguida, ajustamos os rótulos do gráfico com </span><span class="st">`</span><span class="fu">xlab</span>(<span class="st">"Ano"</span>)<span class="st">`</span><span class="at"> e aplicamos um tema mais limpo (</span><span class="st">`</span><span class="fu">theme_bw</span>()<span class="st">`</span><span class="at">).  </span></span>
-<span id="cb56-1446"><a href="#cb56-1446" aria-hidden="true" tabindex="-1"></a><span class="at">6. Para melhorar a leitura, ampliamos o tamanho do texto (</span><span class="st">`</span><span class="fu">theme</span>(<span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">14</span>))<span class="st">`</span><span class="at">).  </span></span>
-<span id="cb56-1447"><a href="#cb56-1447" aria-hidden="true" tabindex="-1"></a><span class="at">7. O eixo-y é configurado com </span><span class="st">`</span><span class="fu">scale_y_continuous</span>()<span class="st">`</span><span class="at">, onde o **eixo principal** mostra o número de óbitos </span></span>
-<span id="cb56-1448"><a href="#cb56-1448" aria-hidden="true" tabindex="-1"></a><span class="at">   e o **eixo secundário** (definido com </span><span class="st">`</span><span class="fu">sec_axis</span>(<span class="sc">~</span>.<span class="sc">/</span>coef, <span class="at">name=</span><span class="st">"Taxa de mortalidade por 100 mil habitantes"</span>)<span class="st">`</span><span class="at">) </span></span>
-<span id="cb56-1449"><a href="#cb56-1449" aria-hidden="true" tabindex="-1"></a><span class="at">   mostra a taxa, revertendo a transformação de escala.  </span></span>
-<span id="cb56-1450"><a href="#cb56-1450" aria-hidden="true" tabindex="-1"></a><span class="at">8. Por fim, usamos </span><span class="st">`</span><span class="fu">theme</span>()<span class="st">`</span><span class="at"> para personalizar as cores dos títulos dos eixos: </span></span>
-<span id="cb56-1451"><a href="#cb56-1451" aria-hidden="true" tabindex="-1"></a><span class="at">   - o eixo da esquerda em azul (</span><span class="st">`</span>cadetblue4<span class="st">`</span><span class="at">) e o eixo da direita em vermelho, reforçando a correspondência com as cores do gráfico.</span></span>
-<span id="cb56-1452"><a href="#cb56-1452" aria-hidden="true" tabindex="-1"></a><span class="at">   </span></span>
-<span id="cb56-1453"><a href="#cb56-1453" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-1454"><a href="#cb56-1454" aria-hidden="true" tabindex="-1"></a><span class="at">Tem-se, portanto, o seguinte código:</span></span>
-<span id="cb56-1455"><a href="#cb56-1455" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-1458"><a href="#cb56-1458" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb56-1459"><a href="#cb56-1459" aria-hidden="true" tabindex="-1"></a>coef <span class="ot">&lt;-</span> <span class="dv">200</span></span>
-<span id="cb56-1460"><a href="#cb56-1460" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(Dados,<span class="fu">aes</span>(<span class="at">x=</span>Ano))<span class="sc">+</span></span>
-<span id="cb56-1461"><a href="#cb56-1461" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="fu">aes</span>(<span class="at">y=</span>Numero),</span>
-<span id="cb56-1462"><a href="#cb56-1462" aria-hidden="true" tabindex="-1"></a>           <span class="at">fill=</span><span class="st">"cadetblue"</span>,</span>
-<span id="cb56-1463"><a href="#cb56-1463" aria-hidden="true" tabindex="-1"></a>           <span class="at">stat=</span><span class="st">"identity"</span>)<span class="sc">+</span></span>
-<span id="cb56-1464"><a href="#cb56-1464" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y=</span>Taxa<span class="sc">*</span>coef),</span>
-<span id="cb56-1465"><a href="#cb56-1465" aria-hidden="true" tabindex="-1"></a>            <span class="at">linewidth=</span><span class="dv">2</span>,</span>
-<span id="cb56-1466"><a href="#cb56-1466" aria-hidden="true" tabindex="-1"></a>            <span class="at">col=</span><span class="st">"red"</span>)<span class="sc">+</span></span>
-<span id="cb56-1467"><a href="#cb56-1467" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">y=</span>Taxa<span class="sc">*</span>coef),</span>
-<span id="cb56-1468"><a href="#cb56-1468" aria-hidden="true" tabindex="-1"></a>             <span class="at">size=</span><span class="dv">3</span>)<span class="sc">+</span></span>
-<span id="cb56-1469"><a href="#cb56-1469" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Ano"</span>)<span class="sc">+</span></span>
-<span id="cb56-1470"><a href="#cb56-1470" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()<span class="sc">+</span></span>
-<span id="cb56-1471"><a href="#cb56-1471" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">14</span>))<span class="sc">+</span></span>
-<span id="cb56-1472"><a href="#cb56-1472" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(</span>
-<span id="cb56-1473"><a href="#cb56-1473" aria-hidden="true" tabindex="-1"></a>    <span class="at">name =</span> <span class="st">"Número de óbitos"</span>,</span>
-<span id="cb56-1474"><a href="#cb56-1474" aria-hidden="true" tabindex="-1"></a>    <span class="at">sec.axis =</span> <span class="fu">sec_axis</span>(<span class="sc">~</span>.<span class="sc">/</span>coef, <span class="at">name=</span><span class="st">"Taxa de mortalidade por 100 mil habitantes"</span>)</span>
-<span id="cb56-1475"><a href="#cb56-1475" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb56-1476"><a href="#cb56-1476" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
-<span id="cb56-1477"><a href="#cb56-1477" aria-hidden="true" tabindex="-1"></a>         <span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">14</span>),</span>
-<span id="cb56-1478"><a href="#cb56-1478" aria-hidden="true" tabindex="-1"></a>         <span class="at">axis.title.y.left =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">"cadetblue4"</span>),</span>
-<span id="cb56-1479"><a href="#cb56-1479" aria-hidden="true" tabindex="-1"></a>         <span class="at">axis.title.y.right =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">"red"</span>))</span>
-<span id="cb56-1480"><a href="#cb56-1480" aria-hidden="true" tabindex="-1"></a><span class="st">```</span></span>
-<span id="cb56-1481"><a href="#cb56-1481" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-1432"><a href="#cb56-1432" aria-hidden="true" tabindex="-1"></a><span class="at">Em seguida:</span></span>
+<span id="cb56-1433"><a href="#cb56-1433" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-1434"><a href="#cb56-1434" aria-hidden="true" tabindex="-1"></a><span class="at">1. Começamos chamando a função </span><span class="st">`</span><span class="fu">ggplot</span>(Dados, <span class="fu">aes</span>(<span class="at">x=</span>Ano))<span class="st">`</span><span class="at">, definindo o ano como variável no eixo-x.  </span></span>
+<span id="cb56-1435"><a href="#cb56-1435" aria-hidden="true" tabindex="-1"></a><span class="at">2. Utilizamos </span><span class="st">`</span><span class="fu">geom_bar</span>()<span class="st">`</span><span class="at"> para criar barras que representam o **número absoluto de óbitos**.  </span></span>
+<span id="cb56-1436"><a href="#cb56-1436" aria-hidden="true" tabindex="-1"></a><span class="at">   - Definimos </span><span class="st">`</span><span class="at">y=</span>Numero<span class="st">`</span><span class="at">, </span><span class="st">`</span><span class="at">fill=</span><span class="st">"cadetblue"`</span><span class="at"> para a cor e </span><span class="st">`</span><span class="at">stat=</span><span class="st">"identity"`</span><span class="at"> para que a altura da barra </span></span>
+<span id="cb56-1437"><a href="#cb56-1437" aria-hidden="true" tabindex="-1"></a><span class="at">     corresponda diretamente ao valor dos dados.  </span></span>
+<span id="cb56-1438"><a href="#cb56-1438" aria-hidden="true" tabindex="-1"></a><span class="at">3. Adicionamos uma linha com </span><span class="st">`</span><span class="fu">geom_line</span>()<span class="st">`</span><span class="at">, que representa a **taxa de mortalidade** multiplicada por </span><span class="st">`</span>coef<span class="st">`</span><span class="at">, para que ela se alinhe ao eixo principal.  </span></span>
+<span id="cb56-1439"><a href="#cb56-1439" aria-hidden="true" tabindex="-1"></a><span class="at">   - A linha é desenhada em vermelho, mais grossa (</span><span class="st">`</span><span class="at">linewidth=</span><span class="dv">2</span><span class="st">`</span><span class="at">).  </span></span>
+<span id="cb56-1440"><a href="#cb56-1440" aria-hidden="true" tabindex="-1"></a><span class="at">4. Para destacar os pontos dessa linha, adicionamos </span><span class="st">`</span><span class="fu">geom_point</span>()<span class="st">`</span><span class="at"> com </span><span class="st">`</span><span class="at">size=</span><span class="dv">3</span><span class="st">`</span><span class="at">.  </span></span>
+<span id="cb56-1441"><a href="#cb56-1441" aria-hidden="true" tabindex="-1"></a><span class="at">5. Em seguida, ajustamos os rótulos do gráfico com </span><span class="st">`</span><span class="fu">xlab</span>(<span class="st">"Ano"</span>)<span class="st">`</span><span class="at"> e aplicamos um tema mais limpo (</span><span class="st">`</span><span class="fu">theme_bw</span>()<span class="st">`</span><span class="at">).  </span></span>
+<span id="cb56-1442"><a href="#cb56-1442" aria-hidden="true" tabindex="-1"></a><span class="at">6. Para melhorar a leitura, ampliamos o tamanho do texto (</span><span class="st">`</span><span class="fu">theme</span>(<span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">14</span>))<span class="st">`</span><span class="at">).  </span></span>
+<span id="cb56-1443"><a href="#cb56-1443" aria-hidden="true" tabindex="-1"></a><span class="at">7. O eixo-y é configurado com </span><span class="st">`</span><span class="fu">scale_y_continuous</span>()<span class="st">`</span><span class="at">, onde o **eixo principal** mostra o número de óbitos </span></span>
+<span id="cb56-1444"><a href="#cb56-1444" aria-hidden="true" tabindex="-1"></a><span class="at">   e o **eixo secundário** (definido com </span><span class="st">`</span><span class="fu">sec_axis</span>(<span class="sc">~</span>.<span class="sc">/</span>coef, <span class="at">name=</span><span class="st">"Taxa de mortalidade por 100 mil habitantes"</span>)<span class="st">`</span><span class="at">) </span></span>
+<span id="cb56-1445"><a href="#cb56-1445" aria-hidden="true" tabindex="-1"></a><span class="at">   mostra a taxa, revertendo a transformação de escala.  </span></span>
+<span id="cb56-1446"><a href="#cb56-1446" aria-hidden="true" tabindex="-1"></a><span class="at">8. Por fim, usamos </span><span class="st">`</span><span class="fu">theme</span>()<span class="st">`</span><span class="at"> para personalizar as cores dos títulos dos eixos: </span></span>
+<span id="cb56-1447"><a href="#cb56-1447" aria-hidden="true" tabindex="-1"></a><span class="at">   - o eixo da esquerda em azul (</span><span class="st">`</span>cadetblue4<span class="st">`</span><span class="at">) e o eixo da direita em vermelho, reforçando a correspondência com as cores do gráfico.</span></span>
+<span id="cb56-1448"><a href="#cb56-1448" aria-hidden="true" tabindex="-1"></a><span class="at">   </span></span>
+<span id="cb56-1449"><a href="#cb56-1449" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-1450"><a href="#cb56-1450" aria-hidden="true" tabindex="-1"></a><span class="at">Tem-se, portanto, o seguinte código:</span></span>
+<span id="cb56-1451"><a href="#cb56-1451" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-1454"><a href="#cb56-1454" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb56-1455"><a href="#cb56-1455" aria-hidden="true" tabindex="-1"></a>coef <span class="ot">&lt;-</span> <span class="dv">200</span></span>
+<span id="cb56-1456"><a href="#cb56-1456" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(Dados,<span class="fu">aes</span>(<span class="at">x=</span>Ano))<span class="sc">+</span></span>
+<span id="cb56-1457"><a href="#cb56-1457" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="fu">aes</span>(<span class="at">y=</span>Numero),</span>
+<span id="cb56-1458"><a href="#cb56-1458" aria-hidden="true" tabindex="-1"></a>           <span class="at">fill=</span><span class="st">"cadetblue"</span>,</span>
+<span id="cb56-1459"><a href="#cb56-1459" aria-hidden="true" tabindex="-1"></a>           <span class="at">stat=</span><span class="st">"identity"</span>)<span class="sc">+</span></span>
+<span id="cb56-1460"><a href="#cb56-1460" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y=</span>Taxa<span class="sc">*</span>coef),</span>
+<span id="cb56-1461"><a href="#cb56-1461" aria-hidden="true" tabindex="-1"></a>            <span class="at">linewidth=</span><span class="dv">2</span>,</span>
+<span id="cb56-1462"><a href="#cb56-1462" aria-hidden="true" tabindex="-1"></a>            <span class="at">col=</span><span class="st">"red"</span>)<span class="sc">+</span></span>
+<span id="cb56-1463"><a href="#cb56-1463" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">y=</span>Taxa<span class="sc">*</span>coef),</span>
+<span id="cb56-1464"><a href="#cb56-1464" aria-hidden="true" tabindex="-1"></a>             <span class="at">size=</span><span class="dv">3</span>)<span class="sc">+</span></span>
+<span id="cb56-1465"><a href="#cb56-1465" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Ano"</span>)<span class="sc">+</span></span>
+<span id="cb56-1466"><a href="#cb56-1466" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()<span class="sc">+</span></span>
+<span id="cb56-1467"><a href="#cb56-1467" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">14</span>))<span class="sc">+</span></span>
+<span id="cb56-1468"><a href="#cb56-1468" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(</span>
+<span id="cb56-1469"><a href="#cb56-1469" aria-hidden="true" tabindex="-1"></a>    <span class="at">name =</span> <span class="st">"Número de óbitos"</span>,</span>
+<span id="cb56-1470"><a href="#cb56-1470" aria-hidden="true" tabindex="-1"></a>    <span class="at">sec.axis =</span> <span class="fu">sec_axis</span>(<span class="sc">~</span>.<span class="sc">/</span>coef, <span class="at">name=</span><span class="st">"Taxa de mortalidade por 100 mil habitantes"</span>)</span>
+<span id="cb56-1471"><a href="#cb56-1471" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb56-1472"><a href="#cb56-1472" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb56-1473"><a href="#cb56-1473" aria-hidden="true" tabindex="-1"></a>         <span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">14</span>),</span>
+<span id="cb56-1474"><a href="#cb56-1474" aria-hidden="true" tabindex="-1"></a>         <span class="at">axis.title.y.left =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">"cadetblue4"</span>),</span>
+<span id="cb56-1475"><a href="#cb56-1475" aria-hidden="true" tabindex="-1"></a>         <span class="at">axis.title.y.right =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">"red"</span>))</span>
+<span id="cb56-1476"><a href="#cb56-1476" aria-hidden="true" tabindex="-1"></a><span class="st">```</span></span>
+<span id="cb56-1477"><a href="#cb56-1477" aria-hidden="true" tabindex="-1"></a></span>
 </code><button title="Copiar para a área de transferência" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
