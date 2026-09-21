@@ -489,10 +489,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Na última aula prática, vimos o <strong>gráfico histograma aplicado a uma única variável quantitativa</strong>, o que nos permitiu observar como <strong>os dados se distribuem e identificar padrões como simetria, caudas longas e multimodalidade</strong>.</p>
 <p>No entanto, em <strong>muitos contextos de análise</strong>, não estamos interessados apenas em uma distribuição geral, mas em como ela se comporta em <strong>diferentes grupos</strong>. Com o pacote <code>ggplot2</code>, aprendemos a como <strong>fazer histogramas estratificados, colorindo o gráfico de acordo com categorias de uma variável qualitativa</strong>. A sintaxe será a seguinte:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(Dados, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x=</span>VariavelQuanti,<span class="at">fill=</span>VariavelQuali))<span class="sc">+</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>()s</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<blockquote class="blockquote">
-<p>O histograma mostra que os clientes fiéis predominam em praticamente todas as faixas etárias, com maior concentração entre aproximadamente 30 e 60 anos, especialmente na faixa de 40 a 50 anos. Já os clientes não fiéis são menos frequentes e apresentam perfil mais jovem, concentrando-se principalmente entre 20 e 40 anos, com redução acentuada a partir dos 40 anos.</p>
-</blockquote>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>()</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>O <strong>histograma estratificado permite visualizar de forma direta a distribuição empírica de uma variável contínua dentro de cada categoria</strong>, mostrando a <strong>proporção de observações em cada faixa</strong> e possibilitando <strong>comparações visuais imediatas entre os grupos</strong>.</p>
 <p><strong>Sem perda de generalidade</strong>, vamos usar o <strong>critério de Scott</strong> para a escolha do <strong>número de barras do gráfico e a altura das barras será dada pela frequência relativa</strong>. Por exemplo, suponha que seja de interesse <strong>avaliar o histograma da variável idade, estratificando ela pelo tipo de cliente</strong>:</p>
 <div class="cell">
@@ -519,7 +516,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <blockquote class="blockquote">
-<p>As viagens pessoais concentram-se principalmente nas menores distâncias, tornando-se menos frequentes à medida que a distância aumenta. Já as viagens a negócios apresentam maior dispersão e predominam nas distâncias mais longas.</p>
+<p>O histograma mostra que os clientes fiéis predominam em praticamente todas as faixas etárias, com maior concentração entre aproximadamente 30 e 60 anos, especialmente na faixa de 40 a 50 anos. Já os clientes não fiéis são menos frequentes e apresentam perfil mais jovem, concentrando-se principalmente entre 20 e 40 anos, com redução acentuada a partir dos 40 anos.</p>
 </blockquote>
 </section>
 <section id="gráfico-de-densidade" class="level2" data-number="9.4">
@@ -2745,7 +2742,7 @@ Para melhorar a leitura, é importante <strong>padronizar escalas entre os lados
 <span id="cb32-864"><a href="#cb32-864" aria-hidden="true" tabindex="-1"></a><span class="at">A base de dados está **armazenada no arquivo** </span><span class="st">`</span>DadosQualiQuanti3.xlsx<span class="st">`</span><span class="at">. Os **comandos** a seguir fazem a **leitura** dessa base de dados:</span></span>
 <span id="cb32-865"><a href="#cb32-865" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb32-868"><a href="#cb32-868" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb32-869"><a href="#cb32-869" aria-hidden="true" tabindex="-1"></a><span class="at">Dados =</span> <span class="fu">read_excel</span>(<span class="st">"DadosGBD2.xlsx"</span>)</span>
+<span id="cb32-869"><a href="#cb32-869" aria-hidden="true" tabindex="-1"></a><span class="at">Dados =</span> <span class="fu">read.xlsx</span>(<span class="st">"DadosGBD2.xlsx"</span>)</span>
 <span id="cb32-870"><a href="#cb32-870" aria-hidden="true" tabindex="-1"></a><span class="st">```</span></span>
 <span id="cb32-871"><a href="#cb32-871" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb32-872"><a href="#cb32-872" aria-hidden="true" tabindex="-1"></a><span class="at">## **GRÁFICO PIRÂMIDE**</span></span>
